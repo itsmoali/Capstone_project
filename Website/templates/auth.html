@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block title %} Authentication{% endblock title %}
 {% block content %}
 
     
@@ -14,14 +15,10 @@
         </div>
         <div>
             <div class = login-div>
-                <button type="button" class="btn btn-primary">
-                    Login
-                </button>
+                <a href="/auth/login" class="btn btn-primary" role="button" >Login</a>
             </div>
             <div class = signup-div>
-                <button type="button" class="btn btn-primary">
-                Sign Up
-                </button>
+                <a href="/auth/signup" class="btn btn-primary" role="button" >Sign Up</a>
             </div>
         </div>
 
