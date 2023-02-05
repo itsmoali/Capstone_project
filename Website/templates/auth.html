@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    
+    <div class="outer-div">
+        <div>
+            <img class="logo" src="{{url_for('static',filename = 'Images/journal.png')}}" >
+        </div>
+        <div class="text">
+
+                <h6>Welcome to Kanban Creator</h6>
+                <h6>Log in with your Kanban account to continue</h6>
+
+        </div>
+        <div>
+            <div class = login-div>
+                <button type="button" class="btn btn-primary">
+                    Login
+                </button>
+            </div>
+            <div class = signup-div>
+                <button type="button" class="btn btn-primary">
+                Sign Up
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock content %}
