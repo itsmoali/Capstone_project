@@ -32,3 +32,28 @@ body {color: black;
     padding: 8px 12px;
     float: right;
 }
+
+
+
+.i-div {
+    background-color: aqua;
+    width: 75vh;
+    height: 85vh;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 3rem;
+  }
+
+  .card{
+    border-radius: 6px; 
+    background-color: rgb(6, 84, 185);
+     padding: 10px 10px 10px 10px;
+  }
+
+  .buton{
+    width: 25vh;
+     margin-left: 85px;
+  }
