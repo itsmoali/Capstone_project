@@ -1,4 +1,6 @@
+#Just run to start app
 from Website import create_app
+
 
 app = create_app()
 
