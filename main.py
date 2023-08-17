@@ -1,4 +1,4 @@
-#Just run to start app
+#Just run to start application
 from Website import create_app
 
 
