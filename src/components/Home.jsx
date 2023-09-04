@@ -117,7 +117,7 @@ return (
           color="text.secondary"
           component="p"
         >
-          Something here to give the footer a purpose! Ma chuda
+          Something here to give the footer a purpose!
         </Typography>
 
       </Box>
