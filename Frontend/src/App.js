@@ -2,13 +2,16 @@ import './App.css';
 
 import { BrowserRouter, Routes, Route, Router} from 'react-router-dom';
 import { Box } from '@mui/system';
-import {Login, Help, Courses, Navbar,  Signup, Home, Chess_Demo} from './components';
+import {Login, Help, Courses, Navbar,  Signup, Home, Chess_Demo, Logout} from './components';
+
+import AuthProvider, { AuthContext } from './components/auth.js';
 
 
 
 function App() {
   return (
 
+    <AuthProvider>
       <BrowserRouter>
       
         <Box sx={{mb:12}}>
@@ -16,6 +19,7 @@ function App() {
         </Box>
         <Routes>
           <Route path="/login" element={<Login/>}></Route>
+          <Route path="/logout" element={<Logout/>}></Route>
           <Route path="/signup" element={<Signup/>}></Route>
           <Route path="/help" element={<Help/>}></Route>
           <Route path="/courses" element={<Courses/>}></Route>
@@ -24,6 +28,7 @@ function App() {
           
         </Routes>
       </BrowserRouter>
+    </AuthProvider>
 
   );
 }

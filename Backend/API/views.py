@@ -31,7 +31,7 @@ class UserLogin(APIView):
         data = request.data
         assert email_validation(data)
         assert password_validation(data)
-        assert username_validation(data)
+        # assert username_validation(data)
         serializer = UserLoginSerializer(data=data)
         if serializer.is_valid(raise_exception=True):
             user = serializer.check_auth(data)

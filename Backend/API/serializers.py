@@ -32,7 +32,7 @@ class UserLoginSerializer(serializers.ModelSerializer):
     def check_auth(self, clean_data):
         user = authenticate(email = clean_data['email'], password = clean_data['password'])
         if not user:
-            raise ValidationError("Invalid Credentials")
+            raise ValidationError("This email does not exist.")
         return user
 
 

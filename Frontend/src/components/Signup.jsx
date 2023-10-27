@@ -27,7 +27,7 @@ axios.defaults.withCredentials = true;
 
 const Signup = () => {
     const navigate = useNavigate();
- 
+    const [isLoggedIn , setIsLoggedIn] = useState(false)
     const [currentUser, setCurrentUser] = useState();
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('');
@@ -65,6 +65,8 @@ function handleSubmit(e) {
         .then((response) => {
             // Handle successful response
             console.log('Registration successful', response.data);
+            // Navigate to the Login Page
+            navigate('/login');
         })
         .catch((error) => {
             // Handle network error
@@ -83,13 +85,15 @@ function handleSubmit(e) {
             {/* <CssBaseline /> */}
                 <Box
                 sx={{
-                    marginTop: 8,
+                    marginTop: 20,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                 }}
                 >
-
+                <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                    <LockOutlinedIcon />
+                </Avatar>
                 <Typography component="h1" variant="h5">
                     Sign up
                     
@@ -163,7 +167,7 @@ function handleSubmit(e) {
                     </Button>
                     <Grid container justifyContent="flex-end">
                     <Grid item>
-                        <Link href="#" variant="body2">
+                        <Link href="/login" variant="body2">
                         Already have an account? Sign in
                         </Link>
                     </Grid>
