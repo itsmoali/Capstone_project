@@ -21,5 +21,6 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('', include('API.urls')),
+    path('/course', include('GPT_API.urls'))
 
 ]

@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'API.apps.UserApi'
+    'API.apps.UserApi',
+    'GPT_API.apps.GPTApi'
 ]
 
 MIDDLEWARE = [
