@@ -3,54 +3,35 @@ import { Typography, Stack, Box, AppBar, Toolbar,IconButton, Button} from '@mui/
 import styled from '@emotion/styled'
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
+import { useAuth } from './auth';
 
 
-// Make a styled div constant for the different pages in the navbar. Design it in the way so the props would be the name of the page, which would be passed in the navbar component. There would be two lists, one for authenticated and one for unauthenticated users. The initial value would be display:none and then it would be changed in the functions below to display block.
-
-// let Pages = ['Courses', 'Help', 'Login']
-
-// await auth.onAuthStateChanged(user => {
-//   if (user) {
-//     console.log("user logged in",user)
-//     Pages.push('Profile')
-//     console.log(Pages)
-//   }
-//   else {
-
-//     console.log("user logged out",user)
-//   }
-// })
-
-
-
-
+const CustomButton = styled(Button)(({ theme }) => ({
+  // Add custom styles here
+  backgroundColor: '#2196F3',
+  color: 'white',
+  margin: '0 35px',
+  '&:hover': {
+    backgroundColor: '#2196G8',
+  },
+}));
 
 const Navbar = () => {
 
+  const auth = useAuth();
+  
 
-  const [pages, setPages] = useState(['Courses', 'Help', 'Login'])
-  const [isLoading, setIsLoading] = useState(true)
-
-  // useEffect(() => {
-  //   auth.onAuthStateChanged(user => {
-  //     if (user) {
-  //       setPages(['Courses', 'Help', 'Profile', 'Logout'])
-  //       setIsLoading(false)
-        
-  //       console.log(pages)
-  //     }
-  //     else {
-  //       setPages(['Courses', 'Help', 'Login'])
-  //       setIsLoading(false)
+  useEffect(() => {
     
-  //       console.log("user logged out",user)
-  //     }
-  //   })
-  // },[])
+    localStorage.setItem('isLoggedIn', auth.isLoggedIn);
+    // setIsLoggedIn(auth.isLoggedIn);
+    console.log('Navbar: ', auth.isLoggedIn);
+    
+  
+  },[auth.isLoggedIn]);
 
-
-
-  return (
+ 
+ return (
 
 
     <AppBar >
@@ -68,19 +49,25 @@ const Navbar = () => {
         borderLeft:'none'}}></SearchIcon>
           </Box>
           
-          <Box sx={{ flexGrow:1, display: 'flex', justifyContent:'space-between' }}>
+          <Box sx={{ flexGrow:'0.25', display: 'flex', justifyContent: 'flex-end'}}>
 
-            {pages.map((pages) => (
+              <Link to={"/Courses"}>
+                <CustomButton variant='contained'>Courses</CustomButton>
+              </Link>
 
-              <Button
-                href={pages}
-                key={pages}
-                sx={{ my:1, color: 'white', display: 'block' }}
-              >
-                {pages}
-              </Button>
-            ))}
+              <Link to={"/Help"}>
+                <CustomButton variant='contained'>Help</CustomButton>
+              </Link>
 
+              {!auth.isLoggedIn && 
+                (<Link to={"/Login"}>
+                  <CustomButton variant='contained'>Login</CustomButton>
+                </Link>)}
+
+              {auth.isLoggedIn && 
+                (<Link to={"/Logout"}>
+                  <CustomButton variant='contained'>Logout</CustomButton>
+                </Link>)}
 
 
 

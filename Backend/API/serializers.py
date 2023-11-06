@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Courses, CourseResources
+from .models import User
 from django.contrib.auth import get_user_model, authenticate
 from django.core.exceptions import ValidationError
 
@@ -32,30 +32,15 @@ class UserLoginSerializer(serializers.ModelSerializer):
     def check_auth(self, clean_data):
         user = authenticate(email = clean_data['email'], password = clean_data['password'])
         if not user:
-            raise ValidationError("Invalid Credentials")
+            raise ValidationError("This email does not exist.")
         return user
 
 
 class UserSerializer(serializers.ModelSerializer):
-    # username = serializers.CharField()
-    # email = serializers.EmailField()
+    username = serializers.CharField()
+    email = serializers.EmailField()
 
     class Meta:
         model = CustomUserModel
         fields = ['email', 'username']
 
-
-
-
-
-
-
-class CoursesSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Courses
-        fields = ['course_id', 'course_name', 'course_description']
-
-class CourseResourcesSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CourseResources
-        fields = ['course_id', 'course_resource_id', 'course_resource_name', 'course_resource_description', 'course_resource_link']
