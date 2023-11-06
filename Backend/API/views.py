@@ -5,7 +5,7 @@ from rest_framework.authentication import SessionAuthentication, BasicAuthentica
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, permissions
-from .serializers import UserRegistrationSerializer, UserLoginSerializer, UserSerializer, CoursesSerializer, CourseResourcesSerializer
+from .serializers import UserRegistrationSerializer, UserLoginSerializer, UserSerializer
 from .validations import info_validation, email_validation, username_validation, password_validation
 # Create your views here.
 
