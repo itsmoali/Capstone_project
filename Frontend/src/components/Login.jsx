@@ -12,53 +12,54 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import axios from 'axios';
+import { useAuth } from './auth';
 
 import { useNavigate, NavLink } from 'react-router-dom';
 
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
-
-
-const defaultTheme = createTheme();
 
 export default function Login() {
 
 
   const navigate = useNavigate();
+  const auth = useAuth();
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-
+  function handleLogin (e) {
+    e.preventDefault();
+    axios.post('/login',{
+      email:email,
+      password:password
+    }).then((response) => {
+      console.log('User has been logged In',response.data);
+      auth.login()
+      
+      navigate('/')
+    }).catch((error) => {
+      console.log('Erros has been detected',error.response.data);
+    });
+  }
 
   return (
-    <ThemeProvider theme={defaultTheme}>
+
       <Container component="main" maxWidth="xs">
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 20,
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
+            alignItems: 'center'
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Log In
           </Typography>
           <Box component="form"    noValidate sx={{ mt: 1 }}>
             <TextField
@@ -91,6 +92,7 @@ export default function Login() {
               type="submit"
               fullWidth
               variant="contained"
+              onClick={(handleLogin)}
             
               sx={{ mt: 3, mb: 2 }}
             >
@@ -103,15 +105,14 @@ export default function Login() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
-    </ThemeProvider>
+
   );
 }
