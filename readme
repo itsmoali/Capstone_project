@@ -1,0 +1,10 @@
+## Starting the Application
+
+## Starting the Backend
+
+cd Backend
+python manage.py runserver
+
+## Starting the Frontend (Do this in a new terminal)
+cd Frontend
+npm start app
