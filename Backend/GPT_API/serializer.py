@@ -4,14 +4,9 @@ from .models import Courses
 
 class CoursesSerializer(serializers.ModelSerializer):
     class Meta:
+        course_id  = serializers.PrimaryKeyRelatedField(many=True, queryset=Courses.objects.all())
         model = Courses
-        fields = ('course_id', 'course_name', 'course_description')
-
-
-# class CourseResourcesSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = CourseResources
-#         fields = ('course_id', 'course_resource_id', 'course_resource_name', 'course_resource_description', 'course_resource_link')
+        fields = ['course_name', 'course_difficulty', 'course_duration', 'course_description']
 
 
 

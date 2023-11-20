@@ -1,18 +1,7 @@
-import os
-import openai
-import json
 
-from dotenv import load_dotenv
 
-load_dotenv()
 
-openai.api_key = os.getenv("OPEN_AI_API_KEY")
-
-# json_file = "Backend\GPT_API\example.json"
-
-# with open(json_file) as f:
-#     data = json.load(f)
-data = {
+{
     "course":  "Python",
     "diffuculty" : "beginner",
     "duration" : "20 days",
@@ -259,35 +248,5 @@ data = {
           }
         ]
       }]}
-
-
-def create_course(duration, topic, difficulty):
-    
-
-    response = openai.ChatCompletion.create(
-        model = "gpt-3.5-turbo-1106",
-        response_format = {"type": "json_object"},
-        messages = [
-            {"role": "system", "content":"You are a helpful assistant that helps people create courses on various topics. The output should strictly be in JSON. If the output isnot in JSON, the system will not accept it."},
-            {"role":"user", "content":"Create me a 20 day course on Chess. I am a beginner so make sure to include the basics."},
-            {"role": "system", "content":"Here is your course: " + str(data)},
-            {"role": "user", "content":"Create me a "  + duration + "day course on " + topic + ". I am a " + difficulty + " so be sure to construct it according to my proficiency." }
-        ],
-        max_tokens = 1000,
-        temperature = 0.2,
-    )
-    if response.choices[0].finish_reason == 'stop':
-         
-         response = response.choices[0].message.content
-
-         return json.loads(response)
-
-    
-    elif response.choices[0].finish_reason == 'length':
-        return response.choices[0].message.content
-
-
-
-
-
+  
 
