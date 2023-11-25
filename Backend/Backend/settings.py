@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure--gqn8cxao&q&%n%68f56)_2=isyb@bfngt^%=9_$)(q97%dg2'
 DEBUG = True
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['Backend-env.eba-t753uptt.us-west-2.elasticbeanstalk.com','localhost','']
 
 
 CORS_ORIGIN_WHITELIST = [
