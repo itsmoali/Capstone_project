@@ -11,6 +11,11 @@
 # production
 /build
 
+
+#virtual environment
+
+eb-virt/
+
 # misc
 .DS_Store
 .env.local
