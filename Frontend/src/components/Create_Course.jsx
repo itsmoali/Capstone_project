@@ -1,90 +1,144 @@
-import { TextField, Grid, Button } from '@mui/material'
+import { TextField, Grid, Button, Paper, styled, Box , Menu, MenuItem, Link} from '@mui/material'
 import axios from 'axios'
-import OpenAI from "openai"
+
+import { useNavigate } from 'react-router-dom'
 import {useState, useEffect} from 'react'
-
-// const openai = new OpenAI(process.env.REACT_APP_KEY);
-// console.log(openai)
-// const key = process.env.REACT_APP_KEY
-
-const openai = new OpenAI({
-    apiKey: process.env.REACT_APP_KEY,
-    dangerouslyAllowBrowser: true, 
-  });
+import { useAuth } from './auth';
 
 
 
 
 
+const Item = styled('div') ({
+  color: 'white',
+  padding:'20px 20px 10px 10px',
+  borderRadius: '10px',
+})
 
 
 
 const Create_Course = () => {
 
-    const [course_info, setCourse_info] = useState([]);
-    const [Userinfo, setUserinfo] = useState(null);
-
-    async function gpt_info(e) {
-        e.preventDefault();
-        try {
-            console.log(Userinfo)
-            const response = await openai.chat.completions.create({
-                model: "gpt-3.5-turbo",
-                messages: [
-                  {
-                    "role": "user",
-                    "content": Userinfo
-                  }
-                ],
-                temperature: 0,
-                max_tokens: 100,
-                top_p: 1,
-                frequency_penalty: 0,
-                presence_penalty: 0,
-              });
-              setCourse_info(response.choices[0]['message']['content'])                
-        }
-        catch (error) {
-            console.error(error);
-        }
-    }
 
 
+  const auth = useAuth();
+  
+
+  useEffect(() => {
     
+    localStorage.setItem('isLoggedIn', auth.isLoggedIn);
+    // setIsLoggedIn(auth.isLoggedIn);
+    console.log(auth.isLoggedIn);
+    
+  
+  },[auth.isLoggedIn]);
+
+    const [anchorEl, setAnchorEl]= useState(null);
+    const [Course_name, setCourse_name] = useState(null);
+    const [Course_duration, setCourse_duration] = useState(null);
+    const [Course_difficulty, setCourse_difficulty] = useState(null);
+
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    } 
+
+    const handleClose = () => {
+      setAnchorEl(null);
+    }
+    
+    
+const navigate = useNavigate();
+
+function submit_info(e){
+  e.preventDefault();
+  
+  axios.post('/courses/create',{
+    course:Course_name,
+    duration:Course_duration,
+    difficulty:Course_difficulty
+  }).then((response) => {
+    console.log('Course has been created',response.data);
+    navigate('/courses');
+  }).catch((error) => {
+    console.log('Erros has been detected',error.response.data);
+  });
+}
+
+
   return (
 
    
     
-    <Grid container direction="row" xl={12}  align="center">
-        <Grid item direction="column" xl={12} sm={4} >
-        <TextField
-          required
-          fullWidth
-          id="outlined-required"
-          defaultValue="Course that you want to create"
-          sx={{padding:'20px 20px 10px 10px'}}
-          onChange = {(e)=>setUserinfo(e.target.value)}
-        />
-        </Grid>
-        <Grid item  xl={12} sm={4}>
-            <Button variant='contained' onClick={(gpt_info)}>
-                Create
-            </Button>
-            <div>
-                {course_info ? (
-                    // Display the fetched data
-                    <div>{course_info}</div>
-                ) : (
-                    // Show a loading indicator or alternative UI while data is being fetched
-                    <div>Loading...</div>
-                )}
-            </div>
-        </Grid>
+    <Box >
+      <Menu
+          sx ={{position: 'absolute'}}
 
-        
-    </Grid>
-    
+          id = 'login-menu'
+          anchorEl={anchorEl}
+          open= {open}
+          onClose = {handleClose}
+          MenuListProps={{
+          'aria-labelledby': 'basic-button',
+          }}>
+    <MenuItem onClick={handleClose} sx={{ fontWeight: 'bold' }}>
+        <Link href="/login" >
+          Login
+        </Link>
+        &nbsp; to Create a Course
+    </MenuItem>
+
+      </Menu>
+      <Grid container spacing={2} >
+        <Grid item xs={12} xl={12}>
+          <Item>
+            <TextField 
+            placeholder={"Specify a Course"}
+            label = "Course"
+            onChange = {(e) => setCourse_name(e.target.value)}
+            multiline maxRows={4}>
+              
+            </TextField>
+          </Item>
+        </Grid>
+        <Grid item xs={12} xl={12}>
+          <Item>
+            <TextField placeholder={"Desired Course Duration"}
+            label = "Duration"
+            onChange = {(e) => setCourse_duration(e.target.value)}>
+              
+            </TextField>
+          </Item>
+        </Grid>
+        <Grid item xs={12} xl={12}>
+          <Item>
+            <TextField placeholder={"Course Difficulty Level"}
+            label = "Difficulty"
+            onChange = {(e) => setCourse_difficulty(e.target.value)}>
+            </TextField>
+          </Item>
+        </Grid>
+        <Grid item xs={12} xl={12} width = '100px'>
+          <Item>
+            <TextField placeholder={"What would your desired schedule be?"} label = "Schedule">
+            </TextField>
+          </Item>
+        </Grid>
+      </Grid>
+      {auth.isLoggedIn && ((<Button 
+      aria-controls={open ? "login-menu" : undefined}
+      aria-haspopup="true"
+      aria-expanded={open ? "true" : undefined} 
+      variant='contained' 
+      onClick={(submit_info)}>Submit</Button>))}
+
+      {!auth.isLoggedIn && ((<Button variant='contained' onClick={handleClick}>Submit</Button>))}
+
+  </Box>
   )
+
+
 }
 
 export default Create_Course
+

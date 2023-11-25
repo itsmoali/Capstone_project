@@ -46,26 +46,20 @@ const Courses = () => {
 
   const Lst = courseList.map((course) => {
     return (
-      <li key={course.course_id}>
-      <p>{course.course_name}</p>
-      <span>{course.course_description}</span>
-    </li>
+      <div>
+        <ul key={course.course_id}>
+        <p>{course.course_name}</p>
+        <span>{course.course_description}</span>
+      </ul>
+    </div>
     )
   })
 
   return (
 
 
-      <Grid container direction="row" lg={12} spacing={2} >
-        <Grid item direction="column" lg={4} sm={6}  spacing ={2} sx={{ width: 128, height: 80 }}>
-          <h5>Chess</h5>
-          </Grid>
-          <Grid item direction="column" lg={4} sm={6} spacing ={12} sx={{ width: 128, height:80 }}>
-          <h5>Python</h5>
-          
-          </Grid>
-
-          <ul>{Lst}</ul>
+      <Grid container direction="row" lg={12} spacing={2} sx={{paddingLeft:'40px'}} >
+          {Lst}
           <Link to="/create_course">
             <Button  variant='contained'>Create A Course</Button>
           </Link>
