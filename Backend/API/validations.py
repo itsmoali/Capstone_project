@@ -14,7 +14,7 @@ def info_validation(data):
 
     json_data = json_data[0]
 
-    data = json.loads(json_data)
+    data = json.loads(json_data.replace('\r\n', '\n'))
 
 
     # email = data["email"].strip()
