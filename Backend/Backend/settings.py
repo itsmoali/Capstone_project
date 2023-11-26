@@ -33,6 +33,7 @@ CORS_ORIGIN_WHITELIST = [
      'http://localhost:3000', 'Backend-env-1.eba-ztapkqyg.us-west-2.elasticbeanstalk.com'
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 
