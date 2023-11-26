@@ -10,6 +10,12 @@ def info_validation(data):
     print(data,type(data))
 
 
+    json_data = data.get('_content', None)
+
+    json_data = json_data[0]
+
+    data = json.loads(json_data)
+
 
     # email = data["email"].strip()
     email = data.get('email', None)
