@@ -1,5 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.contrib.auth import get_user_model, authenticate
+import json
 
 UserModel = get_user_model()
 
@@ -8,12 +9,27 @@ def info_validation(data):
 
     print(data,type(data))
 
+
+    json_data = data.get('_content', None)
+
+    if not json_data:
+        raise ValidationError("No json data found in request")
+    
+    try:
+        json_dict = json.loads(json_data)
+    except json.JSONDecodeError:
+        raise ValidationError("Invalid json data")
+
     # email = data["email"].strip()
-    email = data.get('email', None)
-    username = data.get('username', None)
-    password = data.get('password', None)
+    # email = data.get('email', None)
+    # username = data.get('username', None)
+    # password = data.get('password', None)
     # username = data['username'].strip()
     # password = data['password'].strip()
+
+    email = json_dict.get('email', None)
+    username = json_dict.get('username', None)
+    password = json_dict.get('password', None)
 
 
     if UserModel.objects.filter(email=email).exists():
