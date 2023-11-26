@@ -6,6 +6,8 @@ UserModel = get_user_model()
 
 def info_validation(data):
 
+    print(data.get('email', None))
+
     email = data["email"].strip()
     # email = data.get('email', None)
     # username = data.get('username', None)
