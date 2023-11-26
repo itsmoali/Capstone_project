@@ -35,7 +35,7 @@ CORS_ORIGIN_WHITELIST = [
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 
 # Application definition
 
