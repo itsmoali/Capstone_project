@@ -6,14 +6,14 @@ UserModel = get_user_model()
 
 def info_validation(data):
 
-    print(data.get('email', None))
+    # print(data.get('email', None))
 
-    email = data["email"].strip()
-    # email = data.get('email', None)
-    # username = data.get('username', None)
-    # password = data.get('password', None)
-    username = data['username'].strip()
-    password = data['password'].strip()
+    # email = data["email"].strip()
+    email = data.get('email', None)
+    username = data.get('username', None)
+    password = data.get('password', None)
+    # username = data['username'].strip()
+    # password = data['password'].strip()
 
 
     if UserModel.objects.filter(email=email).exists():
