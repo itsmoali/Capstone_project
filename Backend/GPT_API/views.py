@@ -24,7 +24,7 @@ class CourseList(APIView):
 
 class CreateCourse(APIView):
 
-    permission_classes = (permissions.IsAuthenticated,)
+    # permission_classes = (permissions.IsAuthenticated,)
     
 
     def post(self,request):
