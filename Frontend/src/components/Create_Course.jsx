@@ -37,6 +37,7 @@ const Create_Course = () => {
     const [Course_name, setCourse_name] = useState(null);
     const [Course_duration, setCourse_duration] = useState(null);
     const [Course_difficulty, setCourse_difficulty] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -52,14 +53,15 @@ const navigate = useNavigate();
 
 function submit_info(e){
   e.preventDefault();
+  setLoading(true);
   
-  axios.post('/courses/create',{
+  axios.post('/course/schedule',{
     course:Course_name,
     duration:Course_duration,
     difficulty:Course_difficulty
   }).then((response) => {
-    console.log('Course has been created',response.data);
-    navigate('/courses');
+    setLoading(false);
+    navigate('/schedule', {state: response.data});
   }).catch((error) => {
     console.log('Erros has been detected',error.response.data);
   });
@@ -71,6 +73,8 @@ function submit_info(e){
    
     
     <Box >
+      {loading && <p>Loading...</p>}
+    
       <Menu
           sx ={{position: 'absolute'}}
 
@@ -89,6 +93,7 @@ function submit_info(e){
     </MenuItem>
 
       </Menu>
+      {!loading &&
       <Grid container spacing={2} >
         <Grid item xs={12} xl={12}>
           <Item>
@@ -124,7 +129,7 @@ function submit_info(e){
             </TextField>
           </Item>
         </Grid>
-      </Grid>
+      </Grid>}
       {auth.isLoggedIn && ((<Button 
       aria-controls={open ? "login-menu" : undefined}
       aria-haspopup="true"
