@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button, Container, Grid, Stack, colors} from '@mui/material'
 import axios from 'axios'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useNavigate, useLocation} from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 
@@ -13,6 +13,8 @@ function Schedule() {
   const location = useLocation();
   const courseList = location.state ;
   console.log(courseList);
+
+  const navigate = useNavigate();
 
 
     // const [courseList, setCourseList] = useState([{
@@ -43,6 +45,21 @@ function Schedule() {
       //     console.error(error);
       //   }
       // }
+
+      function save_info() {
+
+
+        axios.post('/courses/create', courseList).then((response) => {
+          console.log("Information has beed abbed to database.")
+          navigate('/courses')
+
+        }).catch((error) => {
+          console.log("Error has been detected", error.response.data);
+        })
+
+
+      }
+
 
 
 
@@ -84,9 +101,9 @@ function Schedule() {
             {Lst}
           {/* <div>This is the side bar</div> */}
           <Container  sx={{display:'flex', justifyContent:'space-evenly',padding:'30px 0px 50px 0px'}}>
-            <Link to="/#">
-                <Button  variant='contained'>Finalize</Button>
-            </Link>
+
+              <Button onClick={(save_info)} variant='contained'>Finalize</Button>
+
             <Link to="/#">
                 <Button  variant='contained'>Make Changes</Button>
             </Link>

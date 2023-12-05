@@ -8,7 +8,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, permissions
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
-from .validations import info_validation
+from .validations import info_validation, output_validation
 from .GPT import create_schedule
 
 class CreateSchedule(APIView):
@@ -45,12 +45,12 @@ class CreateCourse(APIView):
     def post(self,request):
        
     
-        clean_data = info_validation(request.data)
+        gpt_output = output_validation(request.data)
 
-        gpt_output = create_schedule(clean_data[0], clean_data[1], clean_data[2])
+        # gpt_output = create_schedule(clean_data[0], clean_data[1], clean_data[2])
 
         serializer = CoursesSerializer(data = {'course_name':gpt_output['course'], 'course_difficulty': gpt_output['difficulty'],
-                                    'course_duration': gpt_output['duration'],'course_description': str(gpt_output['description'])})
+                                    'course_duration': gpt_output['duration'],'course_schedule': str(gpt_output['schedule'])})
         
         if serializer.is_valid(raise_exception=True):
             course = serializer.create(serializer.validated_data)

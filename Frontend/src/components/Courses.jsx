@@ -11,24 +11,22 @@ const Courses = () => {
 
 
 
-  const [courseList, setCourseList] = useState([{"course_id": 1, "course_name": "Math", "course_description": "Mathematics is the study of numbers, shapes and patterns. The word comes from the Greek word \"μάθημα\" (máthema), meaning \"science, knowledge, or learning\", and is sometimes shortened to maths (in Englandsoogyhls.","skills_covered": "Algebra, Geometry, Calculus, Trigonometry, Statistics, and more","difficulty":"Easy","Time":"1 Month"}]);
+  const [courseList, setCourseList] = useState([])
 
-  // useEffect(()=> {
-  //   getCourseList();
+  useEffect(()=> {
+    getCourseList();
     
   
-  // }, []);
+  }, []);
 
-  // async function getCourseList() {
-  //   try {
-  //     const response = await axios.get('/courses');
-  //     setCourseList(response.data);
-  //     // console.log(response.data);
-      
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
+  async function getCourseList() {
+    try {
+      const response = await axios.get('/courses');
+      setCourseList(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   const Lst = courseList.map((course) => {
     return (
@@ -38,7 +36,7 @@ const Courses = () => {
             <div>
               <span><b>{course.course_name}</b></span>
               <br />
-              <span>{course.course_description}</span>
+              <span>{course.course_schedule}</span>
               <br />
             </div>
             <div>
@@ -57,9 +55,9 @@ const Courses = () => {
             <span><b>Rating:</b>4.6</span>
           </div>
           <div class="stats">
-            <span><b>Difficulty:</b> {course.difficulty}</span>
+            <span><b>Difficulty:</b> {course.course_difficulty}</span>
             
-            <span><b>Time Required:</b> {course.Time}</span>
+            <span><b>Time Required:</b> {course.course_duration}</span>
           </div>
         </div>
     </div>
