@@ -137,7 +137,7 @@
         {
             "course": "Intermediate Python Programming",
             "difficulty": "Intermediate",
-            "duration": "20 days",  
+            "duration": "10 days",  
             "schedule": [
               {
                 "day": 1,
@@ -227,96 +227,6 @@
                   "Understanding web scraping",
                   "Beautiful Soup and requests",
                   "Ethical considerations"
-                ]
-              },
-              {
-                "day": 11,
-                "topic": "Concurrency in Python",
-                "subtopics": [
-                  "Introduction to concurrency",
-                  "Threading and multiprocessing",
-                  "Asyncio in Python"
-                ]
-              },
-              {
-                "day": 12,
-                "topic": "Testing and Debugging",
-                "subtopics": [
-                  "Writing test cases",
-                  "Unit testing in Python",
-                  "Effective debugging techniques"
-                ]
-              },
-              {
-                "day": 13,
-                "topic": "Version Control with Git",
-                "subtopics": [
-                  "Introduction to Git",
-                  "Working with repositories",
-                  "Collaborative development with Git"
-                ]
-              },
-              {
-                "day": 14,
-                "topic": "Data Science and Visualization",
-                "subtopics": [
-                  "Introduction to data science",
-                  "Data visualization with matplotlib and seaborn",
-                  "Pandas for data manipulation"
-                ]
-              },
-              {
-                "day": 15,
-                "topic": "APIs and RESTful Services",
-                "subtopics": [
-                  "Working with APIs",
-                  "RESTful services",
-                  "Consuming and creating APIs"
-                ]
-              },
-              {
-                "day": 16,
-                "topic": "Machine Learning with Python",
-                "subtopics": [
-                  "Overview of machine learning",
-                  "Scikit-learn library",
-                  "Basic machine learning models"
-                ]
-              },
-              {
-                "day": 17,
-                "topic": "Cybersecurity with Python",
-                "subtopics": [
-                  "Introduction to cybersecurity",
-                  "Using Python for security",
-                  "Ethical hacking basics"
-                ]
-              },
-              {
-                "day": 18,
-                "topic": "Automation with Python",
-                "subtopics": [
-                  "Scripting for automation",
-                  "Task scheduling",
-                  "Creating automation scripts"
-                ]
-              },
-              {
-                "day": 19,
-                "topic": "Final Project",
-                "subtopics": [
-                  "Project assignment",
-                  "Implementation phase",
-                  "Project presentation and review"
-                ]
-              },
-              {
-                "day": 20,
-                "topic": "Course Recap and Q&A",
-                "subtopics": [
-                  "Review of key concepts",
-                  "Q&A session",
-                  "Course completion and certificates"
                 ]
               }
             ]

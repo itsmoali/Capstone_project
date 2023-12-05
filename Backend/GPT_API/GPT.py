@@ -8,11 +8,12 @@ load_dotenv()
 openai.api_key = os.getenv("OPEN_AI_API_KEY")
 
 
-# json_file = "Backend\\GPT_API\\base_model.json"
-json_file = "GPT_API\\base_model.json"
+json_file = "Backend\\GPT_API\\base_model.json"
+# json_file = "GPT_API\\base_model.json"
 
 with open(json_file) as f:
     data= json.load(f)
+
 
 
 
@@ -49,4 +50,32 @@ def create_schedule(duration, topic, difficulty):
         return response.choices[0].message.content
 
 
+# detailed_json_file = "GPT_API\\detailed_model.json"
+detailed_json_file = "Backend\\GPT_API\\detailed_model.json"
+with open(json_file) as f:
+    detailed_data= json.load(f)
 
+def create_course(schedule):
+
+    response = openai.ChatCompletion.create(
+    model = "gpt-4-1106-preview",
+    response_format = {"type": "json_object"},
+    messages = [
+        {"role": "system", "content":"You are a helpful assistant that helps on Creating Extremly detailed courses, provided the schedule. The output should be extremly detailed and should be strictly in JSON."},
+        {"role":"user", "content":"Using the following Schedule, create me an Extremly Detailed Course:" + str(data["courses"][0])},
+        {"role": "system", "content":"Here is your detailed Course: " + str(detailed_data)},
+        {"role": "user", "content":"Using the following Schedule, create me an Extremly Detailed Course:" + str(schedule)},
+    ],
+    max_tokens = 700,
+    temperature = 0.2,
+    # stream = True,
+    )
+    if response.choices[0].finish_reason == 'stop':
+         
+         response = response.choices[0].message.content
+
+         return json.loads(response)
+
+    
+    elif response.choices[0].finish_reason == 'length':
+        return response.choices[0].message.content
