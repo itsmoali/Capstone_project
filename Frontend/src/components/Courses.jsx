@@ -28,7 +28,8 @@ const Courses = () => {
     }
   }
 
-  const Lst = courseList.map((course) => {
+  const Course_div = courseList.map((course) => {
+
     return (
       <div class= "Main-box">
         <div class ="descriptions">
@@ -66,26 +67,16 @@ const Courses = () => {
 
   return (
 
-    <Grid container direction="row" justifyContent="flex-start"  >
-      <Stack sx={{ minWidth:'15vw', alignItems:"flex-end"}}>
-        {/* <div>This is the side bar</div> */}
-        <Link to="/create_course">
-          <Button  variant='contained'>Create A Course</Button>
-        </Link>
-      </Stack>
       <Stack sx={{alignItems:'center',
       justifyContent:'center',
         flexGrow:'1'}}>
-          {Lst}
-
-
+          {Course_div}
+        <div class='course-message'>
+          <p>Not Satisfied with the Courses?</p>
+          <p>Click the <b><Link to={"/create_course"}>Link</Link></b> to create your own Course</p>
+          
+        </div>
       </Stack>
-
-      </Grid>
-
-
-
-
 
   )
 }

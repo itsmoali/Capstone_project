@@ -21,9 +21,10 @@
   width: 48vw;
   margin: 0 auto;
   margin-top: 4vh;
+  margin-bottom: 7vh;
   box-sizing: border-box;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 21px 40px,
-    rgba(0, 0, 0, 0.24) 0px 18px 14px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 21px 30px,
+    rgba(0, 0, 0, 0.15) 0px 18px 14px;
   background-color: #d3dff6;
   font-family: 'Georgia', sans-serif;
   display: flex;
@@ -31,7 +32,6 @@
   justify-content: center;
   align-items: center;
   font-size: 0.8rem;
-  
 }
 
 .descriptions{
@@ -112,3 +112,14 @@
       color: white;
     }
   }
+
+.course-message{
+  margin-top: 2vh;
+  box-sizing: border-box;
+  margin-bottom: 5vh;
+  font-size: 1.2rem;
+  background-color:  #d3dff6;
+  border-radius: 10px;
+  padding: 2px 15px 2px 15px;
+  text-align: center;
+}
