@@ -1,63 +1,153 @@
-from __future__ import print_function
+from pprint import pprint
+from datetime import datetime, timedelta
+from Google import create_service
+course_data = {
+    "course": "HTML Basics for Beginners",
+    "difficulty": "Beginner",
+    "duration": "10 days",
+    "schedule": [
+        {
+            "day": 1,
+            "topic": "Introduction to HTML",
+            "subtopics": [
+                "What is HTML?",
+                "Basic structure of an HTML document",
+                "Creating your first HTML file"
+            ]
+        },
+        {
+            "day": 2,
+            "topic": "HTML Elements and Tags",
+            "subtopics": [
+                "Understanding HTML elements",
+                "Commonly used HTML tags",
+                "Semantic HTML"
+            ]
+        },
+        {
+            "day": 3,
+            "topic": "Text Formatting and Links",
+            "subtopics": [
+                "Formatting text with HTML",
+                "Creating hyperlinks",
+                "Linking to internal and external pages"
+            ]
+        },
+        {
+            "day": 4,
+            "topic": "Images and Multimedia",
+            "subtopics": [
+                "Adding images to web pages",
+                "Embedding videos and audio",
+                "Accessibility considerations"
+            ]
+        },
+        {
+            "day": 5,
+            "topic": "Lists and Tables",
+            "subtopics": [
+                "Creating ordered and unordered lists",
+                "Designing tables in HTML",
+                "Table accessibility"
+            ]
+        },
+        {
+            "day": 6,
+            "topic": "Forms and Input Elements",
+            "subtopics": [
+                "Building web forms",
+                "Input types and attributes",
+                "Form validation"
+            ]
+        },
+        {
+            "day": 7,
+            "topic": "Mid-Term Review and Quiz",
+            "subtopics": [
+                "Recap of key concepts",
+                "Quiz on learned material",
+                "Feedback session"
+            ]
+        },
+        {
+            "day": 8,
+            "topic": "HTML5 Semantic Elements",
+            "subtopics": [
+                "Understanding semantic HTML5 elements",
+                "Benefits of semantic markup",
+                "Implementing semantic elements"
+            ]
+        },
+        {
+            "day": 9,
+            "topic": "CSS Basics",
+            "subtopics": [
+                "Introduction to CSS",
+                "Linking CSS to HTML",
+                "Basic styling and layout"
+            ]
+        },
+        {
+            "day": 10,
+            "topic": "Responsive Design and Best Practices",
+            "subtopics": [
+                "Creating responsive web pages",
+                "Best practices for HTML and CSS",
+                "Course conclusion and Q&A session"
+            ]
+        }
+    ]
+}
 
-import datetime
-import os.path
 
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
-from googleapiclient.discovery import build
-from googleapiclient.errors import HttpError
-
-# If modifying these scopes, delete the file token.json.
+CLIENT_SECRET_FILE = 'credentials.json'
+API_NAME = 'calendar'
+API_VERSION = 'v3'
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
+service = create_service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
 
-def main():
-    """Shows basic usage of the Google Calendar API.
-    Prints the start and name of the next 10 events on the user's calendar.
-    """
-    creds = None
-    # The file token.json stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
-    if os.path.exists('token.json'):
-        creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-    # If there are no (valid) credentials available, let the user log in.
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
-            creds = flow.run_local_server(port=0)
-        # Save the credentials for the next run
-        with open('token.json', 'w') as token:
-            token.write(creds.to_json())
+def hour_calc(start, hours):
+    original_time = datetime.strptime(start, "%Y-%m-%dT%H:%M:%S.%fZ")
+    new_time = original_time + timedelta(hours=hours)
+    new_time = new_time.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
+    return new_time
 
-    try:
-        service = build('calendar', 'v3', credentials=creds)
+def date_calc(start):
+    original_time = datetime.strptime(start, "%Y-%m-%dT%H:%M:%S.%fZ")
+    new_time = original_time + timedelta(days = 1)
+    new_time = new_time.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
+    return new_time
+    
 
-        # Call the Calendar API
-        now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
-        print('Getting the upcoming 10 events')
-        events_result = service.events().list(calendarId='primary', timeMin=now,
-                                              maxResults=10, singleEvents=True,
-                                              orderBy='startTime').execute()
-        events = events_result.get('items', [])
+def event_creator(course_data, start_date, daily_practice_time, user_time_zone = 'America/Los_Angeles'):
+    
+    schedule = course_data['schedule']
+    start_time = start_date
+    user_time_zone = service.calendarList().get(calendarId='primary').execute()['timeZone']
 
-        if not events:
-            print('No upcoming events found.')
-            return
+    total_events = []
 
-        # Prints the start and name of the next 10 events
-        for event in events:
-            start = event['start'].get('dateTime', event['start'].get('date'))
-            print(start, event['summary'])
+    for i in range(len(schedule)):
+        
+        current_event = {
+        "summary":  course_data['course'] +'\n' "Day: " + str(schedule[i]['day'])+ ' ' + schedule[i]['topic'],
+        "description": '\n'.join(schedule[i]['subtopics']),
+        "start" : {
+            'dateTime': start_time,
+            'timeZone' : user_time_zone,
+        },
+        "end" : {
+            'dateTime': hour_calc(start_time, daily_practice_time),
+            'timeZone' : user_time_zone,
+        }
+    }
+        
+        total_events.append(current_event)
+        start_time = date_calc(start_time)
+    
 
-    except HttpError as error:
-        print('An error occurred: %s' % error)
+    for i in total_events:
+        response = service.events().insert(calendarId='primary', body=i).execute()
+        print(response)
 
-
-if __name__ == '__main__':
-    main()

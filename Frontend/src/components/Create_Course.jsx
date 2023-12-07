@@ -55,7 +55,7 @@ function submit_info(e){
   e.preventDefault();
   setLoading(true);
   
-  axios.post('/course/schedule',{
+  axios.post('/create/schedule',{
     course:Course_name,
     duration:Course_duration,
     difficulty:Course_difficulty

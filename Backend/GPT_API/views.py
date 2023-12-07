@@ -10,6 +10,8 @@ from rest_framework import status, permissions
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from .validations import info_validation, output_validation
 from .GPT import create_schedule
+from Calendar_API.main import event_creator
+
 
 class CreateSchedule(APIView):
 
@@ -60,6 +62,20 @@ class CreateCourse(APIView):
 
 
 
+class ScheduleMaker(APIView):
+     
+     permission_classes = (permissions.IsAuthenticated,)
+
+     def post(self,request):
+            data = request.data
+            course_data = data['course_data']
+            start_date = data['start_date']
+            start_time = data['start_time']
+            daily_practice_time = int(data['daily_practice_time'])
+
+            final = event_creator(course_data, start_date, start_time, daily_practice_time)
+
+            return Response (final, status=status.HTTP_200_OK)
 
 
 

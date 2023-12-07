@@ -105,3 +105,10 @@
     line-height: 1.8;
     width: 30vw;
   }
+
+  .inner-schedule{
+    :hover{
+      background-color: #0547cc;
+      color: white;
+    }
+  }
