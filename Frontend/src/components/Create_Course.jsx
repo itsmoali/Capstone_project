@@ -6,17 +6,6 @@ import {useState, useEffect} from 'react'
 import { useAuth } from './auth';
 
 
-
-
-
-const Item = styled('div') ({
-  color: 'white',
-  padding:'20px 20px 10px 10px',
-  borderRadius: '10px',
-})
-
-
-
 const Create_Course = () => {
 
 
@@ -27,10 +16,7 @@ const Create_Course = () => {
   useEffect(() => {
     
     localStorage.setItem('isLoggedIn', auth.isLoggedIn);
-    // setIsLoggedIn(auth.isLoggedIn);
     console.log(auth.isLoggedIn);
-    
-  
   },[auth.isLoggedIn]);
 
     const [anchorEl, setAnchorEl]= useState(null);
@@ -69,15 +55,10 @@ function submit_info(e){
 
 
   return (
-
-   
     
-    <Box >
-      {loading && <p>Loading...</p>}
-    
+    <Box  sx={{display:'flex',height:'70vh'}}>
+      {loading && <h1>Loading...</h1>}
       <Menu
-          sx ={{position: 'absolute'}}
-
           id = 'login-menu'
           anchorEl={anchorEl}
           open= {open}
@@ -85,59 +66,53 @@ function submit_info(e){
           MenuListProps={{
           'aria-labelledby': 'basic-button',
           }}>
-    <MenuItem onClick={handleClose} sx={{ fontWeight: 'bold' }}>
-        <Link href="/login" >
-          Login
-        </Link>
-        &nbsp; to Create a Course
-    </MenuItem>
-
+          <MenuItem onClick={handleClose} >
+              <Link href="/login" >
+                <b>Login</b>
+              </Link>
+              &nbsp; to Create a Course
+          </MenuItem>
       </Menu>
+
+      
       {!loading &&
-      <Grid container spacing={2} >
-        <Grid item xs={12} xl={12}>
-          <Item>
+      <Grid container spacing={4}  sx={{justifyContent:'center', flexDirection:'column', alignItems:'center',paddingBottom:'20px'}}>
+        <Grid item >
             <TextField 
+            required
             placeholder={"Specify a Course"}
             label = "Course"
-            onChange = {(e) => setCourse_name(e.target.value)}
-            multiline maxRows={4}>
-              
+            onChange = {(e) => setCourse_name(e.target.value)}>
             </TextField>
-          </Item>
         </Grid>
-        <Grid item xs={12} xl={12}>
-          <Item>
+
+        <Grid item >
             <TextField placeholder={"Desired Course Duration"}
+            required
             label = "Duration"
             onChange = {(e) => setCourse_duration(e.target.value)}>
-              
             </TextField>
-          </Item>
         </Grid>
-        <Grid item xs={12} xl={12}>
-          <Item>
+
+        <Grid item >
             <TextField placeholder={"Course Difficulty Level"}
+            required
             label = "Difficulty"
             onChange = {(e) => setCourse_difficulty(e.target.value)}>
             </TextField>
-          </Item>
-        </Grid>
-        <Grid item xs={12} xl={12} width = '100px'>
-          <Item>
-            <TextField placeholder={"What would your desired schedule be?"} label = "Schedule">
-            </TextField>
-          </Item>
+        </Grid>    
+        <Grid item >
+          {auth.isLoggedIn && ((<Button 
+          aria-controls={open ? "login-menu" : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? "true" : undefined} 
+          variant='contained' 
+          onClick={(submit_info)}>Submit</Button>))}
+
+          {!auth.isLoggedIn && ((<Button variant='contained' onClick={handleClick}>Submit</Button>))}
         </Grid>
       </Grid>}
-      {auth.isLoggedIn && ((<Button 
-      aria-controls={open ? "login-menu" : undefined}
-      aria-haspopup="true"
-      aria-expanded={open ? "true" : undefined} 
-      variant='contained' 
-      onClick={(submit_info)}>Submit</Button>))}
 
-      {!auth.isLoggedIn && ((<Button variant='contained' onClick={handleClick}>Submit</Button>))}
 
   </Box>
   )

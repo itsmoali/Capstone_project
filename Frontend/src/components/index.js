@@ -4,8 +4,6 @@ export {default as Help} from './Help';
 export {default as Login} from './Login';
 export {default as Signup} from './Signup';
 export {default as Home} from './Home';
-export {default as Chess_Demo} from './Chess_Demo';
 export {default as Logout} from './Logout';
 export {default as Create_Course} from './Create_Course';
 export {default as Schedule} from './Schedule';
-export {default as Calendar} from './Calendar';

@@ -23,10 +23,7 @@ function Schedule() {
 
   const timechange = (data) => {
     var time = data.hour() + ":" + data.minute()
-    
-    // console.log(time)
     setSelectTime(time)
-    
   }
 
   const datechange = (data) => {
@@ -43,8 +40,6 @@ function Schedule() {
   
 
   function save_info() {
-
-
     axios.all([
       axios.post('/create/course', courseList),
       axios.post('/create/schedulemaker', {
@@ -81,16 +76,13 @@ function Schedule() {
                       <span>{index+1}. {subtopic}</span>
                       <br />
                     </div>
-                  
                   ))}
                 </div>
-              
               ))}
               <br />
             </div>
             <span><b>Difficulty:</b> {courseList['difficulty']}</span>
             <span><b>Time Required:</b> {courseList['duration']}</span>
-        
       </div>
 
   const Calendar = 
@@ -158,31 +150,3 @@ export default Schedule
 
 
 
-    // const [courseList, setCourseList] = useState([{
-    //     "course_name": "Piano Basics for Beginners",
-    //     "course_difficulty": "Beginner",
-    //     "course_duration": "10 days",
-    //     "course_schedule": "[{'day': 1, 'topic': 'Introduction to Piano', 'subtopics': ['Parts of the piano', 'Proper hand position', 'Basic music theory']}, {'day': 2, 'topic': 'Finger Exercises and Scales', 'subtopics': ['Finger strengthening exercises', 'Major and minor scales', 'Playing scales with proper fingering']}, {'day': 3, 'topic': 'Reading Sheet Music', 'subtopics': ['Understanding musical notes', 'Identifying notes on the staff', 'Basic rhythm and timing']}, {'day': 4, 'topic': 'Playing Simple Melodies', 'subtopics': ['Learning to play simple tunes', 'Using both hands together', 'Basic melody interpretation']}, {'day': 5, 'topic': 'Chords and Chord Progressions', 'subtopics': ['Understanding basic chords', 'Playing common chord progressions', 'Accompaniment techniques']}, {'day': 6, 'topic': 'Rhythm and Dynamics', 'subtopics': ['Mastering basic rhythms', 'Understanding dynamics (loudness and softness)', 'Applying dynamics to music']}, {'day': 7, 'topic': 'Mid-Term Review and Practice', 'subtopics': ['Recap of key concepts', 'Practice session', 'Feedback and Q&A']}, {'day': 8, 'topic': 'Introduction to Music Theory', 'subtopics': ['Understanding scales and intervals', 'Chord construction', 'Basic harmony']}, {'day': 9, 'topic': 'Exploring Different Musical Styles', 'subtopics': ['Introduction to various music genres', 'Playing simple pieces from different styles', 'Developing musical preferences']}, {'day': 10, 'topic': 'Course Conclusion and Performance', 'subtopics': ['Review of course highlights', 'Performance preparation', 'Final performance and certificates']}]"
-    // }]);
-
-    // const [courseList, setCourseList] = useState([])
-    
-    // const [courseSchedule, setCourseSchedule] = useState([])
-
-      // useEffect(()=> {
-      //   getCourseList();
-        
-      
-      // }, []);
-    
-      // async function getCourseList() {
-      //   try {
-      //     const response = await axios.post('/course/schedule');
-      //     setCourseList(response.data);
-      //     // setCourseSchedule(JSON.parse(response.data[0].course_schedule.replace(/'/g, "\"")));
-      //     console.log(response.data);
-          
-      //   } catch (error) {
-      //     console.error(error);
-      //   }
-      // }
