@@ -28,8 +28,12 @@ const Courses = () => {
     }
   }
 
+
+
   const Course_div = courseList.map((course) => {
 
+    const jsonString = course.course_schedule.replace(/'/g, '"'); 
+    const courseSchedule = JSON.parse(jsonString);
     return (
       <div class= "Main-box">
         <div class ="descriptions">
@@ -37,17 +41,21 @@ const Courses = () => {
             <div>
               <span><b>{course.course_name}</b></span>
               <br />
-              <span>{course.course_schedule}</span>
+              {courseSchedule.map(Schedule => (
+              <div key={Schedule.day}>
+                <h4>Day {Schedule.day}: {Schedule.topic}</h4>
+              </div>
+            ))}
               <br />
             </div>
-            <div>
+            {/* <div>
               <span><b>Skills Learned:</b> {course.skills_covered}</span>
-            </div>
+            </div> */}
           </div>
 
-          <div class="image">
+          {/* <div class="image">
             <img id="img-bx" src="https://images.unsplash.com/photo-1619441207978-3d326c46e2c9?w=500&auto=format" />
-          </div>
+          </div> */}
           
         </div>
         <div class="fotter">

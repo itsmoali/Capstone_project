@@ -6,3 +6,4 @@ export {default as Home} from './Home';
 export {default as Logout} from './Logout';
 export {default as Create_Course} from './Create_Course';
 export {default as Schedule} from './Schedule';
+export {default as Course_details} from './Course_details';
