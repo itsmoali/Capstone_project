@@ -30,3 +30,7 @@ node_modules
 
 credentials.json
 .env
+
+/token files
+
+token.json
