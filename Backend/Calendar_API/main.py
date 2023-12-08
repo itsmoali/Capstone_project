@@ -109,4 +109,3 @@ def event_creator(course_data, start_date, start_time, daily_practice_time, user
         start_time = date_calc(start_time)
     for i in total_events:
         response = service.events().insert(calendarId='primary', body=i).execute()
-        print(response)

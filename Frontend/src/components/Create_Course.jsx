@@ -1,4 +1,4 @@
-import { TextField, Grid, Button, Paper, styled, Box , Menu, MenuItem, Link} from '@mui/material'
+import { TextField, Grid, Button, Paper, styled, Box , Menu, MenuItem, Link, Typography} from '@mui/material'
 import axios from 'axios'
 
 import { useNavigate } from 'react-router-dom'
@@ -56,8 +56,25 @@ function submit_info(e){
 
   return (
     
-    <Box  sx={{display:'flex',height:'70vh'}}>
+    <Box  sx={{display:'flex',height:'70vh', alignContent:'center', alignItems:'center',flexDirection:'column'}}>
       {loading && <h1>Loading...</h1>}
+      <Grid container  spacing={1.4} sx={{display:'flex', flexDirection:'column',alignItems:'center'}}>
+        <Grid item >
+          <Typography variant='h4'>Course Creation</Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant='h6'> Enter the following information to create a Course Schedule:</Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant='h6'>Course Name: The Subject that you would want to learn about</Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant='h6'>Duration: The total duration of the course, in days.</Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant='h6'>Difficulty: The difficulty level you would prefer.</Typography>
+        </Grid>
+      </Grid>
       <Menu
           id = 'login-menu'
           anchorEl={anchorEl}
@@ -76,7 +93,8 @@ function submit_info(e){
 
       
       {!loading &&
-      <Grid container spacing={4}  sx={{justifyContent:'center', flexDirection:'column', alignItems:'center',paddingBottom:'20px'}}>
+      <Grid container spacing={4}  sx={{justifyContent:'center', flexDirection:'column', alignItems:'center',paddingBottom:'20px',
+      paddingTop:'40px'}}>
         <Grid item >
             <TextField 
             required
@@ -95,7 +113,7 @@ function submit_info(e){
         </Grid>
 
         <Grid item >
-            <TextField placeholder={"Course Difficulty Level"}
+            <TextField placeholder={"Desired Difficulty Level"}
             required
             label = "Difficulty"
             onChange = {(e) => setCourse_difficulty(e.target.value)}>
