@@ -56,7 +56,7 @@ function handleSubmit(e) {
         return;
     }
 
-    axios.post('/register', {
+    axios.post('/signup', {
             
             email: email,
             username: username,

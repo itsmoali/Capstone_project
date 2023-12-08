@@ -8,3 +8,4 @@ python manage.py runserver
 ## Starting the Frontend (Do this in a new terminal)
 cd Frontend
 npm start app
+

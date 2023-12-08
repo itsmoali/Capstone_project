@@ -1,0 +1,609 @@
+{
+    "courses": [
+        {
+            "course": "Chess Basics for Beginners",
+            "difficulty": "Beginner",
+            "duration": "14 days",  
+            "schedule": [
+              {
+                "day": 1,
+                "topic": "Introduction to Chess",
+                "subtopics": [
+                  "Overview of the game",
+                  "Chessboard and pieces",
+                  "Basic rules"
+                ]
+              },
+              {
+                "day": 2,
+                "topic": "Understanding Chess Notation",
+                "subtopics": [
+                  "Algebraic notation",
+                  "Recording moves",
+                  "Reading and writing chess moves"
+                ]
+              },
+              {
+                "day": 3,
+                "topic": "Opening Principles",
+                "subtopics": [
+                  "Importance of openings",
+                  "Common opening principles",
+                  "Basic opening strategies"
+                ]
+              },
+              {
+                "day": 4,
+                "topic": "Tactics: Forks and Pins",
+                "subtopics": [
+                  "Definition of forks and pins",
+                  "Identifying opportunities",
+                  "Practical examples"
+                ]
+              },
+              {
+                "day": 5,
+                "topic": "Chess Puzzles",
+                "subtopics": [
+                  "Solving puzzles",
+                  "Pattern recognition",
+                  "Improving chess visualization"
+                ]
+              },
+              {
+                "day": 6,
+                "topic": "Basic Checkmating Patterns",
+                "subtopics": [
+                  "Checkmate in one",
+                  "Back rank mate",
+                  "Simple checkmating patterns"
+                ]
+              },
+              {
+                "day": 7,
+                "topic": "Mid-Term Review and Quiz",
+                "subtopics": [
+                  "Recap of key concepts",
+                  "Quiz on learned material",
+                  "Feedback session"
+                ]
+              },
+              {
+                "day": 8,
+                "topic": "Pawn Structure",
+                "subtopics": [
+                  "Pawn types and movements",
+                  "Pawn structure importance",
+                  "Pawn breaks"
+                ]
+              },
+              {
+                "day": 9,
+                "topic": "Strategy: Piece Activity",
+                "subtopics": [
+                  "Developing pieces",
+                  "Piece coordination",
+                  "Strategic principles"
+                ]
+              },
+              {
+                "day": 10,
+                "topic": "Endgame Basics",
+                "subtopics": [
+                  "King and pawn versus king",
+                  "Basic checkmating patterns",
+                  "Pawn endgames"
+                ]
+              },
+              {
+                "day": 11,
+                "topic": "The Importance of Time",
+                "subtopics": [
+                  "Time management in chess",
+                  "Understanding the clock",
+                  "Speed chess practice"
+                ]
+              },
+              {
+                "day": 12,
+                "topic": "Chess Etiquette",
+                "subtopics": [
+                  "Sportsmanship in chess",
+                  "Common chess etiquette",
+                  "Online chess etiquette"
+                ]
+              },
+              {
+                "day": 13,
+                "topic": "Simultaneous Exhibition",
+                "subtopics": [
+                  "Playing against multiple opponents",
+                  "Simultaneous exhibition rules",
+                  "Fun and challenging experience"
+                ]
+              },
+              {
+                "day": 14,
+                "topic": "Course Conclusion and Mini-Tournament",
+                "subtopics": [
+                  "Final thoughts on the course",
+                  "Mini-tournament among participants",
+                  "Certificates distribution"
+                ]
+              }
+            ]
+          },
+
+        {
+            "course": "Intermediate Python Programming",
+            "difficulty": "Intermediate",
+            "duration": "10 days",  
+            "schedule": [
+              {
+                "day": 1,
+                "topic": "Review of Python Basics",
+                "subtopics": [
+                  "Recap of basic syntax",
+                  "Data types and variables",
+                  "Control flow structures"
+                ]
+              },
+              {
+                "day": 2,
+                "topic": "Functions and Modules",
+                "subtopics": [
+                  "Defining functions",
+                  "Scope and lifetime of variables",
+                  "Creating and using modules"
+                ]
+              },
+              {
+                "day": 3,
+                "topic": "File Handling",
+                "subtopics": [
+                  "Reading and writing files",
+                  "Working with different file formats",
+                  "Error handling in file operations"
+                ]
+              },
+              {
+                "day": 4,
+                "topic": "Object-Oriented Programming (OOP)",
+                "subtopics": [
+                  "Introduction to OOP",
+                  "Classes and objects",
+                  "Inheritance and polymorphism"
+                ]
+              },
+              {
+                "day": 5,
+                "topic": "Advanced Data Structures",
+                "subtopics": [
+                  "Lists, sets, and dictionaries",
+                  "Tuples and namedtuples",
+                  "Advanced data manipulation"
+                ]
+              },
+              {
+                "day": 6,
+                "topic": "Regular Expressions",
+                "subtopics": [
+                  "Understanding regular expressions",
+                  "Pattern matching in Python",
+                  "Practical applications"
+                ]
+              },
+              {
+                "day": 7,
+                "topic": "Mid-Term Project",
+                "subtopics": [
+                  "Project assignment",
+                  "Implementation phase",
+                  "Project presentation"
+                ]
+              },
+              {
+                "day": 8,
+                "topic": "Database Interaction with Python",
+                "subtopics": [
+                  "Working with databases",
+                  "SQLite and ORM",
+                  "Database queries in Python"
+                ]
+              },
+              {
+                "day": 9,
+                "topic": "Web Development Basics",
+                "subtopics": [
+                  "Introduction to web development",
+                  "HTML, CSS, and JavaScript basics",
+                  "Flask framework overview"
+                ]
+              },
+              {
+                "day": 10,
+                "topic": "Web Scraping with Python",
+                "subtopics": [
+                  "Understanding web scraping",
+                  "Beautiful Soup and requests",
+                  "Ethical considerations"
+                ]
+              }
+            ]
+        },
+        {
+            "course": "Cooking Fundamentals for Beginners",
+            "difficulty": "Beginner",
+            "duration": "30 days",  
+            "schedule": [
+              {
+                "day": 1,
+                "topic": "Introduction to the Kitchen",
+                "subtopics": [
+                  "Basic kitchen equipment",
+                  "Kitchen safety",
+                  "Understanding recipe terms"
+                ]
+              },
+              {
+                "day": 2,
+                "topic": "Knife Skills",
+                "subtopics": [
+                  "Types of knives",
+                  "Proper knife grip",
+                  "Basic cutting techniques"
+                ]
+              },
+              {
+                "day": 3,
+                "topic": "Vegetables and Fruits",
+                "subtopics": [
+                  "Selecting fresh produce",
+                  "Cleaning and peeling",
+                  "Chopping and slicing techniques"
+                ]
+              },
+              {
+                "day": 4,
+                "topic": "Cooking Methods: Sauteing and Stir-Frying",
+                "subtopics": [
+                  "Sauteing basics",
+                  "Stir-frying techniques",
+                  "Quick and easy recipes"
+                ]
+              },
+              {
+                "day": 5,
+                "topic": "Herbs and Spices",
+                "subtopics": [
+                  "Common herbs and spices",
+                  "Flavor pairing",
+                  "Enhancing dishes with herbs and spices"
+                ]
+              },
+              {
+                "day": 6,
+                "topic": "Basic Cooking Grains",
+                "subtopics": [
+                  "Cooking rice",
+                  "Quinoa and couscous",
+                  "Introduction to grains"
+                ]
+              },
+              {
+                "day": 7,
+                "topic": "Mid-Term Review and Quiz",
+                "subtopics": [
+                  "Recap of key concepts",
+                  "Quiz on learned material",
+                  "Feedback session"
+                ]
+              },
+              {
+                "day": 8,
+                "topic": "Pasta and Simple Sauces",
+                "subtopics": [
+                  "Cooking pasta",
+                  "Creating easy sauces",
+                  "Perfecting pasta dishes"
+                ]
+              },
+              {
+                "day": 9,
+                "topic": "Soups and Stews",
+                "subtopics": [
+                  "Basic soup making",
+                  "Stew preparation",
+                  "Flavorful broths"
+                ]
+              },
+              {
+                "day": 10,
+                "topic": "Baking Basics",
+                "subtopics": [
+                  "Introduction to baking",
+                  "Measuring ingredients",
+                  "Simple baking recipes"
+                ]
+              },
+              {
+                "day": 11,
+                "topic": "Salads and Dressings",
+                "subtopics": [
+                  "Creating balanced salads",
+                  "Homemade dressings",
+                  "Presentation tips"
+                ]
+              },
+              {
+                "day": 12,
+                "topic": "Protein Cooking: Chicken",
+                "subtopics": [
+                  "Cooking chicken safely",
+                  "Delicious chicken recipes",
+                  "Understanding doneness"
+                ]
+              },
+              {
+                "day": 13,
+                "topic": "Fish and Seafood",
+                "subtopics": [
+                  "Selecting and preparing seafood",
+                  "Cooking fish dishes",
+                  "Seafood cooking techniques"
+                ]
+              },
+              {
+                "day": 14,
+                "topic": "Ethnic Cuisine Exploration",
+                "subtopics": [
+                  "Introduction to global flavors",
+                  "Trying out ethnic recipes",
+                  "Cultural cooking traditions"
+                ]
+              },
+              {
+                "day": 15,
+                "topic": "Healthy Cooking Techniques",
+                "subtopics": [
+                  "Nutrient-rich recipes",
+                  "Low-fat cooking methods",
+                  "Balanced meal planning"
+                ]
+              },
+              {
+                "day": 16,
+                "topic": "Desserts and Sweet Treats",
+                "subtopics": [
+                  "Simple dessert recipes",
+                  "Baking sweets",
+                  "Presentation and garnishing"
+                ]
+              },
+              {
+                "day": 17,
+                "topic": "Meal Planning and Budgeting",
+                "subtopics": [
+                  "Planning weekly meals",
+                  "Grocery shopping tips",
+                  "Cooking on a budget"
+                ]
+              },
+              {
+                "day": 18,
+                "topic": "Healthy Substitutions",
+                "subtopics": [
+                  "Substituting ingredients",
+                  "Making recipes healthier",
+                  "Adapting for dietary restrictions"
+                ]
+              },
+              {
+                "day": 19,
+                "topic": "Culinary Etiquette",
+                "subtopics": [
+                  "Table manners",
+                  "Hosting guests",
+                  "Culinary social norms"
+                ]
+              },
+              {
+                "day": 20,
+                "topic": "Outdoor and Grilling Basics",
+                "subtopics": [
+                  "Grilling techniques",
+                  "Cooking outdoors",
+                  "Grilled recipes"
+                ]
+              },
+              {
+                "day": 21,
+                "topic": "Homemade Beverages",
+                "subtopics": [
+                  "Smoothies and shakes",
+                  "Infused water recipes",
+                  "Refreshing homemade drinks"
+                ]
+              },
+              {
+                "day": 22,
+                "topic": "Special Diets: Vegetarian and Vegan Cooking",
+                "subtopics": [
+                  "Vegetarian and vegan options",
+                  "Creating balanced plant-based meals",
+                  "Nutritional considerations"
+                ]
+              },
+              {
+                "day": 23,
+                "topic": "Food Presentation and Plating",
+                "subtopics": [
+                  "Art of plating",
+                  "Presentation tips",
+                  "Creating visually appealing dishes"
+                ]
+              },
+              {
+                "day": 24,
+                "topic": "International Cuisine Challenge",
+                "subtopics": [
+                  "Cooking challenge",
+                  "Trying a new international recipe",
+                  "Showcasing culinary skills"
+                ]
+              },
+              {
+                "day": 25,
+                "topic": "Advanced Baking Techniques",
+                "subtopics": [
+                  "Advanced baking skills",
+                  "Complex dessert recipes",
+                  "Decorative techniques"
+                ]
+              },
+              {
+                "day": 26,
+                "topic": "Culinary Arts and Food Culture",
+                "subtopics": [
+                  "Exploring culinary arts",
+                  "Understanding food culture",
+                  "Appreciating diverse cuisines"
+                ]
+              },
+              {
+                "day": 27,
+                "topic": "Food Photography Basics",
+                "subtopics": [
+                  "Introduction to food photography",
+                  "Capturing appetizing photos",
+                  "Sharing culinary creations online"
+                ]
+              },
+              {
+                "day": 28,
+                "topic": "Gourmet Cooking Experience",
+                "subtopics": [
+                  "Cooking gourmet recipes",
+                  "Advanced flavor combinations",
+                  "Elevating dishes"
+                ]
+              },
+              {
+                "day": 29,
+                "topic": "Final Cooking Project",
+                "subtopics": [
+                  "Culinary project assignment",
+                  "Implementation phase",
+                  "Project presentation and review"
+                ]
+              },
+              {
+                "day": 30,
+                "topic": "Course Recap and Q&A",
+                "subtopics": [
+                  "Review of key concepts",
+                  "Q&A session",
+                  "Course completion and certificates"
+                ]
+              }
+            ]
+        }, 
+        {
+            "course": "Advanced Financial Planning for Business Experts",
+            "difficulty": "Advanced",
+            "duration": "10 days",  
+            "schedule": [
+              {
+                "day": 1,
+                "topic": "Strategic Financial Management",
+                "subtopics": [
+                  "Aligning financial goals with business strategy",
+                  "Risk management strategies",
+                  "Capital budgeting and investment decisions"
+                ]
+              },
+              {
+                "day": 2,
+                "topic": "Financial Statement Analysis",
+                "subtopics": [
+                  "Analyzing balance sheets, income statements, and cash flow statements",
+                  "Financial ratio analysis",
+                  "Interpreting financial performance"
+                ]
+              },
+              {
+                "day": 3,
+                "topic": "Corporate Valuation",
+                "subtopics": [
+                  "Valuation methods for businesses",
+                  "Discounted Cash Flow (DCF) analysis",
+                  "Comparative valuation techniques"
+                ]
+              },
+              {
+                "day": 4,
+                "topic": "Financial Modeling and Forecasting",
+                "subtopics": [
+                  "Building financial models",
+                  "Forecasting techniques",
+                  "Scenario analysis and stress testing"
+                ]
+              },
+              {
+                "day": 5,
+                "topic": "Capital Structure and Financing",
+                "subtopics": [
+                  "Optimal capital structure",
+                  "Debt and equity financing",
+                  "Cost of capital and WACC"
+                ]
+              },
+              {
+                "day": 6,
+                "topic": "Financial Risk Management",
+                "subtopics": [
+                  "Hedging strategies",
+                  "Derivatives and their use in risk management",
+                  "Managing currency and interest rate risk"
+                ]
+              },
+              {
+                "day": 7,
+                "topic": "Mergers and Acquisitions",
+                "subtopics": [
+                  "Valuation in M&A",
+                  "Due diligence process",
+                  "Integration planning and execution"
+                ]
+              },
+              {
+                "day": 8,
+                "topic": "Tax Planning for Businesses",
+                "subtopics": [
+                  "Corporate tax planning",
+                  "Tax-efficient structures",
+                  "Compliance and reporting"
+                ]
+              },
+              {
+                "day": 9,
+                "topic": "International Financial Management",
+                "subtopics": [
+                  "Managing global financial operations",
+                  "Foreign exchange risk",
+                  "International investment strategies"
+                ]
+              },
+              {
+                "day": 10,
+                "topic": "Advanced Financial Strategies",
+                "subtopics": [
+                  "Advanced financial planning techniques",
+                  "Strategic financial decision-making",
+                  "Course conclusion and Q&A session"
+                ]
+              }
+            ]
+          }
+    ]
+}

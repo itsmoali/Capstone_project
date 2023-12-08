@@ -2,7 +2,7 @@ import './App.css';
 
 import { BrowserRouter, Routes, Route, Router} from 'react-router-dom';
 import { Box } from '@mui/system';
-import {Login, Help, Courses, Navbar,  Signup, Home, Chess_Demo, Logout, Create_Course} from './components';
+import {Login, Courses, Navbar, Course_details, Signup, Home, Logout, Create_Course, Schedule} from './components';
 
 import AuthProvider, { AuthContext } from './components/auth.js';
 
@@ -23,11 +23,11 @@ function App() {
           <Route path="/login" element={<Login/>}></Route>
           <Route path="/logout" element={<Logout/>}></Route>
           <Route path="/signup" element={<Signup/>}></Route>
-          <Route path="/help" element={<Help/>}></Route>
           <Route path="/courses" element={<Courses/>}></Route>
           <Route path="/create_course" element={<Create_Course/>}></Route>
           <Route path="/" element={<Home/>}></Route>
-          <Route path="/chess_demo" element={<Chess_Demo/>}></Route>
+          <Route path="/schedule" element={<Schedule/>}></Route>
+          <Route path="/course_details/:id" element={<Course_details/>}></Route>
           
         </Routes>
       </BrowserRouter>
