@@ -2,7 +2,123 @@
   background-color: #282c34;
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
-  color: white;
-  padding:0;
+  color: rgb(248, 239, 239);
+  padding:0;                                   
 }
 
+.body{
+  margin: 0;
+  padding: 0;
+  background-color: #282c34;
+  font-family: 'Georgia', sans-serif;
+}
+
+
+
+.Main-box{
+  border-radius: 10px;
+  padding: 4px;
+  width: 48vw;
+  margin: 0 auto;
+  margin-top: 4vh;
+  margin-bottom: 7vh;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 21px 30px,
+    rgba(0, 0, 0, 0.15) 0px 18px 14px;
+  background-color: #d3dff6;
+  font-family: 'Georgia', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.descriptions{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.image{
+  margin: 0 auto;
+  margin-top: 1vh;
+  width:15vw;
+  
+}
+
+#img-bx {
+  
+  border-radius: 12px;
+  width: 100%;
+  height:auto;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.desc-box{
+  line-height: 170%;
+  min-height: 90%;
+  width:30vw;
+  margin-top: 1vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.fotter{
+  display: flex;
+  flex-direction: row;
+  /* background-color: #0547cc; */
+  width: 95%;
+  padding: 5px 0px 10px 0px;
+  justify-content: space-between;
+
+}
+
+.stats{
+  width: 34%;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.demo-schedule{
+
+    border-radius: 10px;
+    padding: 4px;
+    margin-top: 9vh;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 20px,
+      rgba(0, 0, 0, 0.24) 0px 10px 14px;
+    background-color: #d3dff6;
+    font-family: 'Georgia', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.1rem;
+    width: 30vw;
+  }
+
+  .inner-schedule{
+    :hover{
+      background-color: #0547cc;
+      color: white;
+    }
+  }
+
+.course-message{
+  margin-top: 2vh;
+  box-sizing: border-box;
+  margin-bottom: 5vh;
+  font-size: 1.2rem;
+  background-color:  #d3dff6;
+  border-radius: 10px;
+  padding: 2px 15px 2px 15px;
+  text-align: center;
+}

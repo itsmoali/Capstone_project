@@ -28,9 +28,14 @@ yarn-debug.log*
 yarn-error.log*
 node_modules
 
+token.json
 credentials.json
 .env
 
+<<<<<<< HEAD
 /token files
 
 token.json
+=======
+token files
+>>>>>>> 5dc66912752f1e7d081a946ff2f0ac1ff06d5037

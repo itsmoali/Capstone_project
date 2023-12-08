@@ -46,12 +46,11 @@ return (
               color="text.primary"
               gutterBottom
             >
-              Courses 
+              Habit Banao
             </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              Something short and leading about the collection below—its contents,
-              the creator, etc. Make it short and sweet, but not too short so folks
-              don&apos;t simply skip over it entirely.
+              A Transformative Habit-Building application, that would help you in creating new habits
+              in a sustainable manner, with greater accountability.
             </Typography>
             <Stack
               sx={{ pt: 4 }}
@@ -59,9 +58,8 @@ return (
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained" >Join Now</Button>
-              <Button variant="contained" href='/Chess_Demo'>View Demo</Button>
-              <Button variant="contained">LogOut</Button>
+              <Button variant="contained" href='/Signup'>Join Now</Button>
+              <Button variant="contained" href='/create_course'>View Demo</Button>
             </Stack>
           </Container>
         </Box>

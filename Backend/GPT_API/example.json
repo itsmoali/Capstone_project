@@ -2,7 +2,7 @@
 
 
 {
-    "course":  "Python",
+    "course":  "Chess",
     "diffuculty" : "beginner",
     "duration" : "20 days",
     "description": [
@@ -249,4 +249,3 @@
         ]
       }]}
   
-

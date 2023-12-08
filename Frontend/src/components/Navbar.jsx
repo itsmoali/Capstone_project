@@ -10,7 +10,7 @@ const CustomButton = styled(Button)(({ theme }) => ({
   // Add custom styles here
   backgroundColor: '#2196F3',
   color: 'white',
-  margin: '0 35px',
+  margin: '0 30px',
   '&:hover': {
     backgroundColor: '#2196G8',
   },
@@ -24,7 +24,6 @@ const Navbar = () => {
   useEffect(() => {
     
     localStorage.setItem('isLoggedIn', auth.isLoggedIn);
-    // setIsLoggedIn(auth.isLoggedIn);
     console.log('Navbar: ', auth.isLoggedIn);
     
   
@@ -41,22 +40,17 @@ const Navbar = () => {
           <Typography variant="h5" >Banao</Typography>
         </IconButton>
 
-        <Stack p={2} sx={{flexDirection:'row', flexGrow:1}}>
-          <Box sx={{flexGrow:1}}>
-            <input type="text" placeholder='Search' style={{width:'50%', padding:"12px 20px", display:'inline-block', border:'1px solid #ccc',
-          borderRadius:'4px', borderRight:'none', outline:'none'}} />
-          <SearchIcon sx={{width:'10%',my:-2, padding:'9px', backgroundColor:'#2196F3', borderRadius:2,
-        borderLeft:'none'}}></SearchIcon>
-          </Box>
+        <Stack p={2} sx={{flexDirection:'row', flexGrow:1,justifyContent: 'right'}}>
+ 
           
-          <Box sx={{ flexGrow:'0.25', display: 'flex', justifyContent: 'flex-end'}}>
+          <Box>
 
               <Link to={"/Courses"}>
-                <CustomButton variant='contained'>Courses</CustomButton>
+                <CustomButton variant='contained'>Course</CustomButton>
               </Link>
 
-              <Link to={"/Help"}>
-                <CustomButton variant='contained'>Help</CustomButton>
+              <Link to="/create_course">
+                <CustomButton variant='contained'>Create A Course</CustomButton>
               </Link>
 
               {!auth.isLoggedIn && 
