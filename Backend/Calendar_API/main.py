@@ -46,13 +46,10 @@ def create_service(client_secret_file, api_name, api_version, *scopes, prefix=''
         os.remove(os.path.join(working_dir, token_dir, token_file))
         return None
 
-
-
 CLIENT_SECRET_FILE = 'credentials.json'
 API_NAME = 'calendar'
 API_VERSION = 'v3'
 SCOPES = ['https://www.googleapis.com/auth/calendar']
-
 service = create_service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
 
 def hour_calc(start, hours):
@@ -78,9 +75,6 @@ def combine_date_time(date,time):
     formatted = combined.isoformat()
 
     return formatted
-    
-
-    
 
 def event_creator(course_data, start_date, start_time, daily_practice_time, user_time_zone = 'America/Los_Angeles'):
     
@@ -89,7 +83,6 @@ def event_creator(course_data, start_date, start_time, daily_practice_time, user
     user_time_zone = service.calendarList().get(calendarId='primary').execute()['timeZone']
 
     total_events = []
-
     for i in range(len(schedule)):
         
         current_event = {

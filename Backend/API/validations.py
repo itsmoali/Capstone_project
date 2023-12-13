@@ -3,13 +3,10 @@ from django.contrib.auth import get_user_model, authenticate
 
 UserModel = get_user_model()
 
-
 def info_validation(data):
-
     email = data["email"].strip()
     username = data['username'].strip()
     password = data['password'].strip()
-
 
     if UserModel.objects.filter(email=email).exists():
         raise ValidationError("This email already exists. Please try a different email.")

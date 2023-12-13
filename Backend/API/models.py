@@ -42,7 +42,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=100, unique=True)
     username = models.CharField(max_length=100)
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = 'email'    
     REQUIRED_FIELDS = ['username']
 
     objects = AppUserManager()

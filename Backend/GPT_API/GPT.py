@@ -15,8 +15,6 @@ with open(json_file) as f:
     data= json.load(f)
 
 
-
-
 def create_schedule(duration, topic, difficulty):
     
 

@@ -40,7 +40,6 @@ class UserLogin(APIView):
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
 class UserLogout(APIView):
     
     def post(self,request):
