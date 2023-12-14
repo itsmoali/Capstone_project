@@ -56,7 +56,7 @@ function handleSubmit(e) {
         return;
     }
 
-    axios.post('/signup', {
+    axios.post('https://backend-yd7xv8j1m-itsmoalis-projects.vercel.app/signup', {
             
             email: email,
             username: username,

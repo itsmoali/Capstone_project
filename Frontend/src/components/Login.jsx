@@ -31,7 +31,7 @@ export default function Login() {
 
   function handleLogin (e) {
     e.preventDefault();
-    axios.post('/login',{
+    axios.post('https://backend-yd7xv8j1m-itsmoalis-projects.vercel.app/login',{
       email:email,
       password:password
     }).then((response) => {
