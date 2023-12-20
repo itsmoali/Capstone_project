@@ -12,7 +12,7 @@ const Courses = () => {
 
   async function getCourseList() {
     try {
-      const response = await axios.get('https://backend-m6lhvi7ni-itsmoalis-projects.vercel.app/courses/', {
+      const response = await axios.get('/courses', {
         headers: {
           'Access-Control-Allow-Origin': true,
           'Content-Type': 'application/json',

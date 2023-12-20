@@ -58,8 +58,12 @@ function submit_info(e){
     
     <Box  sx={{display:'flex',height:'70vh', alignContent:'center', alignItems:'center',flexDirection:'column'}}>
       {loading && <h1>Loading...</h1>}
-      <Grid container  spacing={1.4} sx={{display:'flex', flexDirection:'column',alignItems:'center'}}>
-        <Grid item >
+
+      
+      {!loading &&
+      <Grid container spacing={4}  sx={{justifyContent:'center', flexDirection:'column', alignItems:'center',paddingBottom:'20px',
+      paddingTop:'40px'}}>
+                <Grid item >
           <Typography variant='h4'>Course Creation</Typography>
         </Grid>
         <Grid item>
@@ -74,27 +78,6 @@ function submit_info(e){
         <Grid item>
           <Typography variant='h6'>Difficulty: The difficulty level you would prefer.</Typography>
         </Grid>
-      </Grid>
-      <Menu
-          id = 'login-menu'
-          anchorEl={anchorEl}
-          open= {open}
-          onClose = {handleClose}
-          MenuListProps={{
-          'aria-labelledby': 'basic-button',
-          }}>
-          <MenuItem onClick={handleClose} >
-              <Link href="/login" >
-                <b>Login</b>
-              </Link>
-              &nbsp; to Create a Course
-          </MenuItem>
-      </Menu>
-
-      
-      {!loading &&
-      <Grid container spacing={4}  sx={{justifyContent:'center', flexDirection:'column', alignItems:'center',paddingBottom:'20px',
-      paddingTop:'40px'}}>
         <Grid item >
             <TextField 
             required
@@ -129,6 +112,21 @@ function submit_info(e){
 
           {!auth.isLoggedIn && ((<Button variant='contained' onClick={handleClick}>Submit</Button>))}
         </Grid>
+        <Menu
+          id = 'login-menu'
+          anchorEl={anchorEl}
+          open= {open}
+          onClose = {handleClose}
+          MenuListProps={{
+          'aria-labelledby': 'basic-button',
+          }}>
+          <MenuItem onClick={handleClose} >
+              <Link href="/login" >
+                <b>Login</b>
+              </Link>
+              &nbsp; to Create a Course
+          </MenuItem>
+      </Menu>
       </Grid>}
 
 
