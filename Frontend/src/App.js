@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Router} from 'react-router-dom';
 import { Box } from '@mui/system';
 import {Login, Courses, Navbar, Course_details, Signup, Home, Logout, Create_Course, Schedule} from './components';
 
-import AuthProvider, { AuthContext } from './components/auth.js';
+import AuthProvider, { AuthContext } from './components/Auth/auth.js';
 
 
 
@@ -28,6 +28,7 @@ function App() {
           <Route path="/" element={<Home/>}></Route>
           <Route path="/schedule" element={<Schedule/>}></Route>
           <Route path="/course_details/:id" element={<Course_details/>}></Route>
+
           
         </Routes>
       </BrowserRouter>

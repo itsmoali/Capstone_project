@@ -1,9 +1,9 @@
-export {default as Courses} from './Courses';
+export {default as Courses} from './Course/Courses';
 export {default as Navbar} from './Navbar';
-export {default as Login} from './Login';
-export {default as Signup} from './Signup';
+export {default as Login} from './Auth/Login';
+export {default as Signup} from './Auth/Signup';
 export {default as Home} from './Home';
-export {default as Logout} from './Logout';
-export {default as Create_Course} from './Create_Course';
-export {default as Schedule} from './Schedule';
-export {default as Course_details} from './Course_details';
+export {default as Logout} from './Auth/Logout';
+export {default as Create_Course} from './Course/Create_Course';
+export {default as Schedule} from './Course/Schedule';
+export {default as Course_details} from './Course/Course_details';
