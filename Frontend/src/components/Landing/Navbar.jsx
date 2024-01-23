@@ -3,7 +3,7 @@ import { Typography, Stack, Box, AppBar, Toolbar,IconButton, Button} from '@mui/
 import styled from '@emotion/styled'
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
-import { useAuth } from './Auth/auth';
+import { useAuth } from '../Auth/auth'
 
 
 const CustomButton = styled(Button)(({ theme }) => ({
