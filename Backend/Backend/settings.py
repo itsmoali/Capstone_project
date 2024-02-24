@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--gqn8cxao&q&%n%68f56)_2=isyb@bfngt^%=9_$)(q97%dg2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG",'True') == 'True'
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['172.31.18.215','localhost','127.0.0.1','backend-obio.onrender.com']
@@ -93,7 +93,7 @@ if not DEBUG:
     # Replace the SQLite DATABASES configuration with PostgreSQL:
     DATABASES = {
     'default': dj_database_url.parse(
-        os.environ.get("DATABASE_URL")
+        os.getenv("DATABASE_URL")
 
     )
 }
