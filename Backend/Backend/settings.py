@@ -97,22 +97,21 @@ DATABASES = {
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# if not DEBUG:
-#     # Replace the SQLite DATABASES configuration with PostgreSQL:
-#     DATABASES = {
-#     'default': dj_database_url.parse(
-#         os.getenv("DATABASE_URL")
+if not DEBUG:
+    # Replace the SQLite DATABASES configuration with PostgreSQL:
+    DATABASES = {
+    'default': dj_database_url.parse(
+        "postgres://capstone_f2fe_user:it5By2TdOVI9ycppsIUBqZWg3zojoIuL@dpg-cnd44dv109ks738qtm40-a.oregon-postgres.render.com/capstone_f2fe"
+    )
+}
 
-#     )
-# }
-
-# else:
-#         DATABASES = {
-#             'default': {
-#                 'ENGINE': 'django.db.backends.sqlite3',
-#                 'NAME': BASE_DIR / 'db.sqlite3',
-#             }
-#         }
+else:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': BASE_DIR / 'db.sqlite3',
+            }
+        }
 
 
 #User model
