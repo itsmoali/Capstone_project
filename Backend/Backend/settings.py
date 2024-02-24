@@ -11,9 +11,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import os
 import dj_database_url
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,15 +27,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--gqn8cxao&q&%n%68f56)_2=isyb@bfngt^%=9_$)(q97%dg2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DEBUG', 'True') =="True"
 
 
-ALLOWED_HOSTS = ['172.31.18.215','localhost','127.0.0.1','backend-obio.onrender.com']
+ALLOWED_HOSTS = ['*']
 
-
-CORS_ORIGIN_WHITELIST = [
-     'http://localhost:3000'
-]
 
 
 
@@ -85,36 +83,40 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Backend.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
 
-}
+# }
 
 # DATABASES['default'] = dj_database_url.parse(os.environ.get('DATABASE_URL'))
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 if not DEBUG:
-    # Replace the SQLite DATABASES configuration with PostgreSQL:
     DATABASES = {
-    'default': dj_database_url.parse(
-        "postgres://capstone_f2fe_user:it5By2TdOVI9ycppsIUBqZWg3zojoIuL@dpg-cnd44dv109ks738qtm40-a.oregon-postgres.render.com/capstone_f2fe"
-    )
+	"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
+
 else:
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': BASE_DIR / 'db.sqlite3',
-            }
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
         }
+    }
 
 
-#User model
+# DATABASES = {
+#     'default': dj_database_url.parse(os.environ.get('DATABASE_URL')) 
+# }
+
+
 
 AUTH_USER_MODEL = 'API.User'
 
