@@ -18,15 +18,11 @@ const theme = createTheme({
     palette: {
         primary: {
             main: Colors.primary,
+            secondary: Colors.textcolor
         },
         secondary: {
             main: Colors.secondary,
-        },
-        text: {
-            primary: Colors.textcolor,
-            secondary: Colors.textcolor2,
-            
-        },
+        }
     },
 
     components: {

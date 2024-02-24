@@ -8,7 +8,7 @@ const Main = () => {
   
   return (
     
-    <Box sx={{color: 'text.primary', height: '90vh', flexGrow: 1, bgcolor: 'primary.main'}}>
+    <Box sx={{color: 'primary.secondary', height: '90vh', flexGrow: 1, bgcolor: 'primary.main'}}>
         <Grid container  columns={16}
                         justifyContent="space-around"
                         alignItems="center" >

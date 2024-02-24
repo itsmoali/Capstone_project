@@ -52,7 +52,7 @@ function Schedule() {
       })]).then((response) => {
         console.log("Information has beed added to database.")
         alert("Your course has been created successfully.")
-        navigate('/courses');
+        navigate('/Courses');
       }).catch((error) => {
         console.log("Error has been detected", error.response.data);
       })
@@ -66,6 +66,7 @@ function Schedule() {
             <div contenteditable="true">
               <span><b>{courseList['course']}</b></span>
               <br />
+              {console.log(courseList)}
               <h3>Course Schedule</h3>
               {courseList['schedule'].map(item => (
                 <div class="inner-schedule" id="inner-schedule">
