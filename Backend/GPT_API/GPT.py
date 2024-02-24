@@ -14,14 +14,14 @@ json_files = "Backend\GPT_API\Training_files" #Use for production
 # Intermediate Sales Strategies,Advanced Sales Concepts,Advanced Sociology,Intermediate Debating Techniques]
 # base_model = os.path.join(json_files, "New_Basic_Schedule.json")
 
-base_model = r"Backend\GPT_API\Training_files\New_Basic_Schedule.json"
+base_model = r"GPT_API\Training_files\New_Basic_Schedule.json"
 with open(base_model) as f:
     Base_data= json.load(f)
 
 
 
 # detailed_model = os.path.join(json_files, "New_Detailed_Schedule.json")
-detailed_model = r"Backend\GPT_API\Training_files\New_Detailed_Schedule.json"
+detailed_model = r"GPT_API\Training_files\New_Detailed_Schedule.json"
 
 with open(detailed_model) as f:
     Detailed_data= json.load(f)
