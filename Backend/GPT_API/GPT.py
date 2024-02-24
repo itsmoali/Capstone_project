@@ -7,8 +7,8 @@ from dotenv import load_dotenv
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPEN_AI_API_KEY"))
 
-# json_files = "Backend\GPT_API\Training_files"
-json_files = "GPT_API\Training_files"
+# json_files = "GPT_API\Training_files" // Use for local development
+json_files = "Backend\GPT_API\Training_files" #Use for production
 # List of Courses
 #[Intermediate Physics, Advanced Chemistry,Advanced Biology,Beginner Finance Fundamentals,
 # Intermediate Sales Strategies,Advanced Sales Concepts,Advanced Sociology,Intermediate Debating Techniques]
