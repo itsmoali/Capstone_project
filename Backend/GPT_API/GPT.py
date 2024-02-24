@@ -24,16 +24,12 @@ with open(detailed_model) as f:
     Detailed_data= json.load(f)
 
 
-<<<<<<< HEAD
-def create_schedule(duration, topic, difficulty):
-=======
 
 
 
 
 # Create a Basic Course Outline
 def course_outline(duration, topic, difficulty):
->>>>>>> Main-Front-end
     
 
     response = client.chat.completions.create(
