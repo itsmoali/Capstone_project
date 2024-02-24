@@ -46,13 +46,14 @@ export default function Login() {
 
   return (
 
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" sx={{color: 'text.secondary'}}>
         <Box
           sx={{
             marginTop: 20,
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center'
+            alignItems: 'center',
+            color: 'text.secondary'
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
@@ -61,7 +62,7 @@ export default function Login() {
           <Typography component="h1" variant="h5">
             Log In
           </Typography>
-          <Box component="form"    noValidate sx={{ mt: 1 }}>
+          <Box component="form"    noValidate sx={{ mt: 1,color: 'text.secondary' }}>
             <TextField
               margin="normal"
               required
@@ -75,6 +76,7 @@ export default function Login() {
             />
             <TextField
               margin="normal"
+              
               required
               fullWidth
               name="password"
@@ -85,7 +87,7 @@ export default function Login() {
               onChange={(e)=>setPassword(e.target.value)}
             />
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
+              control={<Checkbox value="remember" color="secondary" />}
               label="Remember me"
             />
             <Button

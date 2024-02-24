@@ -80,9 +80,9 @@ function handleSubmit(e) {
   return (
     
 
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" >
 
-            {/* <CssBaseline /> */}
+            
                 <Box
                 sx={{
                     marginTop: 20,
@@ -91,27 +91,28 @@ function handleSubmit(e) {
                     alignItems: 'center',
                 }}
                 >
-                <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                <Avatar sx={{ m: 1}}>
                     <LockOutlinedIcon />
                 </Avatar>
-                <Typography component="h1" variant="h5">
+                <Typography component="h1" variant="h5" >
                     Sign up
                     
-                </Typography>
+                </Typography >
                 {error && <Alert severity="error">{error}</Alert>}
                 {currentUser && <Alert severity="success">You have successfully signed up</Alert>}
                 
                 
-                <Box component="form"  sx={{ mt: 3 }}>
+                <Box component="form"  sx={{ mt: 3}}>
 
-                    {/* <FormControl action=""> */}
                     
-                    <Grid container spacing={2}>
+                    
+                    <Grid container spacing={2} sx={{ mt: 3}}>
 
-                        <Grid item xs={12}>
+                        <Grid item xs={12}  >
                             <TextField 
                             // required
                             fullWidth
+                            color='primary'
                             id="username"
                             label="username"
                             name="username"
@@ -172,7 +173,7 @@ function handleSubmit(e) {
                         </Link>
                     </Grid>
                     </Grid>
-                    {/* </FormControl> */}
+                    
                 </Box>
                 
                 </Box>

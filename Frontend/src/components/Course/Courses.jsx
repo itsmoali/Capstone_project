@@ -1,7 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Container, Grid, Stack } from '@mui/material';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { Stack, Grid, Box} from '@mui/material';
+import { blue, pink } from '@mui/material/colors';
+import Course_Card from "./Course_Card"
+import SideBar from './SideBar';
+import styled from '@mui/material/styles/styled';
+
+const Item = styled('div')(({ theme }) => ({
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  borderRadius: 2,
+  flexGrow: 1,
+}));
 
 const Courses = () => {
   const [courseList, setCourseList] = useState([]);
@@ -24,53 +35,30 @@ const Courses = () => {
     }
   }
 
-  let Course_div;
+ 
 
-  if (Array.isArray(courseList) && courseList.length > 0) {
-    Course_div = courseList.map((course) => {
-      const jsonString = course.course_schedule.replace(/'/g, '"');
-      const courseSchedule = JSON.parse(jsonString);
-      return (
-        <div className="Main-box" key={course.course_id}>
-          <div className="descriptions">
-            <div className="desc-box">
-              <div>
-                <span><b>{course.course_name}</b></span>
-                <br />
-                {courseSchedule.map((Schedule) => (
-                  <div key={Schedule.day}>
-                    <h4>Day {Schedule.day}: {Schedule.topic}</h4>
-                  </div>
-                ))}
-                <br />
-              </div>
-            </div>
-          </div>
-          <div className="fotter">
-            <div className="rating">
-              <span><b>Rating:</b>4.6</span>
-            </div>
-            <div className="stats">
-              <span><b>Difficulty:</b> {course.course_difficulty}</span>
-              <span><b>Time Required:</b> {course.course_duration}</span>
-            </div>
-          </div>
-        </div>
-      );
-    });
-  } else {
-    Course_div = <p>No courses available.</p>;
-  }
 
   return (
-    <Stack sx={{ alignItems: 'center', justifyContent: 'center', flexGrow: '1' }}>
-      {Course_div}
-      <div className='course-message'>
-        <p>Not Satisfied with the Courses?</p>
-        <p>
-          Click the <b><Link to={"/create_course"}>Link</Link></b> to create your own Course
-        </p>
-      </div>
+    // <Grid sx={{ alignItems: 'center', justifyContent: 'center', flexGrow: '1' }}>
+    <Stack   direction={{ xs: 'row', xl: 'row' }}
+    spacing={{ xs: 1, sm: 1, md: 4 }}>
+      
+      {/* <Item>
+        <SideBar></SideBar>
+      </Item> */}
+
+      <Item sx={{flexGrow:4}}>
+        {courseList.map((course)=> (
+            <Course_Card courses = {course}></Course_Card>
+        ))}
+        
+        <Box className='course-message'>
+          <p>Not Satisfied with the Courses?</p>
+          <p>
+            Click the <b><Link to={"/create_course"}>Link</Link></b> to create your own Course
+          </p>
+      </Box>
+      </Item>
     </Stack>
   );
 };

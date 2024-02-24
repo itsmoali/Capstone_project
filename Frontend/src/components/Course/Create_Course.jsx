@@ -56,7 +56,7 @@ function submit_info(e){
 
   return (
     
-    <Box  sx={{display:'flex',height:'70vh', alignContent:'center', alignItems:'center',flexDirection:'column'}}>
+    <Box  sx={{display:'flex',height:'75vh', alignContent:'center', alignItems:'center',flexDirection:'column',mt:'15vh'}}>
       {loading && <h1>Loading...</h1>}
 
       

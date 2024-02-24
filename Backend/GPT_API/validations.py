@@ -35,11 +35,7 @@ def output_validation(data):
     course_name = data.get('course', False)
     course_difficulty = data.get('difficulty', False)
     course_duration = data.get('duration', False)
-    course_schedule = data.get('schedule', False)
-    # course_name = data['course']
-    # course_difficulty = data['difficulty']
-    # course_duration = data['duration']
-    # course_schedule = data['schedule']
+    course_schedule= data.get('schedule', False)
 
     if not course_name:
         raise ValidationError("Course Name is required. Please try again")
