@@ -3,18 +3,19 @@ import { Typography, Stack, Box, AppBar, Toolbar,IconButton, Button} from '@mui/
 import styled from '@emotion/styled'
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
-import { useAuth } from './auth';
+import { useAuth } from '../Auth/auth'
+import '../../App.css';
+import Logout from '../Auth/Logout';
 
-
-const CustomButton = styled(Button)(({ theme }) => ({
-  // Add custom styles here
-  backgroundColor: '#2196F3',
-  color: 'white',
-  margin: '0 30px',
-  '&:hover': {
-    backgroundColor: '#2196G8',
-  },
-}));
+// const CustomButton = styled(Button)(({ theme }) => ({
+//   // Add custom styles here
+//   backgroundColor: '#2196F3',
+//   color: 'white',
+//   margin: '0 30px',
+//   '&:hover': {
+//     backgroundColor: '#2196G8',
+//   },
+// }));
 
 const Navbar = () => {
 
@@ -32,42 +33,42 @@ const Navbar = () => {
  
  return (
 
-
-    <AppBar >
+  
+    <AppBar sx={{height:'10vh'}} >
       <Toolbar >
-        <IconButton href="/" sx={{flexDirection:'column',borderRadius:'0', marginRight:20, color:'white'}}> 
+        <IconButton disableRipple  href="/" sx={{flexDirection:'column',borderRadius:'0', pl:2, color:'white'}}> 
           <Typography variant="h5" >Habit</Typography>           
           <Typography variant="h5" >Banao</Typography>
         </IconButton>
 
-        <Stack p={2} sx={{flexDirection:'row', flexGrow:1,justifyContent: 'right'}}>
+        {/* <Stack p={2} sx={{flexDirection:'row', flexGrow:1,justifyContent: 'right'}}> */}
  
           
-          <Box>
+          <Box display="flex" justifyContent='right' flexGrow='1' gap={8} pr={2}>
 
               <Link to={"/Courses"}>
-                <CustomButton variant='contained'>Course</CustomButton>
+                <Button variant='contained'>Course</Button>
               </Link>
 
               <Link to="/create_course">
-                <CustomButton variant='contained'>Create A Course</CustomButton>
+                <Button variant='contained'>Create A Course</Button>
               </Link>
 
               {!auth.isLoggedIn && 
                 (<Link to={"/Login"}>
-                  <CustomButton variant='contained'>Login</CustomButton>
+                  <Button variant='contained'>Login</Button>
                 </Link>)}
 
               {auth.isLoggedIn && 
-                (<Link to={"/Logout"}>
-                  <CustomButton variant='contained'>Logout</CustomButton>
-                </Link>)}
+                (
+                  <Logout/>
+                )}
 
 
 
           </Box>
           
-        </Stack>  
+        {/* </Stack>   */}
 
       </Toolbar>
     </AppBar>

@@ -6,7 +6,6 @@ class CoursesSerializer(serializers.ModelSerializer):
     class Meta:
         course_id  = serializers.PrimaryKeyRelatedField(many=True, queryset=Courses.objects.all())
         model = Courses
-        fields = ['course_name', 'course_difficulty', 'course_duration', 'course_schedule']
-
+        fields = ['course_name', 'course_difficulty', 'course_duration', 'course_details']
 
 

@@ -39,23 +39,23 @@ function Schedule() {
   }
   
 
-  function save_info() {
-    axios.all([
+  async function save_info() {
+    alert("Please wait while your course is being created. This may take a while.")
+    navigate('/')
+    await Promise.all([
       axios.post('/create/course', courseList),
       axios.post('/create/schedulemaker', {
         "course_data": courseList,
         "start_date": selectedDate,
         "daily_practice_time": selectDuration,
         "start_time": selectTime,
-      }).then((response) => {
+      })]).then((response) => {
         console.log("Information has beed added to database.")
-        navigate('/')
-
+        alert("Your course has been created successfully.")
+        navigate('/Courses');
       }).catch((error) => {
         console.log("Error has been detected", error.response.data);
       })
-    ])
-
   };
 
 
@@ -63,16 +63,17 @@ function Schedule() {
   const Course_Schedule = 
     
       <div class= "demo-schedule" id="demo-schedule">
-            <div>
+            <div contenteditable="true">
               <span><b>{courseList['course']}</b></span>
               <br />
+              {console.log(courseList)}
               <h3>Course Schedule</h3>
               {courseList['schedule'].map(item => (
                 <div class="inner-schedule" id="inner-schedule">
                   <span><b>Day {item.day}: {item.topic}</b></span>
                   <br />
                   {item.subtopics.map((subtopic, index) => (
-                    <div>
+                    <div >
                       <span>{index+1}. {subtopic}</span>
                       <br />
                     </div>

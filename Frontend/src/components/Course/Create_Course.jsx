@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import { useNavigate } from 'react-router-dom'
 import {useState, useEffect} from 'react'
-import { useAuth } from './auth';
+import { useAuth } from '../Auth/auth';
 
 
 const Create_Course = () => {
@@ -56,7 +56,7 @@ function submit_info(e){
 
   return (
     
-    <Box  sx={{display:'flex',height:'70vh', alignContent:'center', alignItems:'center',flexDirection:'column'}}>
+    <Box  sx={{display:'flex',height:'75vh', alignContent:'center', alignItems:'center',flexDirection:'column',mt:'15vh'}}>
       {loading && <h1>Loading...</h1>}
 
       

@@ -1,7 +1,7 @@
 import {useAuth} from './auth.js';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { Button } from '@mui/material';
 
 export default function Logout() {
     const auth = useAuth();
@@ -22,9 +22,9 @@ export default function Logout() {
     };
 
     return (
-        <button onClick={handleLogout}>
-            Logout
-        </button>
+        <Button onClick={handleLogout}>
+            LogOut
+        </Button>
     );
 };
 
