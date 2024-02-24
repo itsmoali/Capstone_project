@@ -26,8 +26,12 @@ SECRET_KEY = 'django-insecure--gqn8cxao&q&%n%68f56)_2=isyb@bfngt^%=9_$)(q97%dg2'
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['172.31.18.215','localhost','127.0.0.1',"http://localhost:3000",'http://127.0.0.1:8000']
+ALLOWED_HOSTS = ['172.31.18.215','localhost','127.0.0.1']
 
+
+CORS_ORIGIN_WHITELIST = [
+     'http://localhost:3000'
+]
 
 
 
@@ -42,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'API.apps.UserApi',
     'GPT_API.apps.GPTApi'
 ]
@@ -54,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'Backend.urls'
@@ -82,12 +88,8 @@ WSGI_APPLICATION = 'Backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'railway',
-        'USER': 'root',
-        'PASSWORD': 'Fb22bbBA65AC-aBAfbGbBFd2cHA4hGaH',
-        'HOST': 'monorail.proxy.rlwy.net',
-        'PORT': '58328',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
