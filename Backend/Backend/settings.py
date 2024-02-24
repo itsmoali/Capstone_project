@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'Backend.wsgi.application'
 if not DEBUG:
     # Replace the SQLite DATABASES configuration with PostgreSQL:
     DATABASES = {
-    'default': dj_database_url.parse(
+    'default': dj_database_url.config(
         os.getenv("DATABASE_URL")
 
     )
