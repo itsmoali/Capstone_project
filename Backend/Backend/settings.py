@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure--gqn8cxao&q&%n%68f56)_2=isyb@bfngt^%=9_$)(q97%dg2'
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['172.31.18.215','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['172.31.18.215','localhost','127.0.0.1','backend-obio.onrender.com']
 
 
 CORS_ORIGIN_WHITELIST = [
