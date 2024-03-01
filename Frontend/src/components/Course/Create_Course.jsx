@@ -40,15 +40,22 @@ const navigate = useNavigate();
 function submit_info(e){
   e.preventDefault();
   setLoading(true);
-  
+
+  //This code snippet uses the axios library to make a POST request to the '/create/schedule' endpoint.
+  //The POST request includes data related to a course, such as its name, duration, and difficulty.
   axios.post('/create/schedule',{
     course:Course_name,
     duration:Course_duration,
     difficulty:Course_difficulty
-  }).then((response) => {
+  }).
+  //# The 'then' block executes when the POST request is successful and sends
+  // the user and course data to the '/schedule' endpoint. 
+  then((response) => {
     setLoading(false);
     navigate('/schedule', {state: response.data});
-  }).catch((error) => {
+  }).
+  // The 'catch' block executes when the POST request is unsuccessful.
+  catch((error) => {
     console.log('Erros has been detected',error.response.data);
   });
 }

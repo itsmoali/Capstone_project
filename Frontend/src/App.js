@@ -12,12 +12,16 @@ import { ThemeProvider } from '@mui/material/styles';
 
 function App() {
   return (
-
+  // The component structure is wrapped in a ThemeProvider, providing a theme to styled components.
+  
     <ThemeProvider theme={theme}>
+
       <AuthProvider>
-        
+      
         <BrowserRouter>
+        
         <Navbar />
+       
           <Routes>
             <Route path="/login" element={<Login/>}></Route>
             <Route path="/logout" element={<Logout/>}></Route>
@@ -28,9 +32,7 @@ function App() {
             <Route path="/create_course" element={<Create_Course/>}></Route>
             <Route path="/" element={<Home/>}></Route>
             <Route path="/schedule" element={<Schedule/>}></Route>
-            
-
-            
+ 
           </Routes>
         </BrowserRouter>
       </AuthProvider>
