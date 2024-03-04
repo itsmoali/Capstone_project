@@ -6,7 +6,7 @@ import {Login, Courses, Navbar, Signup, Home, Logout, Create_Course, Schedule, C
 
 import AuthProvider, { AuthContext } from './components/Auth/auth.js';
 import theme from './components/Styles/Styles.js';
-import { ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from "@mui/material/styles";
 
 
 
@@ -17,7 +17,7 @@ function App() {
       <AuthProvider>
         
         <BrowserRouter>
-        <Navbar />
+        {/* <Navbar /> */}
           <Routes>
             <Route path="/login" element={<Login/>}></Route>
             <Route path="/logout" element={<Logout/>}></Route>
