@@ -1,42 +1,78 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
-import {FAQ, About, Contact,Info, Main, Navbar} from './index'
+import { FAQ, About, Contact, Info, Main, Navbar } from './index';
 import '../../App.css';
-import { Stack, Container } from '@mui/material';
-
-
+import { Stack } from '@mui/material';
 
 const Home = () => {
+  return (
+    <Stack
+      direction="column"
+      sx={{
+        scrollSnapType: 'y mandatory',
+        overflowY: 'scroll',
+        '&::-webkit-scrollbar': {
+          display: 'none', // Hide the scrollbar
+        },
+        height: '100vh',
+      }}
+    >
+      <Navbar id="navbar" />
 
-return (
+      <Box
+        id="main"
+        sx={{
+          scrollSnapAlign: 'end',
+          bgcolor: 'primary.main',
+          position: 'relative',
+          top: '10vh', // Adjust this value based on your Navbar height
+        }}
+      >
+        <Main />
+      </Box>
+      <Box
+        id="about"
+        sx={{
+          scrollSnapAlign: 'end',
+          position: 'relative',
+          top: '10vh', // Adjust this value based on your Navbar height
+        }}
+      >
+        <About />
+      </Box>
+      <Box
+        id="info"
+        sx={{
+          scrollSnapAlign: 'end',
+          bgcolor: 'primary.main',
+          position: 'relative',
+          top: '10vh', // Adjust this value based on your Navbar height
+        }}
+      >
+        <Info />
+      </Box>
+      <Box
+        id="faq"
+        sx={{
+          scrollSnapAlign: 'end',
+          position: 'relative',
+          top: '10vh', // Adjust this value based on your Navbar height
+        }}
+      >
+        <FAQ />
+      </Box>
+      <Box
+        id="contact"
+        sx={{
+          scrollSnapAlign: 'end',
+          position: 'relative',
+          top: '10vh', // Adjust this value based on your Navbar height
+        }}
+      >
+        <Contact />
+      </Box>
+    </Stack>
+  );
+};
 
- 
-
-  <Stack  direction="column"  sx={{ scrollSnapType: 'y mandatory', overflowY: 'scroll','&::-webkit-scrollbar': {
-    display: 'none', // Hide the scrollbar
-  }, height: '100vh' }}>
- 
-    
-  <Box id="main" sx={{ scrollSnapAlign: 'start',bgcolor: 'primary.main', pt:'10vh' }}>
-    <Main />
-  </Box>
-  <Box id="about" sx={{ scrollSnapAlign: 'start',pt:'10vh'  }}>
-    <About />
-  </Box>
-  {/* <Box id="info" sx={{ scrollSnapAlign: 'start',bgcolor: 'primary.main' }}>
-    <Info />
-  </Box>
-  <Box id="faq" sx={{ scrollSnapAlign: 'start' }}>
-    <FAQ />
-  </Box>
-  <Box id="contact" sx={{ scrollSnapAlign: 'start' }}>
-    <Contact />
-  </Box> */}
-</Stack>
-      
-    );
-}
-
-export default Home
-
-
+export default Home;

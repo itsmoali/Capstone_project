@@ -34,7 +34,7 @@ const Navbar = () => {
  return (
 
   
-    <AppBar sx={{height:'10vh'}} >
+    <AppBar sx={{height:'10vh', position:'fixed'}} >
       <Toolbar >
         <IconButton disableRipple  href="/" sx={{flexDirection:'column',borderRadius:'0', pl:2, color:'white'}}> 
           <Typography variant="h5" >Habit</Typography>           

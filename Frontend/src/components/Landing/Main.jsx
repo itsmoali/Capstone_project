@@ -8,10 +8,17 @@ const Main = () => {
   
   return (
     
-    <Box sx={{color: 'primary.secondary', height: '90vh', flexGrow: 1, bgcolor: 'primary.main'}}>
-        <Grid container  columns={16}
-                        justifyContent="space-around"
-                        alignItems="center" >
+    <Box       sx={{
+      color: 'primary.secondary',
+      height: '90vh',
+      flexGrow: 1,
+      bgcolor: 'primary.main',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}>
+        <Grid container  columns={16} alignItems="center" justifyContent="space-around" spacing={2}>
+                        
             <Grid  item xs={6} md={4} sx={{width:'50vw'}} >
                 <Typography component="h3" variant="h3"  gutterBottom>
                     Sabaq
