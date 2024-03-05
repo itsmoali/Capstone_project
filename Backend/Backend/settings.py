@@ -36,7 +36,6 @@ ALLOWED_HOSTS = ['local','127.0.0.1','backend-obio.onrender.com']
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
-SECURE_REFERRER_POLICY = 'no-referrer'
 
 CORS_ALLOW_HEADERS = (
     "accept",
