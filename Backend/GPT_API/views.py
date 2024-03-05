@@ -41,7 +41,8 @@ class CourseList(APIView):
 
 class CreateCourse(APIView):
 
-    permission_classes = (permissions.IsAuthenticated,)
+    # permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.AllowAny,)
     
 
     def post(self,request):
@@ -69,7 +70,8 @@ class CreateCourse(APIView):
 
 class ScheduleMaker(APIView):
      
-     permission_classes = (permissions.IsAuthenticated,)
+    #  permission_classes = (permissions.IsAuthenticated,)
+     permission_classes = (permissions.AllowAny,)
 
      def post(self,request):
             data = request.data
