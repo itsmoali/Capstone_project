@@ -2,6 +2,7 @@ import {useAuth} from './auth.js';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Button } from '@mui/material';
+import client from './path.js';
 
 export default function Logout() {
     const auth = useAuth();
@@ -9,7 +10,7 @@ export default function Logout() {
 
     function handleLogout (e) {
         e.preventDefault();
-        axios.post('/logout')
+        client.post('/logout')
         .then((response) => {
             console.log('User has been logged out',response.data);
             auth.logout();

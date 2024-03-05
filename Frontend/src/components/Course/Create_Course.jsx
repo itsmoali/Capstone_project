@@ -4,7 +4,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import { useAuth } from '../Auth/auth';
-
+import client from '../Auth/path.js';
 
 const Create_Course = () => {
 
@@ -43,7 +43,7 @@ function submit_info(e){
 
   //This code snippet uses the axios library to make a POST request to the '/create/schedule' endpoint.
   //The POST request includes data related to a course, such as its name, duration, and difficulty.
-  axios.post('/create/schedule',{
+  client.post('/create/schedule',{
     course:Course_name,
     duration:Course_duration,
     difficulty:Course_difficulty

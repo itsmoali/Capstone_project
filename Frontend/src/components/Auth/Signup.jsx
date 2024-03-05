@@ -16,12 +16,7 @@ import Alert from '@mui/material/Alert';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { FormControl, InputLabel } from '@mui/material';
 import axios from 'axios';
-
-
-axios.defaults.xsrfCookieName = 'csrftoken';
-axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-axios.defaults.withCredentials = true;
-
+import client from './path';
 
 
 
@@ -56,7 +51,7 @@ function handleSubmit(e) {
         return;
     }
 
-    axios.post('https://backend-27a2kkg8j-itsmoalis-projects.vercel.app/signup', {
+    client.post('/signup', {
             
             email: email,
             username: username,

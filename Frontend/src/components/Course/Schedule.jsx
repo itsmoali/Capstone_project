@@ -10,6 +10,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { MobileTimePicker } from '@mui/x-date-pickers/MobileTimePicker';
 import dayjs from 'dayjs';
+import client from '../Auth/path.js';
 
 function Schedule() {
 
@@ -43,8 +44,8 @@ function Schedule() {
     alert("Please wait while your course is being created. This may take a while.")
     navigate('/')
     await Promise.all([
-      axios.post('/create/course', courseList),
-      axios.post('/create/schedulemaker', {
+      client.post('/create/course', courseList),
+      client.post('/create/schedulemaker', {
         "course_data": courseList,
         "start_date": selectedDate,
         "daily_practice_time": selectDuration,
