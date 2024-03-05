@@ -35,3 +35,6 @@ credentials.json
 /token files
 
 token.json
+
+Frontend/.env
+Frontend/.env
