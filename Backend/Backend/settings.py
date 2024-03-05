@@ -33,7 +33,9 @@ DEBUG = os.environ.get('DEBUG', 'True') =="True"
 ALLOWED_HOSTS = ['local','127.0.0.1','backend-obio.onrender.com']
 
 
-CORS_ALLOWED_ORIGINS = ['https://backend-obio.onrender.com','http://localhost:3000']
+CORS_ALLOWED_ORIGINS = ['*']
+
+SECURE_REFERRER_POLICY = 'no-referrer'
 
 CORS_ALLOW_HEADERS = (
     "accept",
