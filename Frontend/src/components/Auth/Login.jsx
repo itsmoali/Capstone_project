@@ -19,7 +19,11 @@ import { useNavigate, NavLink } from 'react-router-dom';
 
 
 const client = axios.create({
-  baseURL: "https://backend-obio.onrender.com" 
+  baseURL: "https://backend-obio.onrender.com",
+  headers: {
+    "Access-Control-Allow-Origin":"*",
+  },
+
 });
 
 
@@ -28,7 +32,7 @@ export default function Login() {
 
   const navigate = useNavigate();
   const auth = useAuth();
-  
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
