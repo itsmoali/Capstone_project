@@ -19,11 +19,7 @@ import { useNavigate, NavLink } from 'react-router-dom';
 
 
 const client = axios.create({
-  baseURL: "https://backend-obio.onrender.com",
-  headers: {
-    "Access-Control-Allow-Origin":"*",
-  },
-
+  baseURL: "https://backend-obio.onrender.com"
 });
 
 
