@@ -33,8 +33,16 @@ DEBUG = os.environ.get('DEBUG', 'True') =="True"
 ALLOWED_HOSTS = ['local','127.0.0.1','backend-obio.onrender.com']
 
 
+CORS_ALLOWED_ORIGINS = ['https://backend-obio.onrender.com']
 
-
+CORS_ALLOW_HEADERS = (
+    "accept",
+    "authorization",
+    "content-type",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+)
 
 # Application definition
 

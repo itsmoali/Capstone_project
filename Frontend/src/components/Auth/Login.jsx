@@ -18,6 +18,9 @@ import { useAuth } from './auth';
 import { useNavigate, NavLink } from 'react-router-dom';
 
 
+const client = axios.create({
+  baseURL: "https://backend-obio.onrender.com" 
+});
 
 
 export default function Login() {
@@ -31,7 +34,7 @@ export default function Login() {
 
   function handleLogin (e) {
     e.preventDefault();
-    axios.post('/login',{
+    client.post('/login',{
       email:email,
       password:password
     }).then((response) => {
