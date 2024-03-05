@@ -29,8 +29,6 @@ with open(detailed_model) as f:
 
 
 
-
-
 # Create a Basic Course Outline
 def course_outline(duration, topic, difficulty):
     

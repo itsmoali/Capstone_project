@@ -10,6 +10,7 @@ const Create_Course = () => {
   
   const auth = useAuth();
   
+  {console.log(process.env.REACT_APP_GPT)}
 
 
   useEffect(() => {
@@ -46,10 +47,6 @@ function submit_info(e){
     course:Course_name,
     duration:Course_duration,
     difficulty:Course_difficulty
-  }, {
-    headers: {
-      'Authorization': `Bearer ${process.env.REACT_APP_GPT}`
-    }
   }).
   //# The 'then' block executes when the POST request is successful and sends
   // the user and course data to the '/schedule' endpoint. 
