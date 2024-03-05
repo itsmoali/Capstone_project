@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure--gqn8cxao&q&%n%68f56)_2=isyb@bfngt^%=9_$)(q97%dg2'
 DEBUG = os.environ.get('DEBUG', 'True') =="True"
 
 
-ALLOWED_HOSTS = ['local','127.0.0.1','https://backend-obio.onrender.com']
+ALLOWED_HOSTS = ['local','127.0.0.1','backend-obio.onrender.com']
 
 
 
