@@ -6,6 +6,7 @@ import { blue, pink } from '@mui/material/colors';
 import Course_Card from "./Course_Card"
 import SideBar from './SideBar';
 import styled from '@mui/material/styles/styled';
+import client from '../Auth/path.js';
 
 const Item = styled('div')(({ theme }) => ({
   padding: theme.spacing(1),
@@ -23,11 +24,7 @@ const Courses = () => {
 
   async function getCourseList() {
     try {
-      const response = await axios.get('/courses', {
-        headers: {
-          'Access-Control-Allow-Origin': true,
-          'Content-Type': 'application/json',
-        },
+      const response = await client.get('/courses', {
       });
       setCourseList(response.data);
     } catch (error) {
