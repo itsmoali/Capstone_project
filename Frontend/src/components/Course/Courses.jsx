@@ -24,7 +24,7 @@ const Courses = () => {
 
   async function getCourseList() {
     try {
-      const response = await client.get('/courses', {
+      const response = await client.get('/courses/', {
       });
       setCourseList(response.data);
     } catch (error) {
