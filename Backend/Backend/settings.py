@@ -36,7 +36,7 @@ ALLOWED_HOSTS = ['local','127.0.0.1','backend-obio.onrender.com']
 # CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
-ACCESS_CONTROL_ALLOW_ORIGIN = 'capstone-project-zeta-nine.vercel.app'
+ACCESS_CONTROL_ALLOW_ORIGIN = 'https://capstone-project-zeta-nine.vercel.app'
 
 VARY = 'Origin'
 
