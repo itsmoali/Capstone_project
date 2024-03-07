@@ -33,9 +33,12 @@ DEBUG = os.environ.get('DEBUG', 'True') =="True"
 ALLOWED_HOSTS = ['local','127.0.0.1','backend-obio.onrender.com']
 
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
+ACESS_CONTROL_ALLOW_ORIGIN = 'capstone-project-zeta-nine.vercel.app'
+
+VARY = 'Origin'
 
 CORS_ALLOW_HEADERS = (
     "accept",
