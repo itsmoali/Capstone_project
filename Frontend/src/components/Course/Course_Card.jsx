@@ -62,9 +62,9 @@ const Course_Card = (courses) => {
     const course = Object.entries(courses).map((key,values) =>(
         
         
-                <Stack  className="Main-box" key={key[1].course_name } sx={{mt:'20vh'}}>
+                <Stack  className="Main-box" key={key[1].course_name } sx={{mt:'20vh',bgcolor:'primary.background',color:'primary.getContrastText'}}>
                     <span style={{paddingBottom:'40px'}}>
-                        <Link to={`/courses/:topic/${key[1].course_name}`} state={{data:courses.courses}} style={{ userSelect: 'none', textDecoration: 'none', color:'black' }}><b>{key[1].course_name}</b></Link>
+                        <Link to={`/courses/:topic/${key[1].course_name}`} state={{data:courses.courses}} style={{ userSelect: 'none', textDecoration: 'none', color:'white', fontSize:'30px'}}><b>{key[1].course_name}</b></Link>
                     </span>
 
                     <Stack  sx={{ width: '96%'}} >
@@ -75,11 +75,11 @@ const Course_Card = (courses) => {
                         {key[1].course_details.map((course) => (
                         <List key={course}>
                             
-                            <Item >
+                            <Item sx={{fontSize: '140%'}} >
                                 <Button component={Link} to={`/courses/${course.topic}`} state={{data:course, current_course:key[1]}} sx={{flexGrow:1 ,textAlign:'start'}} >
                                     {/* <Link className='buttons' to={`/courses/${course.topic}`} state={{data:course, current_course:key[1]}} > */}
                                     
-                                    <ListItemText  primary={`Day ${course.day} - ${course.topic}`}></ListItemText>
+                                    <ListItemText primaryTypographyProps={{fontSize:'20px'}} primary={`Day ${course.day} - ${course.topic}`} ></ListItemText>
                                     
                                     {/* </Link> */}
                                     </Button>
@@ -93,7 +93,7 @@ const Course_Card = (courses) => {
                                     {Object.entries(course.subtopics).map((key,values) =>(
                                         <ListItemButton sx={{ pl: 4 }} key={key[0]}>
                                             <CircleIcon sx={{fontSize: 7, margin:2}}/>
-                                            <ListItemText primary={key[0]} />
+                                            <ListItemText primaryTypographyProps={{fontSize:'20px'}}  primary={key[0]} />
                                         </ListItemButton>
                                     
                                     ))}
@@ -120,7 +120,7 @@ const Course_Card = (courses) => {
 
     return(
 
-        <Box>
+        <Box sx={{bgcolor:'primary.main'}}>
             {course}
         </Box>
             

@@ -9,7 +9,21 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { MobileTimePicker } from '@mui/x-date-pickers/MobileTimePicker';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import dayjs from 'dayjs';
+
+
+const defaultTheme = createTheme({
+  components: {
+    MuiButton: {
+        styleOverrides: {
+            root: {
+                fontSize: '1.2rem',
+                },
+            },
+        },
+    },
+});
 
 function Schedule() {
 
@@ -70,10 +84,10 @@ function Schedule() {
               <h3>Course Schedule</h3>
               {courseList['schedule'].map(item => (
                 <div class="inner-schedule" id="inner-schedule">
-                  <span><b>Day {item.day}: {item.topic}</b></span>
+                  <span ><b>Day {item.day}: {item.topic}</b></span>
                   <br />
                   {item.subtopics.map((subtopic, index) => (
-                    <div >
+                    <div style={{padding:'6px'}} >
                       <span>{index+1}. {subtopic}</span>
                       <br />
                     </div>
@@ -100,7 +114,9 @@ function Schedule() {
             onChange={(e)=>setSelectDuration(e.target.value)} />
 
             <Box>
+            <ThemeProvider theme={defaultTheme}>
               <MobileTimePicker defaultValue={dayjs()} onChange={(timechange)}/>
+              </ThemeProvider>
             </Box>
             <Button variant='contained' sx={{mt:3}} onClick={(save_info)}>
               Submit

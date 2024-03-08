@@ -41,7 +41,8 @@ const Courses = () => {
   return (
     // <Grid sx={{ alignItems: 'center', justifyContent: 'center', flexGrow: '1' }}>
     <Stack   direction={{ xs: 'row', xl: 'row' }}
-    spacing={{ xs: 1, sm: 1, md: 4 }}>
+    spacing={{ xs: 1, sm: 1, md: 4 }}
+    sx={{bgcolor:'primary.main'}}>
       
       {/* <Item>
         <SideBar></SideBar>

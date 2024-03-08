@@ -9,6 +9,7 @@ const Colors = {
     design2: '#4B0795',
     textcolor: '#FFFFFF',
     textcolor2: '#000000',
+    cards: '#242526',
   }
   
 
@@ -18,10 +19,15 @@ const theme = createTheme({
     palette: {
         primary: {
             main: Colors.primary,
-            secondary: Colors.textcolor
+            secondary: Colors.textcolor,
+            background: Colors.cards,
+            getContrastText: Colors.textcolor,
+            
+            
         },
         secondary: {
             main: Colors.secondary,
+            secondary: Colors.cards,
         }
     },
 
