@@ -20,15 +20,15 @@ const Main = () => {
         <Grid container  columns={16} alignItems="center" justifyContent="space-around" spacing={2}>
                         
             <Grid  item xs={6} md={4} sx={{width:'50vw'}} >
-                <Typography component="h3" variant="h3"  gutterBottom>
-                    Sabaq
+                <Typography component="h3" variant="h1"  gutterBottom>
+                    Habit Banao
                 </Typography>
                 <Typography variant="h2" paragraph>
                  Revolutionizing Education With AI
                 </Typography>
-                <Stack sx={{ pt: 4 }} direction="row" spacing={2} justifyContent="start">
-                    <Button variant="contained" href='/Signup'>Join Now</Button>
-                    <Button variant="contained" href='/create_course'>View Demo</Button>
+                <Stack sx={{ pt: 4}} direction="row" spacing={2} justifyContent="start">
+                    <Button sx={{fontSize:'20px' }} variant="contained" href='/Signup'>Join Now</Button>
+                    <Button sx={{fontSize:'20px' }} variant="contained" href='/create_course'>View Demo</Button>
                 </Stack>
             </Grid>
             <Grid item xs={6} md={8} sx={{width:'35vw', height:'60vh'}}>
