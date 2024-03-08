@@ -19,10 +19,9 @@ function App() {
       <AuthProvider>
       
         <BrowserRouter>
-<<<<<<< HEAD
-=======
+
         <Navbar />
->>>>>>> Main-Front-end
+
           <Routes>
             <Route path="/login" element={<Login/>}></Route>
             <Route path="/logout" element={<Logout/>}></Route>
