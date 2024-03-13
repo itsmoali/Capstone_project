@@ -84,7 +84,7 @@ const Info = () => {
         </Grid>
         <Grid item sx={{width:'35vw', height:'60vh',border: '1px solid black', borderRadius:'5%', overflow:'hidden'}} xs={4} md={5} >
           
-          <iframe  width="100%" height="100%" border="100" src="https://www.youtube.com/embed/oEXFMGK7IC0" title="Strange the Dreamer - Savfk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <iframe  width="100%" height="100%" border="100" src="https://www.loom.com/embed/ed17429cf4b14998b07f8cfdf52b4e1f?sid=cc2c118e-73bd-418d-b8b5-216407d4d878" title="Strange the Dreamer - Savfk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           
         </Grid>
       </Grid>

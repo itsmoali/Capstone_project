@@ -10,25 +10,45 @@ import { useNavigate } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import { red } from '@mui/material/colors';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 
 
 const Course_Detail = () => {
+
+    window.scrollTo(0, 0)
+
     
     const {state} = useLocation();
-
-    
-    
-
-    
 
     
     const [currentIndex, setCurrentIndex] = useState(0);
     const topics = Object.entries(state.data.subtopics);
 
-    const course_details = Object.entries(state.current_course.course_details);
+    let details = [];
+
+    const displayKeyValuePairs = (obj, indent = 0, main_topic = '') => {
+        for (const key in obj) {
+          if (typeof obj[key] === 'object') {
+            if (indent === 0) {
+              
+              main_topic = key;
+            }
+            displayKeyValuePairs(obj[key], indent + 1, main_topic);
+          } else {
+            const pair = { [key]: obj[key] };
+            // Check if the main_topic already exists in details
+            if (details[main_topic]) {
+              details[main_topic][key] = obj[key];
+            } else {
+              details[main_topic] = pair;
+            }
+          }
+        }
+      };
+      
+    displayKeyValuePairs(state.data.subtopics);
 
 
     const handleNext = () => {
@@ -44,20 +64,19 @@ const Course_Detail = () => {
     
   return (
 
-    <Box sx={{mt:'10vh',p:5}}>
+<Box sx={{mt:'10vh',p:5}}>
         
         
-        {/* <Button variant="contained" onClick={()=> next()}>Next</Button> */}
-        {Object.entries(state.data.subtopics).map(([key, value] , index) => (
-
+        {Object.entries(details).map(([key, value] , index) => (
+        
         
         <Box key={key} sx={{ display: index === currentIndex ? 'block' : 'none'}}>
             <Box sx={{display: 'flex' ,  justifyContent: 'space-around',pr:5}}>
-
+        
                 <Button variant= "contained" onClick={handlePrevious}>
                     Previous
                 </Button>
-
+        
                 <Link to={`/courses/:topic/${state.current_course.course_name}`} state={{ data: state.current_course }}  >
                     <Button variant="contained" >
                         Main Menu
@@ -67,73 +86,72 @@ const Course_Detail = () => {
                     Next
                 </Button>
             </Box>
-
+        
             <Box sx={{display: 'flex' ,  justifyContent: 'center',pt:7}}>
                 <Typography
                     variant="h1"
-                    sx={{ textTransform: 'capitalize', fontWeight: 600, fontSize: 26}}
+                    sx={{ textTransform: 'capitalize', fontWeight: 600, fontSize: 33}}
                     >
                     {key}
                     
                 </Typography>
             </Box>
+    
 
-            
-            
-
-            
             {typeof value === 'object' && (
             <Box>
-                {Object.entries(value[0]).map(([nestedKey, nestedValue]) => (
-
-                    
-
-                    (typeof nestedValue === 'object' && (
-                        <Box>
-                            {Object.entries(nestedValue).map(([nestedKey, nestedValue]) => (
-                                
-                                <List sx={{whiteSpace: 'pre-line',pt:3}}>
-                                    <Typography sx={{justifyContent: 'center', display:'flex',fontSize: 18,fontWeight: 600}} >{nestedKey} </Typography>
-                                    
-                                    {typeof nestedValue === 'object' ? (
-                                        <Box >
-                                            {Object.entries(nestedValue).map(([nestedKey, nestedValue])=>(
-                                                <List>
-                                                    <ListItem sx={{mt:-2}}>
-                                                        <CircleIcon sx={{fontSize: 10, margin:2}}/>
-                                                        <ListItemText primary={nestedKey}  />
-                                                    </ListItem>
-                                                    <ListItem sx={{pl:10,mt:-3}}>
-                                                        <ListItemText primaryTypographyProps={{lineHeight: 1.8}} primary={nestedValue} ></ListItemText>
-                                                    </ListItem>
-                                                
-                                                </List>
-                                            ))}
-                                        </Box>
-                                    ):(
-                                        <ListItem >
-                                        <ListItemText primaryTypographyProps={{lineHeight: 1.8}} primary={nestedValue}/>
-                                        
-                                      </ListItem>
-                                    )}
-                                    
-                                    
+            
+            {Object.entries(value).map(([nestedKey, nestedValue]) => (
+                <List sx={{whiteSpace: 'pre-line',pt:3}}>
+                    <Typography sx={{justifyContent: 'center', display:'flex',fontSize: 30,fontWeight: 600}} >{nestedKey} </Typography>
+                    {typeof nestedValue === 'object' ? (
+                        <Box >
+                            {Object.entries(nestedValue).map(([nestedKey, nestedValue])=>(
+                                <List sx={{bgcolor:'blue'}}>
+                                    <ListItem sx={{mt:-2}}>
+                                        <CircleIcon sx={{fontSize: 10, margin:2}}/>
+                                        <ListItemText primary={nestedKey}  />
+                                    </ListItem>
+                                    <ListItem sx={{pl:10,mt:-3}}>
+                                    <ListItemText primaryTypographyProps={{lineHeight: 1.8}} primary={nestedValue}/>
+                                    </ListItem>
                                 </List>
-
                             ))}
                         </Box>
-                    ))         
-                ))}
-            </Box>
-            )}
+                    ) : (
+                        <List >
+                            {/* <ListItem sx={{mt:-2}}>
+                                <CircleIcon sx={{fontSize: 10, margin:2}}/>
+                                <ListItemText primary={nestedKey}  />
+                            </ListItem> */}
+                            <ListItem sx={{pl:10,mt:3}}>
+                                <ListItemText primaryTypographyProps={{lineHeight: 1.8, fontSize:25}} primary={nestedValue}/>
+                            </ListItem>
+                        </List>
+                    )}
+                </List>
+            ))}
+        </Box>
+    )}
+            
+            
+        
         </Box>
         ))}
         
-
-
-    </Box>
+        
+        
+        </Box>
 
   )
 }
 
 export default Course_Detail
+
+
+// {Object.entries(details).map(([key, value],index) => (
+
+        
+
+
+// ))}

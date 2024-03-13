@@ -11,7 +11,8 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { MobileTimePicker } from '@mui/x-date-pickers/MobileTimePicker';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import dayjs from 'dayjs';
-
+import Errors from '../Errors/Errors'
+import Loading from '../Loading/Loading'
 
 const defaultTheme = createTheme({
   components: {
@@ -35,6 +36,9 @@ function Schedule() {
   const [selectDuration, setSelectDuration] = useState(null);
   const [selectTime, setSelectTime] = useState(null);
 
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const timechange = (data) => {
     var time = data.hour() + ":" + data.minute()
     setSelectTime(time)
@@ -55,7 +59,8 @@ function Schedule() {
 
   async function save_info() {
     alert("Please wait while your course is being created. This may take a while.")
-    navigate('/')
+    // navigate('/')
+    setLoading(true);
     await Promise.all([
       axios.post('/create/course', courseList),
       axios.post('/create/schedulemaker', {
@@ -66,9 +71,11 @@ function Schedule() {
       })]).then((response) => {
         console.log("Information has beed added to database.")
         alert("Your course has been created successfully.")
+        setLoading(false);
         navigate('/Courses');
       }).catch((error) => {
         console.log("Error has been detected", error.response.data);
+        setError(true);
       })
   };
 
@@ -150,8 +157,14 @@ function Schedule() {
 
 
   return (
+
+    <Box>
+    {error && <Errors />}
+    {loading && <Loading />}
+    {!error && !loading &&
     <Stack spacing={{ xs: 1, sm: 2}} direction="column"  justifyContent="center" alignItems="center" sx={{mt:20}}>
-        {Course_Schedule}
+
+        {Course_Schedule} 
       <Container  sx={{display:'flex', justifyContent:'space-evenly',padding:'30px 0px 50px 0px'}}>
         <Button onClick={(OpenModal)} variant='contained'>Finalize</Button>
         {Schedule_Planning}
@@ -159,7 +172,8 @@ function Schedule() {
             <Button variant='contained'>Make Changes</Button>
         </Link>
     </Container>
-    </Stack>
+    </Stack>}
+    </Box>
   )
 }
 

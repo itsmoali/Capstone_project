@@ -4,11 +4,13 @@ import Course_Card from './Course_Card';
 import { useEffect } from 'react';
 import { Box } from '@mui/material';
 const Individual_Details = () => {
+  
   const {state} = useLocation();
   
   return (
     
     <Box sx={{p:7}}>
+      
         <Course_Card courses = {state.data}></Course_Card>
     </Box>
   )

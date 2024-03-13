@@ -31,8 +31,8 @@ const Main = () => {
                     <Button variant="contained" href='/create_course'>View Demo</Button>
                 </Stack>
             </Grid>
-            <Grid item xs={6} md={8} sx={{width:'35vw', height:'60vh'}}>
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/oEXFMGK7IC0" title="Strange the Dreamer - Savfk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <Grid item xs={6} md={8} sx={{width: '35vw', height:'60vh'}}>
+                <iframe width="100%" height="100%" src="https://www.loom.com/embed/ed17429cf4b14998b07f8cfdf52b4e1f?sid=cc2c118e-73bd-418d-b8b5-216407d4d878" title="Strange the Dreamer - Savfk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </Grid>
 
         </Grid>

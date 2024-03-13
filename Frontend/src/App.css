@@ -7,6 +7,7 @@
   --color-6: #2EA58C;
   --color-7: #4B0795;
   --text-color: white;
+  --new-testing-color: #222;
 }
 
 
@@ -132,14 +133,12 @@
   }
 
 .course-message{
-  margin-top: 2vh;
-  box-sizing: border-box;
-  margin-bottom: 5vh;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   background-color:  #d3dff6;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 2px 15px 2px 15px;
   text-align: center;
+
 }
 
 .buttons{

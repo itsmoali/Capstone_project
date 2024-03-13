@@ -8,3 +8,4 @@ export {default as Create_Course} from './Course/Create_Course';
 export {default as Schedule} from './Course/Schedule';
 export {default as Course_Detail} from './Course/Course_Detail';
 export {default as Individual_Details} from './Course/Individual_Details';
+export {default as NotFound} from './Errors/NotFound';

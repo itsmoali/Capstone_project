@@ -77,11 +77,9 @@ const Course_Card = (courses) => {
                             
                             <Item sx={{fontSize: '140%'}} >
                                 <Button component={Link} to={`/courses/${course.topic}`} state={{data:course, current_course:key[1]}} sx={{flexGrow:1 ,textAlign:'start'}} >
-                                    {/* <Link className='buttons' to={`/courses/${course.topic}`} state={{data:course, current_course:key[1]}} > */}
-                                    
+                          
                                     <ListItemText primaryTypographyProps={{fontSize:'20px'}} primary={`Day ${course.day} - ${course.topic}`} ></ListItemText>
-                                    
-                                    {/* </Link> */}
+
                                     </Button>
                                 <Button  onClick={() => handleClick(course.topic)} >
                                     {open[course.topic] ? <ExpandLess/> : <ExpandMore  />}
