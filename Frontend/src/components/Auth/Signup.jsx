@@ -16,14 +16,14 @@ import Alert from '@mui/material/Alert';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { FormControl, InputLabel } from '@mui/material';
 import axios from 'axios';
+import { useAuth } from './auth';
 import client from './path';
 
 
 
 const Signup = () => {
+    const auth = useAuth();
     const navigate = useNavigate();
-    const [isLoggedIn , setIsLoggedIn] = useState(false)
-    const [currentUser, setCurrentUser] = useState();
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('');
     const [error, setError] = useState('');
@@ -51,23 +51,40 @@ function handleSubmit(e) {
         return;
     }
 
-    client.post('/signup', {
+    const result = auth.signup(username, email, password);
+
+    if (result) {
+        navigate('/');
+    }
+    else {
+        setError("Error in signing up");
+    }
+    
+    
+
+
+    //Use the signup function from the useAuth hook
+
+    
+
+
+    // client.post('/signup', {
             
-            email: email,
-            username: username,
-            password: password
-        })
-        .then((response) => {
-            // Handle successful response
-            console.log('Registration successful', response.data);
-            // Navigate to the Login Page
-            navigate('/login');
-        })
-        .catch((error) => {
-            // Handle network error
-            console.error('Network error:', error.response.data);
-            // You can set an error state or display an error message here
-        });
+    //         email: email,
+    //         username: username,
+    //         password: password
+    //     })
+    //     .then((response) => {
+    //         // Handle successful response
+    //         console.log('Registration successful', response.data);
+    //         // Navigate to the Login Page
+    //         navigate('/login');
+    //     })
+    //     .catch((error) => {
+    //         // Handle network error
+    //         console.error('Network error:', error.response.data);
+    //         // You can set an error state or display an error message here
+    //     });
 }
 
 
@@ -94,7 +111,7 @@ function handleSubmit(e) {
                     
                 </Typography >
                 {error && <Alert severity="error">{error}</Alert>}
-                {currentUser && <Alert severity="success">You have successfully signed up</Alert>}
+                {auth.isLoggedIn && <Alert severity="success">You have successfully signed up</Alert>}
                 
                 
                 <Box component="form"  sx={{ mt: 3}}>

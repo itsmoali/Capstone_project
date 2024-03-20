@@ -49,3 +49,16 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.username
+
+
+# class Courses(models.Model):
+#     course_id = models.BigAutoField(primary_key=True)
+#     course_name = models.CharField(max_length=100, unique=True) 
+#     course_difficulty = models.CharField(max_length=100, default="Beginner")
+#     course_duration = models.CharField(max_length=100, default="1")
+#     course_details = models.JSONField(default=dict)
+#     user = models.ManyToManyField(User, related_name='courses', null=True, blank=True)
+    
+
+#     def __repr__(self):
+#         return f"{self.course_name} - {self.course_difficulty} - {self.course_duration} - {self.course_details}"

@@ -40,6 +40,7 @@ class UserSerializer(serializers.ModelSerializer):
     username = serializers.CharField()
     email = serializers.EmailField()
 
+
     class Meta:
         model = CustomUserModel
         fields = ['email', 'username']

@@ -27,7 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--gqn8cxao&q&%n%68f56)_2=isyb@bfngt^%=9_$)(q97%dg2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True') =="True"
+# DEBUG = os.environ.get('DEBUG', 'True') =="True"
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['local','127.0.0.1','backend-obio.onrender.com']
@@ -69,6 +70,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
     'API.apps.UserApi',
     'GPT_API.apps.GPTApi'
@@ -149,7 +151,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
+       'rest_framework.authentication.TokenAuthentication',
     ),
 }
 

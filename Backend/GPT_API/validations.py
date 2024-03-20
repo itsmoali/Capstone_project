@@ -2,7 +2,7 @@
 from django.core.exceptions import ValidationError
 from .models import Courses
 
-# data = {"course":"Piano","difficulty":"Beginner","duration":"10 days"}
+
 
 
 def info_validation(data):

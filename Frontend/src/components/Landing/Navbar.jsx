@@ -54,17 +54,27 @@ const Navbar = () => {
                 <Button variant='contained'>Create A Course</Button>
               </Link>
 
+              
+
               {!auth.isLoggedIn && 
                 (<Link to={"/Login"}>
                   <Button variant='contained'>Login</Button>
-                </Link>)}
+                </Link>
+                
+                )}
 
               {auth.isLoggedIn && 
                 (
-                  <Logout/>
+                  <>
+                    
+                    <Link to ="/Profile">
+                      <Button variant='contained'>Profile</Button>
+                    </Link>
+                    <Logout/>
+                  </>
                 )}
 
-
+              
 
           </Box>
           

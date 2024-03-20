@@ -6,18 +6,12 @@ import client from './path.js';
 
 export default function Logout() {
     const auth = useAuth();
-    const Navigate = useNavigate();
+    const navigate = useNavigate();
 
     function handleLogout (e) {
         e.preventDefault();
-        client.post('/logout')
-        .then((response) => {
-            console.log('User has been logged out',response.data);
-            auth.logout();
-            Navigate('/Login');
-        }).catch((error) => {
-            console.log('Erros has been detected',error.response.data);
-        });
+        auth.logout();  
+        navigate('/login');
 
 
     };

@@ -31,17 +31,11 @@ export default function Login() {
 
   function handleLogin (e) {
     e.preventDefault();
-    client.post('/login',{
-      email:email,
-      password:password
-    }).then((response) => {
-      console.log('User has been logged In',response.data);
-      auth.login()
-      
-      navigate('/')
-    }).catch((error) => {
-      console.log('Erros has been detected',error.response.data);
-    });
+
+    const result = auth.login(email, password);
+    if (result) {
+      navigate('/');
+    }
   }
 
   return (

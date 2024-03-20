@@ -4,6 +4,7 @@ import { FAQ, About, Contact, Info, Main, Navbar } from './index';
 import '../../App.css';
 import { Stack } from '@mui/material';
 
+
 const Home = () => {
   return (
     <Stack
