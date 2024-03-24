@@ -3,7 +3,8 @@ import { Box, Grid, Stack } from '@mui/material';
 import { useAuth } from '../Auth/auth';
 import client from '../Auth/path';
 import Course_Card from '../Course/Course_Card';
-
+import Course_preview from '../Course/Course_preview';
+import Loading from '../Loading/Loading';
 
 
 
@@ -16,6 +17,7 @@ const UserCourses = () => {
   const auth = useAuth();
   
   const [courselist, setCourseList] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect (() => {
 
@@ -30,6 +32,7 @@ const UserCourses = () => {
           "Authorization": `Token ${auth.token}`
         }
       });
+      setLoading(false);
       setCourseList(response.data);
     } catch (error) {
       console.error(error);
@@ -38,13 +41,14 @@ const UserCourses = () => {
     
 
   return (
-    <Box> 
-        <h1>Your Courses</h1>
-        <Stack>
+    <Box sx={{height:'100%'}}> 
+        {loading && <Loading />}
+        {!loading &&
+        <Stack sx={{mt:'-20vh'}}>
         {courselist.map((course)=> (
-            <Course_Card courses = {course}></Course_Card>
+            <Course_preview courses={course} />
         ))}
-        </Stack>
+        </Stack>}
     </Box>
   )
 }

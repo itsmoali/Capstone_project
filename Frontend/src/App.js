@@ -2,7 +2,7 @@ import './App.css';
 
 import { BrowserRouter, Routes, Route, Router} from 'react-router-dom';
 import { Box } from '@mui/system';
-import {Login, Courses, Navbar, Signup, Home, Logout, Create_Course, Schedule, Course_Detail, Individual_Details, Profile} from './components';
+import {Login, Courses, Navbar, Signup, Home, Logout, Create_Course, Schedule, Course_Detail, Individual_Details, Profile, Course_preview} from './components';
 
 import AuthProvider, { AuthContext } from './components/Auth/auth.js';
 import theme from './components/Styles/Styles.js';
@@ -33,6 +33,8 @@ function App() {
             <Route path="/create_course" element={<Create_Course/>}></Route>
             <Route path="/" element={<Home/>}></Route>
             <Route path="/schedule" element={<Schedule/>}></Route>
+            <Route path="/course_preview" element={<Course_preview/>}></Route>
+
  
           </Routes>
         </BrowserRouter>

@@ -35,6 +35,9 @@ def output_validation(data):
     course_name = data.get('course', False)
     course_difficulty = data.get('difficulty', False)
     course_duration = data.get('duration', False)
+    course_skills = data.get('skills', False)
+    course_summary = data.get('summary', False)
+    # course_image = data.get('image', False)
     course_schedule= data.get('schedule', False)
 
     if not course_name:
@@ -45,6 +48,11 @@ def output_validation(data):
         raise ValidationError("Course Duration is required. Please try again")
     if not course_difficulty:
         raise ValidationError("Course Difficulty is required. Please try again")
-
+    if not course_summary:
+        raise ValidationError("Course Summary is required. Please try again")
+    if not course_skills:
+        raise ValidationError("Course Skills is required. Please try again")
+    # if not course_image:
+    #     raise ValidationError("Course Image is required. Please try again")
     return data
 

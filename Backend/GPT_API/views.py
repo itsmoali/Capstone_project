@@ -9,7 +9,7 @@ from rest_framework.response import Response
 from rest_framework import status, permissions
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from .validations import info_validation, output_validation
-from .GPT import course_outline , create_detailed_schedule
+from .GPT import course_outline , create_detailed_schedule, threading, img_gen
 from Calendar_API.main import event_creator
 
 
@@ -51,14 +51,14 @@ class CreateCourse(APIView):
         course_outline = output_validation(request.data)
         
 
-        gpt_output = create_detailed_schedule(course_outline)
-
+        # gpt_output = create_detailed_schedule(course_outline)
+        gpt_output = threading(course_outline)
 
         # gpt_output = create_schedule(clean_data[0], clean_data[1], clean_data[2])
-        print(gpt_output)
+        
 
         serializer = CoursesSerializer(data = {'course_name':gpt_output['course'], 'course_difficulty': gpt_output['difficulty'],
-                                    'course_duration': gpt_output['duration'],'course_details': gpt_output['schedule']})
+                                    'course_duration': gpt_output['duration'],'course_skills':gpt_output['skills'],'course_image':gpt_output['course_image'],'course_summary':gpt_output['summary'],'course_details': gpt_output['schedule']})
         
         if serializer.is_valid(raise_exception=True):
             course = serializer.create(serializer.validated_data)

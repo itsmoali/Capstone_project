@@ -20,6 +20,7 @@ import Logout from '../Auth/Logout';
 const Navbar = () => {
 
   const auth = useAuth();
+  console.log(auth)
   
 
   useEffect(() => {

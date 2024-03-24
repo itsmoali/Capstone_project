@@ -37,51 +37,22 @@ const Course_Card = (courses) => {
         }));
       };
 
-    // const [topic, setTopic] = useState({});
-
-    // const handleTopic = (courses) => {
-    //     setTopic((prevState) => {
-    //       const newTopicState = {};
-      
-    //       Object.entries(courses).forEach(([key, values], index) => {
-    //         // values.course_details[index].day
-    //         newTopicState[index] = values.course_details;
-    //       });
-      
-    //       return {
-    //         ...prevState,
-    //         ...newTopicState,
-    //       };
-    //     });
-    //   };
-
-    // useEffect(() => {
-    //     handleTopic(courses);
-    // }, []);
-
     const course = Object.entries(courses).map((key,values) =>(
         
         
-                <Stack  className="Main-box" key={key[1].course_name } sx={{mt:'20vh',bgcolor:'primary.background',color:'primary.getContrastText'}}>
-                    <span style={{paddingBottom:'40px'}}>
-                        <Link to={`/courses/:topic/${key[1].course_name}`} state={{data:courses.courses}} style={{ userSelect: 'none', textDecoration: 'none', color:'white', fontSize:'30px'}}><b>{key[1].course_name}</b></Link>
-                    </span>
+                <Stack  key={key[1].course_name } sx={{bgcolor:'primary.background',color:'primary.getContrastText',borderRadius:'10px',boxSizing:'border-box'}}>
 
-                    <Stack  sx={{ width: '96%'}} >
-                       
-                        
-                        
-                            
+                    <Stack  sx={{ width: '50vw',p:1.5}} >
+                               
                         {key[1].course_details.map((course) => (
                         <List key={course}>
                             
                             <Item sx={{fontSize: '140%'}} >
                                 <Button component={Link} to={`/courses/${course.topic}`} state={{data:course, current_course:key[1]}} sx={{flexGrow:1 ,textAlign:'start'}} >
-                                    {/* <Link className='buttons' to={`/courses/${course.topic}`} state={{data:course, current_course:key[1]}} > */}
+                                    
                                     
                                     <ListItemText primaryTypographyProps={{fontSize:'20px'}} primary={`Day ${course.day} - ${course.topic}`} ></ListItemText>
                                     
-                                    {/* </Link> */}
                                     </Button>
                                 <Button  onClick={() => handleClick(course.topic)} >
                                     {open[course.topic] ? <ExpandLess/> : <ExpandMore  />}
@@ -104,16 +75,6 @@ const Course_Card = (courses) => {
                         ))}
                     
                     </Stack>
-
-                    <Box className="fotter">
-                        {/* <div className="rating"> */}
-                            <span><b>Rating:</b>4.6</span>
-                        {/* </div> */}
-                        {/* <div className="stats"> */}
-                            <span><b>Difficulty:</b> {key[1].course_difficulty}</span>
-                            <span><b>Time Required:</b> {key[1].course_duration}</span>
-                        {/* </div> */}
-                    </Box>
                 </Stack>
             
     ))

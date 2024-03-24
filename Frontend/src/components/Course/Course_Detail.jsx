@@ -87,8 +87,8 @@ const Course_Detail = () => {
                 {Object.entries(value[0]).map(([nestedKey, nestedValue]) => (
 
                     
-
-                    (typeof nestedValue === 'object' && (
+                    
+                    (typeof nestedValue === 'object' ? (
                         <Box>
                             {Object.entries(nestedValue).map(([nestedKey, nestedValue]) => (
                                 
@@ -104,7 +104,7 @@ const Course_Detail = () => {
                                                         <ListItemText primary={nestedKey}  />
                                                     </ListItem>
                                                     <ListItem sx={{pl:10,mt:-3}}>
-                                                        <ListItemText primaryTypographyProps={{lineHeight: 1.8}} primary={nestedValue} ></ListItemText>
+                                                        <ListItemText primaryTypographyProps={{lineHeight: 2.8}} primary={nestedValue} ></ListItemText>
                                                     </ListItem>
                                                 
                                                 </List>
@@ -112,7 +112,8 @@ const Course_Detail = () => {
                                         </Box>
                                     ):(
                                         <ListItem >
-                                        <ListItemText primaryTypographyProps={{lineHeight: 1.8}} primary={nestedValue}/>
+                                            
+                                        <ListItemText primaryTypographyProps={{lineHeight: 2.8}} primary={nestedValue}/>
                                         
                                       </ListItem>
                                     )}
@@ -122,7 +123,13 @@ const Course_Detail = () => {
 
                             ))}
                         </Box>
-                    ))         
+                    ) : (
+                        <List>
+                            <Typography sx={{justifyContent: 'center', display:'flex',fontSize: 18,fontWeight: 600}} >{nestedKey} </Typography>
+                            <ListItemText primaryTypographyProps={{lineHeight: 1.8,margin:2, lineHeight:2.8}} primary={nestedValue} ></ListItemText>
+                        </List>
+                    
+                    ))
                 ))}
             </Box>
             )}

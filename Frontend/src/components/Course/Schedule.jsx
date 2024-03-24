@@ -12,6 +12,10 @@ import { MobileTimePicker } from '@mui/x-date-pickers/MobileTimePicker';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import dayjs from 'dayjs';
 import client from '../Auth/path.js';
+import Loading from '../Loading/Loading.jsx'
+import Errors from '../Errors/Errors.jsx'
+
+
 
 
 const defaultTheme = createTheme({
@@ -36,6 +40,9 @@ function Schedule() {
   const [selectDuration, setSelectDuration] = useState(null);
   const [selectTime, setSelectTime] = useState(null);
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null)
+
   const timechange = (data) => {
     var time = data.hour() + ":" + data.minute()
     setSelectTime(time)
@@ -56,7 +63,7 @@ function Schedule() {
 
   async function save_info() {
     alert("Please wait while your course is being created. This may take a while.")
-    navigate('/')
+    setLoading(true);
     await Promise.all([
       client.post('/create/course', courseList),
       client.post('/create/schedulemaker', {
@@ -69,6 +76,8 @@ function Schedule() {
         alert("Your course has been created successfully.")
         navigate('/Courses');
       }).catch((error) => {
+        setLoading(false);
+        setError(true);
         console.log("Error has been detected", error.response.data);
       })
   };
@@ -151,7 +160,12 @@ function Schedule() {
 
 
   return (
+
     <Stack spacing={{ xs: 1, sm: 2}} direction="column"  justifyContent="center" alignItems="center" sx={{mt:20}}>
+      {loading && <Loading />}
+      {error && <Errors />}
+      {!loading && !error &&
+      <>
         {Course_Schedule}
       <Container  sx={{display:'flex', justifyContent:'space-evenly',padding:'30px 0px 50px 0px'}}>
         <Button onClick={(OpenModal)} variant='contained'>Finalize</Button>
@@ -159,7 +173,7 @@ function Schedule() {
         <Link to="/#">
             <Button variant='contained'>Make Changes</Button>
         </Link>
-    </Container>
+    </Container> </>}
     </Stack>
   )
 }

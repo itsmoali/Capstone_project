@@ -1,22 +1,22 @@
 import { TextField, Grid, Button, Paper, styled, Box , Menu, MenuItem, Link, Typography} from '@mui/material'
 import axios from 'axios'
-
 import { useNavigate } from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import { useAuth } from '../Auth/auth';
 import client from '../Auth/path.js';
+import Loading from '../Loading/Loading.jsx';
+import Errors from '../Errors/Errors.jsx';
 
 const Create_Course = () => {
   
   const auth = useAuth();
   
-  {console.log(process.env.REACT_APP_GPT)}
 
 
   useEffect(() => {
     
     localStorage.setItem('isLoggedIn', auth.isLoggedIn);
-    console.log(auth.isLoggedIn);
+
   },[auth.isLoggedIn]);
 
     const [anchorEl, setAnchorEl]= useState(null);
@@ -24,6 +24,7 @@ const Create_Course = () => {
     const [Course_duration, setCourse_duration] = useState(null);
     const [Course_difficulty, setCourse_difficulty] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -52,11 +53,14 @@ function submit_info(e){
   // the user and course data to the '/schedule' endpoint. 
   then((response) => {
     setLoading(false);
+    setError(false);
     navigate('/schedule', {state: response.data});
   }).
   // The 'catch' block executes when the POST request is unsuccessful.
   catch((error) => {
-    console.log('Erros has been detected',error.response.data);
+    setLoading(false);
+    setError(true);
+    console.error(error);
   });
 }
 
@@ -64,10 +68,10 @@ function submit_info(e){
   return (
     
     <Box  sx={{display:'flex',height:'75vh', alignContent:'center', alignItems:'center',flexDirection:'column',mt:'15vh'}}>
-      {loading && <h1>Loading...</h1>}
-
+      {loading && <Loading />}
+      {error && <Errors />}
       
-      {!loading &&
+      {!loading && !error &&
       <Grid container spacing={4}  sx={{justifyContent:'center', flexDirection:'column', alignItems:'center',paddingBottom:'20px',
       paddingTop:'40px'}}>
                 <Grid item >
@@ -135,6 +139,7 @@ function submit_info(e){
           </MenuItem>
       </Menu>
       </Grid>}
+
 
 
   </Box>

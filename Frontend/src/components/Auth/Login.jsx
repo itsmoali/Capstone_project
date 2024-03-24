@@ -34,6 +34,7 @@ export default function Login() {
 
     const result = auth.login(email, password);
     if (result) {
+      console.log(result)
       navigate('/');
     }
   }
