@@ -20,17 +20,17 @@ import Logout from '../Auth/Logout';
 const Navbar = () => {
 
   const auth = useAuth();
-  console.log(auth)
-  
 
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn") === "false" ? false : true
+);
+
+  // // Update local storage and state whenever isLoggedIn changes
   useEffect(() => {
-    
     localStorage.setItem('isLoggedIn', auth.isLoggedIn);
-    console.log('Navbar: ', auth.isLoggedIn);
+    setIsLoggedIn(auth.isLoggedIn);
     
-  
-  },[auth.isLoggedIn]);
-
+  }, [auth.isLoggedIn]);
  
  return (
 
@@ -57,14 +57,14 @@ const Navbar = () => {
 
               
 
-              {!auth.isLoggedIn && 
+              {!isLoggedIn && 
                 (<Link to={"/Login"}>
                   <Button variant='contained'>Login</Button>
                 </Link>
                 
                 )}
 
-              {auth.isLoggedIn && 
+              {isLoggedIn && 
                 (
                   <>
                     

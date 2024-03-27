@@ -1,12 +1,14 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import client from './path';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
+
 
 
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
 
+    const navigate = useNavigate();
 
 
     const [isLoggedIn, setIsLoggedIn] = useState(
@@ -22,8 +24,6 @@ const AuthProvider = ({ children }) => {
     );
    
 
-
-
     function signup(username, email, password) {
         return new Promise((resolve, reject) => {
             client.post('/signup', {
@@ -34,6 +34,9 @@ const AuthProvider = ({ children }) => {
                 localStorage.setItem("user", response.data.user.email);
                 localStorage.setItem("token", response.data.token);
                 localStorage.setItem("isLoggedIn", "true");
+
+            
+                
                 resolve(true); // Resolve with true when signup is successful
             }).catch((error) => {
                 console.error('Network error:', error.response.data);
@@ -42,22 +45,43 @@ const AuthProvider = ({ children }) => {
         });
     }
 
-    function login(email, password) {
-        return new Promise((resolve, reject) => {
-            client.post('/login', {
+    
+    const login = async (email, password) => {
+        try{
+            const response = await client.post('/login', {
                 email: email,
                 password: password
-            }).then((response) => {
-                localStorage.setItem("user", response.data.user.email);
-                localStorage.setItem("token", response.data.token);
-                localStorage.setItem("isLoggedIn", "true");
-                resolve(true); // Resolve with true when login is successful
-            }).catch((error) => {
-                console.error('Network error:', error.response.data);
-                reject(false); // Reject with false if there's an error
-            });
-        });
+            })
+            localStorage.setItem("user", response.data.user.email);
+            localStorage.setItem("token", response.data.token);
+            localStorage.setItem("isLoggedIn", "true");
+            setIsLoggedIn(true);
+            setUser(response.data.user.email);
+            setToken(response.data.token);
+            navigate('/');
+        }
+        catch(error){
+            console.error('Network error:', error.response.data);
+        }
     }
+
+    // function login(email, password) {
+    //     return new Promise((resolve, reject) => {
+    //         client.post('/login', {
+    //             email: email,
+    //             password: password
+    //         }).then((response) => {
+    //             localStorage.setItem("user", response.data.user.email);
+    //             localStorage.setItem("token", response.data.token);
+    //             localStorage.setItem("isLoggedIn", "true");
+    //             console.log(response)
+    //             resolve(true); // Resolve with true when login is successful
+    //         }).catch((error) => {
+    //             console.error('Network error:', error.response.data);
+    //             reject(false); // Reject with false if there's an error
+    //         });
+    //     });
+    // }
     
 
     const logout = () => {

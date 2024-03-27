@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,8 +15,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
 import client from './path';
 import { useAuth } from './auth';
-
 import { useNavigate, NavLink } from 'react-router-dom';
+import Loading from '../Loading/Loading';
 
 
 
@@ -25,23 +25,28 @@ export default function Login() {
 
   const navigate = useNavigate();
   const auth = useAuth();
+  const [isLoading, setIsLoading] = useState(false);
+
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
 
   function handleLogin (e) {
     e.preventDefault();
 
     const result = auth.login(email, password);
-    if (result) {
-      console.log(result)
-      navigate('/');
-    }
+
   }
+
+
 
   return (
 
       <Container component="main" maxWidth="xs" sx={{color: 'text.secondary'}}>
+        
+        
+
         <Box
           sx={{
             marginTop: 20,
@@ -95,6 +100,7 @@ export default function Login() {
             >
               Sign In
             </Button>
+            
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">

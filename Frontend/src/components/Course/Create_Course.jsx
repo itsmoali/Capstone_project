@@ -6,6 +6,7 @@ import { useAuth } from '../Auth/auth';
 import client from '../Auth/path.js';
 import Loading from '../Loading/Loading.jsx';
 import Errors from '../Errors/Errors.jsx';
+import Message from '../Errors/Message.jsx';
 
 const Create_Course = () => {
   
@@ -19,22 +20,12 @@ const Create_Course = () => {
 
   },[auth.isLoggedIn]);
 
-    const [anchorEl, setAnchorEl]= useState(null);
     const [Course_name, setCourse_name] = useState(null);
     const [Course_duration, setCourse_duration] = useState(null);
     const [Course_difficulty, setCourse_difficulty] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
-    } 
-
-    const handleClose = () => {
-      setAnchorEl(null);
-    }
-    
     
 const navigate = useNavigate();
 
@@ -115,29 +106,11 @@ function submit_info(e){
         </Grid>    
         <Grid item >
           {auth.isLoggedIn && ((<Button 
-          aria-controls={open ? "login-menu" : undefined}
-          aria-haspopup="true"
-          aria-expanded={open ? "true" : undefined} 
           variant='contained' 
           onClick={(submit_info)}>Submit</Button>))}
 
-          {!auth.isLoggedIn && ((<Button variant='contained' onClick={handleClick}>Submit</Button>))}
+          {!auth.isLoggedIn && ((<Message message={"Submit"}></Message>))}
         </Grid>
-        <Menu
-          id = 'login-menu'
-          anchorEl={anchorEl}
-          open= {open}
-          onClose = {handleClose}
-          MenuListProps={{
-          'aria-labelledby': 'basic-button',
-          }}>
-          <MenuItem onClick={handleClose} >
-              <Link href="/login" >
-                <b>Login</b>
-              </Link>
-              &nbsp; to Create a Course
-          </MenuItem>
-      </Menu>
       </Grid>}
 
 

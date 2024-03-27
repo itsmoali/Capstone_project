@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -13,22 +13,70 @@ import { red } from '@mui/material/colors';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
-
+import client from '../Auth/path.js';
+import Loading from '../Loading/Loading.jsx';
+import { Navigate } from 'react-router-dom';
 
 const Course_Detail = () => {
     
     const {state} = useLocation();
+    const navigate = useNavigate();
 
     
+
     
+
 
     
 
     
     const [currentIndex, setCurrentIndex] = useState(0);
     const topics = Object.entries(state.data.subtopics);
+    const token = localStorage.getItem('token');
+    const [listprogress, setProgress] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const day = state.data.day;
+
 
     const course_details = Object.entries(state.current_course.course_details);
+    const course_name = state.current_course.course_name;
+
+
+    function progress(){
+        client.post('/userstats/get_progress',{
+            course_name: state.current_course.course_name,
+            }, {
+              headers: {
+                Authorization: `Token ${token}`, 
+                'Content-Type': 'application/json'
+              }
+            }).then((response) => {
+            setProgress(response.data['progress'])
+            }).catch((error) => {
+              console.log(error)
+            })}
+    
+
+    const update = () => {
+        client.post('/userstats/update_module',{
+            course_name: state.current_course.course_name,
+            day: day,
+          }, {
+            headers: {
+              Authorization: `Token ${token}`, 
+              'Content-Type': 'application/json'
+            }
+          }).then((response) => {
+            console.log(response)
+
+            const url = `/courses/:topic/${course_name}`
+
+            navigate(url, {state: {data: state.current_course}})
+          }).catch((error) => {
+            console.log(error)
+          })}
+
+
 
 
     const handleNext = () => {
@@ -41,20 +89,30 @@ const Course_Detail = () => {
         setCurrentIndex(prevIndex => 
             prevIndex === 0 ? prevIndex : prevIndex - 1);
       };
+
+      useEffect(() => {
+        window.scrollTo(0, 0)
+        progress()
+        setLoading(false)
+    },[])
     
   return (
 
-    <Box sx={{mt:'10vh',p:5}}>
+    <>
+    {loading && <Loading/>}
+    {!loading &&
+
+    <Box sx={{mt:'10vh',p:5, display:'flex', alignItems:'center',flexDirection:'column'}}>
         
-        
-        {/* <Button variant="contained" onClick={()=> next()}>Next</Button> */}
+
+    
         {Object.entries(state.data.subtopics).map(([key, value] , index) => (
 
         
         <Box key={key} sx={{ display: index === currentIndex ? 'block' : 'none'}}>
             <Box sx={{display: 'flex' ,  justifyContent: 'space-around',pr:5}}>
-
-                <Button variant= "contained" onClick={handlePrevious}>
+            {console.log()}
+                <Button variant= "contained" onClick={handlePrevious} sx={{visibility: currentIndex===0 ? 'hidden' : 'visible'}}>
                     Previous
                 </Button>
 
@@ -63,7 +121,7 @@ const Course_Detail = () => {
                         Main Menu
                     </Button>
                 </Link>
-                <Button variant= "contained" onClick={handleNext}>
+                <Button variant= "contained" onClick={handleNext} sx={{visibility: currentIndex=== topics.length - 1  ? 'hidden' : 'visible'}}>
                     Next
                 </Button>
             </Box>
@@ -77,9 +135,6 @@ const Course_Detail = () => {
                     
                 </Typography>
             </Box>
-
-            
-            
 
             
             {typeof value === 'object' && (
@@ -133,13 +188,23 @@ const Course_Detail = () => {
                 ))}
             </Box>
             )}
+            
         </Box>
-        ))}
         
-
-
+        ))}
+                    
+        {listprogress[day-1]===0 ?
+        <Button variant= "contained" onClick={update}  sx={{visibility: currentIndex=== topics.length - 1  ? 'visible' : 'hidden'}}>
+            Mark as Complete
+        </Button> :
+        <Button variant= "contained" sx={{visibility: currentIndex=== topics.length - 1  ? 'visible' : 'hidden'}}>
+            Completed
+        </Button>}
+        
+                    
     </Box>
-
+}
+</>
   )
 }
 

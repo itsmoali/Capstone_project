@@ -28,14 +28,15 @@ const Course_preview = (courses) => {
         
         
         <Stack key={key[1].course_name } sx={{mt:'20vh',bgcolor:'primary.background',color:'primary.getContrastText',width:'33vw',maxHeight:'60vh',display:'flex', boxSizing:'border-box', borderRadius:'10px'}}>
-
+            
             <Box sx={{width:'30vw', display:'flex', justifyContent:'space-around'}}>
               <img src={key[1].course_image} alt="course_image" style={{width:'90%',height:'250px', borderRadius: '10px', objectFit:'fill'}}/>
             </Box>
 
             <Box sx={{p:2, display:'flex',flexDirection:'column'}}  >
               <span style={{paddingBottom:'40px',pt:2}}>
-                  <Link to={`/courses/:topic/${key[1].course_name}`} state={{data:courses.courses}} style={{ userSelect: 'none', textDecoration: 'none', color:'white', fontSize:'20px'}}><b>{key[1].course_name}</b></Link>
+                
+                  <Link to={`/courses/:topic/${key[1].course_name}`} state={{data:courses.courses, course_name:key[1].course_name}} style={{ userSelect: 'none', textDecoration: 'none', color:'white', fontSize:'20px'}}><b>{key[1].course_name}</b></Link>
               </span>
 
               

@@ -33,7 +33,7 @@ const UserCourses = () => {
         }
       });
       setLoading(false);
-      setCourseList(response.data);
+      setCourseList(response.data[0].courses);
     } catch (error) {
       console.error(error);
     }}
