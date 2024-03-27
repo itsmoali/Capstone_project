@@ -68,8 +68,8 @@ export default function FAQ() {
   };
 
   return (
-    <Box sx={{display:'flex',flexDirection:'column',height:'90vh', width:'100vw', justifyContent:'center', alignItems:'center'}}>
-      <Box sx={{width:'60vw',display:'flex',flexDirection:'column'}}>
+    <Box sx={{display:'flex',flexDirection:'column',minHeight:'90vh', width:'100vw', justifyContent:'center', alignItems:'center'}}>
+      <Box sx={{width:'60vw',display:'flex',flexDirection:'column',mt:1}}>
     <Typography variant='h4' sx={{textAlign:'center',pb:'10px',fontWeight:'bold'}}>Frequently Asked Questions</Typography>
       {Object.keys(faq).map((question, index) => (
         <Accordion key={index} expanded={expanded === `panel${index}`} onChange={handleChange(`panel${index}`)}>

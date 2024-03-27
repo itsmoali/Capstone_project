@@ -4,17 +4,24 @@ import { FAQ, About, Contact, Info, Main, Navbar } from './index';
 import '../../App.css';
 import { Stack } from '@mui/material';
 
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Home = () => {
+  const theme = useTheme();
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up('lg'));
+
   return (
     <Stack
       direction="column"
       sx={{
-        scrollSnapType: 'y mandatory',
-        overflowY: 'scroll',
-        '&::-webkit-scrollbar': {
-          display: 'none', // Hide the scrollbar
-        },
+        ...(isLargeScreen && {
+          scrollSnapType: 'y mandatory',
+          overflowY: 'scroll',
+          '&::-webkit-scrollbar': {
+            display: 'none', // Hide the scrollbar
+          },
+        }),
         height: '100vh',
       }}
     >
@@ -22,21 +29,20 @@ const Home = () => {
 
       <Box
         id="main"
-        sx={{
-          scrollSnapAlign: 'end',
-          bgcolor: 'primary.main',
-          position: 'relative',
-          top: '10vh', // Adjust this value based on your Navbar height
-        }}
+          sx={{
+            ...(isLargeScreen && { scrollSnapAlign: 'end'}),
+            bgcolor: 'primary.main',
+            position: 'relative',
+          }}
       >
         <Main />
       </Box>
       <Box
         id="about"
         sx={{
-          scrollSnapAlign: 'end',
+          ...(isLargeScreen && { scrollSnapAlign: 'end' }),
           position: 'relative',
-          top: '10vh', // Adjust this value based on your Navbar height
+          // top: '10vh', // Adjust this value based on your Navbar height
         }}
       >
         <About />
@@ -44,10 +50,10 @@ const Home = () => {
       <Box
         id="info"
         sx={{
-          scrollSnapAlign: 'end',
+          ...(isLargeScreen && { scrollSnapAlign: 'end' }),
           bgcolor: 'primary.main',
           position: 'relative',
-          top: '10vh', // Adjust this value based on your Navbar height
+          // top: '10vh', // Adjust this value based on your Navbar height
         }}
       >
         <Info />
@@ -55,25 +61,26 @@ const Home = () => {
       <Box
         id="faq"
         sx={{
-          scrollSnapAlign: 'end',
+          ...(isLargeScreen && { scrollSnapAlign:'end' }),
           position: 'relative',
-          top: '10vh', // Adjust this value based on your Navbar height
+          // top: '10vh', // Adjust this value based on your Navbar height
         }}
       >
         <FAQ />
       </Box>
-      <Box
+      {/* <Box
         id="contact"
         sx={{
-          scrollSnapAlign: 'end',
+          ...(isLargeScreen && { scrollSnapAlign: 'start' }),
           position: 'relative',
-          top: '10vh', // Adjust this value based on your Navbar height
+          // top: '10vh', // Adjust this value based on your Navbar height
         }}
       >
         <Contact />
-      </Box>
+      </Box> */}
     </Stack>
   );
 };
+
 
 export default Home;

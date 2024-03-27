@@ -10,20 +10,21 @@ const Main = () => {
     
     <Box       sx={{
       color: 'primary.secondary',
-      height: '90vh',
+      minHeight: '100vh',
+      height: '100%',
       flexGrow: 1,
       bgcolor: 'primary.main',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
     }}>
-        <Grid container  columns={16} alignItems="center" justifyContent="space-around" spacing={2}>
+        <Grid container  columns={16} alignItems="center" justifyContent="space-around" spacing={2} >
                         
-            <Grid  item xs={6} md={4} sx={{width:'50vw'}} >
-                <Typography component="h3" variant="h1"  gutterBottom>
+            <Grid  item xs={10} sm={9} md={6} >
+                <Typography component="h3" variant="h2"  gutterBottom>
                     Habit Banao
                 </Typography>
-                <Typography variant="h2" paragraph>
+                <Typography variant="h4" paragraph>
                  Revolutionizing Education With AI
                 </Typography>
                 <Stack sx={{ pt: 4}} direction="row" spacing={2} justifyContent="start">
@@ -31,7 +32,7 @@ const Main = () => {
                     <Button sx={{fontSize:'20px' }} variant="contained" href='/create_course'>View Demo</Button>
                 </Stack>
             </Grid>
-            <Grid item xs={6} md={8} sx={{width:'35vw', height:'60vh'}}>
+            <Grid item xs={6} md={8} sx={{width:'100%', height:'60vh'}}>
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/oEXFMGK7IC0" title="Strange the Dreamer - Savfk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </Grid>
 

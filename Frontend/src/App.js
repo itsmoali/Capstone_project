@@ -12,8 +12,8 @@ import { ThemeProvider } from "@mui/material/styles";
 
 function App() {
 
-  // const hiddenNavbarPaths = ['/login', '/signup'];
-  // const isNavbarHidden = hiddenNavbarPaths.includes(window.location.pathname);
+  const hiddenNavbarPaths = ['/login', '/signup'];
+  const isNavbarHidden = hiddenNavbarPaths.includes(window.location.pathname);
   // console.log(isNavbarHidden);
   return (
   // The component structure is wrapped in a ThemeProvider, providing a theme to styled components.
@@ -24,8 +24,8 @@ function App() {
       
         
 
-        {/* {!isNavbarHidden && <Navbar />} */}
-        <Navbar/>
+        {!isNavbarHidden && <Navbar />}
+        {/* <Navbar/> */}
 
           <Routes>
             <Route path="/login" element={<Login/>}></Route>

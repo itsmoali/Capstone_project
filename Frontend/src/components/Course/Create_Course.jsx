@@ -58,14 +58,14 @@ function submit_info(e){
 
   return (
     
-    <Box  sx={{display:'flex',height:'75vh', alignContent:'center', alignItems:'center',flexDirection:'column',mt:'15vh'}}>
+    <Box  sx={{display:'flex',height:'100vh', alignContent:'center', alignItems:'center',flexDirection:'column',mt:'10vh'}}>
       {loading && <Loading />}
       {error && <Errors />}
       
       {!loading && !error &&
       <Grid container spacing={4}  sx={{justifyContent:'center', flexDirection:'column', alignItems:'center',paddingBottom:'20px',
-      paddingTop:'40px'}}>
-                <Grid item >
+      paddingTop:'40px', textAlign:'center', maxWidth: { xs: '50%', sm:'50%',md:'70%', lg: '70%' }}} xs={12} md={12}>
+        <Grid item >
           <Typography variant='h4'>Course Creation</Typography>
         </Grid>
         <Grid item>

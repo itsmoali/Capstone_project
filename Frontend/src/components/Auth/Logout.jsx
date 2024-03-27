@@ -17,7 +17,7 @@ export default function Logout() {
     };
 
     return (
-        <Button onClick={handleLogout}>
+        <Button variant='contained' sx={{height:'38px'}} onClick={handleLogout}>
             LogOut
         </Button>
     );

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../Auth/auth'
 import '../../App.css';
 import Logout from '../Auth/Logout';
+import MenuIcon from '@mui/icons-material/Menu';
 
 // const CustomButton = styled(Button)(({ theme }) => ({
 //   // Add custom styles here
@@ -34,9 +35,9 @@ const Navbar = () => {
  
  return (
 
-  
-    <AppBar sx={{height:'10vh', position:'fixed'}} >
-      <Toolbar >
+  <Box sx={{height:'10vh', display:'flex', position:'absolute', bgcolor:'red'}}>
+    <AppBar >
+      <Toolbar  >
         <IconButton disableRipple  href="/" sx={{flexDirection:'column',borderRadius:'0', pl:2, color:'white'}}> 
           <Typography variant="h5" >Habit</Typography>           
           <Typography variant="h5" >Banao</Typography>
@@ -45,8 +46,14 @@ const Navbar = () => {
         {/* <Stack p={2} sx={{flexDirection:'row', flexGrow:1,justifyContent: 'right'}}> */}
  
           
-          <Box display="flex" justifyContent='right' flexGrow='1' gap={8} pr={2}>
-
+        <Box
+              display={{ xs: 'none', md: 'flex' }}
+              justifyContent='right'
+              alignItems='space-around'
+              flexGrow='1'
+              gap={8}
+              pr={2}
+            >
               <Link to={"/Courses"}>
                 <Button variant='contained'>Course</Button>
               </Link>
@@ -78,11 +85,10 @@ const Navbar = () => {
               
 
           </Box>
-          
-        {/* </Stack>   */}
 
       </Toolbar>
     </AppBar>
+    </Box>
 
 
   )

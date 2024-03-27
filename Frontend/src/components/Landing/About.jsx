@@ -75,24 +75,26 @@ const About = () => {
 
 
   return (
-    <Box  sx={{ flexGrow: 1, height: '90vh', display: 'flex', flexDirection: 'column', justifyContent:'center', alignItems: 'center',}}>
-      <Typography component="h3" variant="h3" align="center" gutterBottom>
-        How it works
-        
-      </Typography>
+    <Box  sx={{ flexGrow: 1,minHeight:'90vh',display: 'flex', flexDirection: 'column', justifyContent:'center', alignContent: 'center'}}>      
       
-      
-      <Grid ref={ref}  container  columns={{ xs: 14, sm: 14, md: 14 }}  spacing={2} sx={{display: 'flex',  justifyContent: 'center' }}>
+      <Grid ref={ref}  container  columns={{ xs: 14, sm: 14, md: 14 }}  spacing={2} sx={{display: 'flex',  justifyContent: 'center', mt:1}}>
+
+          <Grid  item xs={14} sm={14} md={14} sx={{alignSelf:'center', textAlign: 'center'}}>
+                <Typography variant="h4" align="center" fontWeight='bold' gutterBottom>
+              How it works
+              
+            </Typography>
+            </Grid>
         
             <Grid id='0' className="grid-item" item xs={4} sm={4} md={4} sx={{alignSelf:'center', textAlign: 'center',opacity: 0}}>
               <img src={signup} alt="signup" style={{width: '40%'}}/>
-              <Typography variant="h5" align="center" gutterBottom sx={{pt:2}}>
+              <Typography variant="h6" align="center" gutterBottom sx={{pt:2}}>
                 Sign Up to get started
               </Typography>
             </Grid>
 
-            <Grid id='1' className="grid-item" item xs={1} sm={1} md={1} sx={{ alignSelf: 'center',opacity: 0,}}>
-              <SvgIcon sx={{fontSize: 70 }} >
+            <Grid id='1' className="grid-item" item xs={1} sm={1} md={1} sx={{ alignSelf: 'center',opacity: 0}}>
+              <SvgIcon sx={{fontSize: 40 }} >
                 <EastIcon/>
                 
               </SvgIcon>
@@ -101,14 +103,14 @@ const About = () => {
             
             <Grid id='2' className="grid-item" item xs={4} sm={4} md={4} sx={{textAlign: 'center',opacity: 0,}}>
               <img src={Create} alt="Create" style={{width: '30%'}}/>
-              <Typography variant="h5" align="center" gutterBottom sx={{whiteSpace:'pre-line', pt:2}}>
+              <Typography variant="h6" align="center" gutterBottom sx={{whiteSpace:'pre-line', pt:2}}>
                 Create your desired  {'\n'}
                 Course using our  {'\n'}
                 Course Builder {'\n'}
               </Typography>
             </Grid>
             <Grid id='3' className="grid-item" item xs={1} sm={1} md={1} sx={{ alignSelf: 'center',opacity: 0,}}>
-            <SvgIcon sx={{fontSize: 70 }} >
+            <SvgIcon sx={{fontSize: 40 }} >
                 <EastIcon/>
               </SvgIcon>
             </Grid>
@@ -116,48 +118,48 @@ const About = () => {
             
             <Grid id='4' className="grid-item" item xs={4} sm={4} md={4} sx={{textAlign: 'center',opacity: 0,}}>
             <img src={calendar} alt="calendar" style={{width: '25%'}}/>
-            <Typography variant="h5" paragraph  gutterBottom sx={{ whiteSpace:'pre-line', pt:2}} >
+            <Typography variant="h6" paragraph  gutterBottom sx={{ whiteSpace:'pre-line', pt:2}} >
                 Integrate you Course {'\n'}
                 Schedule with your {'\n'}
                 Personal Calendar {'\n'}
                 to recieve reminders
               </Typography>
               <Box >
-              <SvgIcon sx={{fontSize: 70 }} >
+              <SvgIcon sx={{fontSize: 40 }} >
               <SouthIcon/>
               </SvgIcon>
               </Box>
             </Grid>
             
             <Grid id='5' className="grid-item" item xs={4} sm={4} md={4} sx={{ textAlign: 'center',opacity: 0,}}>
-            <img src={study} alt="study" style={{width: '35%'}}/>
-            <Typography variant="h5" align="center" gutterBottom whiteSpace={'pre-line'} sx={{pt:2}}>
+            <img src={study} alt="study" style={{width: '25%'}}/>
+            <Typography variant="h6" align="center" gutterBottom whiteSpace={'pre-line'} sx={{pt:2}}>
                 Study the Course you created {'\n'}
                 based on your personal schedule {'\n'}
               </Typography>
             </Grid>
 
             <Grid id='6' className="grid-item" item xs={1} sm={1} md={1} sx={{ alignSelf: 'center',opacity: 0,}}>
-            <SvgIcon sx={{fontSize: 70 }} >
+            <SvgIcon sx={{fontSize: 40 }} >
                 <WestIcon/>
               </SvgIcon>
             </Grid>
 
             <Grid id='7' className="grid-item" item xs={4} sm={4} md={4} sx={{ textAlign: 'center',opacity: 0,}}>
-            <img src={AI} alt="AI" style={{width: '35%'}}/>
-            <Typography variant="h5" align="center" gutterBottom whiteSpace={'pre-line'} sx={{pt:2}}>
+            <img src={AI} alt="AI" style={{width: '20%'}}/>
+            <Typography variant="h6" align="center" gutterBottom whiteSpace={'pre-line'} sx={{pt:2}}>
                 Utilize AI to solve your doubts {'\n'}
                  and test your knowledge
               </Typography>
             </Grid>
             <Grid id='8' className="grid-item" item xs={1} sm={1} md={1}sx={{ alignSelf: 'center',opacity: 0,}}>
-            <SvgIcon sx={{fontSize: 70 }} >
+            <SvgIcon sx={{fontSize: 40 }} >
                 <WestIcon/>
               </SvgIcon>
             </Grid>
             <Grid id='9' className="grid-item" item xs={4} sm={4} md={4} sx={{ textAlign: 'center',opacity: 0}} >
-            <img src={progress} alt="progress" style={{width: '45%',height:'50%'}}/>
-            <Typography variant="h5" align="center" gutterBottom whiteSpace={'pre-line'} sx={{pt:2}} >
+            <img src={progress} alt="progress" style={{width: '60%'}}/>
+            <Typography variant="h6" align="center" gutterBottom whiteSpace={'pre-line'} sx={{pt:2}} >
             
                 Keep track of your progress {'\n'}
                  and improve your learning
