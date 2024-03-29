@@ -49,7 +49,7 @@ export default function Login() {
 
         <Box
           sx={{
-            marginTop: 20,
+            marginTop: 5,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',

@@ -1,5 +1,18 @@
 import { createTheme } from "@mui/material/styles";
 
+// Remove the HTML link tag and add the following import statement
+
+const fontFamilies = [
+    'Nunito Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000',
+    'Libre Franklin:ital,wght@0,100..900;1,100..900',
+  ].join('&family=');
+  
+  // Create a link element to load the font
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = `https://fonts.googleapis.com/css2?family=${fontFamilies}&display=swap`;
+  document.head.appendChild(link);
+
 const Colors = {
     primary: '#161616',
     secondary: '#1a232f',
@@ -16,6 +29,8 @@ const Colors = {
 
 const theme = createTheme({
 
+    
+
     palette: {
         primary: {
             main: Colors.primary,
@@ -31,16 +46,27 @@ const theme = createTheme({
         }
     },
 
+    spacing: 11,
     components: {
         MuiButton: {
             styleOverrides: {
                 root: {
                     backgroundColor: Colors.buttons,
+                    fontFamily: 'Roboto',
+                    
                     color: Colors.textcolor,
                     '&:hover': {
                         backgroundColor: Colors.primaryhover,
                     },
                 },
+            },
+        },
+        MuiTypography: {
+            styleOverrides: {
+                root: {
+                    fontFamily : 'Roboto',
+                },
+
             },
         },
     },

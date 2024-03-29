@@ -35,7 +35,7 @@ def output_validation(data):
     course_name = data.get('course', False)
     course_difficulty = data.get('difficulty', False)
     course_duration = data.get('duration', False)
-    course_skills = data.get('skills', False)
+    course_skills = data.get('skills', "No Skills")
     course_summary = data.get('summary', False)
     # course_image = data.get('image', False)
     course_schedule= data.get('schedule', False)

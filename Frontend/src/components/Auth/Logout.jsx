@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { Button } from '@mui/material';
 import client from './path.js';
 
+
+
+
+
 export default function Logout() {
     const auth = useAuth();
     const navigate = useNavigate();
@@ -11,7 +15,7 @@ export default function Logout() {
     function handleLogout (e) {
         e.preventDefault();
         auth.logout();  
-        navigate('/login');
+        navigate('/');
 
 
     };

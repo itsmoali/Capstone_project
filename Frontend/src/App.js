@@ -2,19 +2,20 @@ import './App.css';
 
 import { BrowserRouter, Routes, Route, Router} from 'react-router-dom';
 import { Box } from '@mui/system';
-import {Login, Courses, Navbar, Signup, Home, Logout, Create_Course, Schedule, Course_Detail, Individual_Details, Profile, Course_preview} from './components';
+import {Login, Courses, Navbar, Signup, Home, Logout, Create_Course, Schedule, Course_Detail, Individual_Details, Profile, Course_preview, NavBarWrapper} from './components';
 
 import AuthProvider, { AuthContext } from './components/Auth/auth.js';
 import theme from './components/Styles/Styles.js';
 import { ThemeProvider } from "@mui/material/styles";
+import { useEffect, useState } from 'react';
+
 
 
 
 function App() {
 
-  const hiddenNavbarPaths = ['/login', '/signup'];
-  const isNavbarHidden = hiddenNavbarPaths.includes(window.location.pathname);
-  // console.log(isNavbarHidden);
+
+
   return (
   // The component structure is wrapped in a ThemeProvider, providing a theme to styled components.
   
@@ -22,11 +23,7 @@ function App() {
       <BrowserRouter>
       <AuthProvider >
       
-        
-
-        {!isNavbarHidden && <Navbar />}
-        {/* <Navbar/> */}
-
+        <NavBarWrapper/>
           <Routes>
             <Route path="/login" element={<Login/>}></Route>
             <Route path="/logout" element={<Logout/>}></Route>
@@ -46,6 +43,7 @@ function App() {
       </AuthProvider>
       </BrowserRouter>
     </ThemeProvider>
+
     
   );
 }

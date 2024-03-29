@@ -5,6 +5,8 @@
         "course":"Intermediate Physics Concepts",
         "difficulty":"Intermediate",
         "duration":"10 days",
+        "skills": ["Problem-Solving in Physics", "Analytical Thinking and Mathematical Modeling", "Understanding Complex Concepts"],
+     
         "schedule":[
            {
               "day":1,
@@ -114,6 +116,11 @@
         "course":"Advanced Chemistry",
         "difficulty":"Advance",
         "duration":"15 days",
+        "skills": [
+         "Advanced Problem-Solving in Chemistry",
+         "In-depth Analytical Thinking and Mathematical Modeling in Chemistry",
+         "Advanced Understanding of Complex Chemical Concepts"
+       ],
         "schedule":[
            {
               "day":1,
@@ -273,6 +280,11 @@
         "course":"Advanced Biology",
         "difficulty":"Advance",
         "duration":"10 days",
+        "skills": [
+         "In-depth Understanding of Advanced Biological Concepts",
+         "Advanced Problem-Solving in Biology",
+         "Critical Thinking and Analysis in Biological Sciences"
+       ],
         "schedule":[
            {
               "day":1,
@@ -382,6 +394,11 @@
         "course":"Beginner Finance Fundamentals",
         "difficulty":"Beginner",
         "duration":"7 days",
+        "skills": [
+         "Understanding Financial Statements",
+         "Time Value of Money Concepts",
+         "Basic Risk Management Principles"
+       ],
         "schedule":[
            {
               "day":1,
@@ -461,6 +478,11 @@
         "course":"Intermediate Sales Strategies",
         "difficulty":"Intermediate",
         "duration":"7 days",
+        "skills": [
+         "Customer Relationship Building and Communication",
+         "Consultative Selling Techniques",
+         "Sales Funnel Management and Lead Prioritization"
+       ],
         "schedule":[
            {
               "day":1,
@@ -540,6 +562,11 @@
         "course":"Advanced Sales Concepts",
         "difficulty":"Advance",
         "duration":"7 days",
+        "skills": [
+         "Advanced Strategic Sales Leadership and Change Management",
+         "Sophisticated Customer Relationship Management and Loyalty Strategies",
+         "Utilization of Sales Forecasting, Predictive Analytics, and AI in Sales"
+       ],
         "schedule":[
            {
               "day":1,
@@ -618,6 +645,11 @@
         "course":"Advanced Sociology",
         "difficulty":"Advance",
         "duration":"10 days",
+        "skills": [
+         "Advanced Sociological Research Methods and Ethical Considerations",
+         "In-depth Analysis of Social Inequality, Stratification, and Deviance",
+         "Comprehensive Understanding of Globalization, Social Change, and Emerging Societal Trends"
+       ],
         "schedule":[
            {
               "day":1,
@@ -725,6 +757,11 @@
         "course":"Intermediate Debating Techniques",
         "difficulty":"Intermediate",
         "duration":"5 days",
+        "skills": [
+         "Effective Argumentation and Logical Reasoning",
+         "Persuasive Speaking and Rhetorical Techniques",
+         "Debating Etiquette and Cross-Examination Skills"
+       ],
         "schedule":[
            {
               "day":1,

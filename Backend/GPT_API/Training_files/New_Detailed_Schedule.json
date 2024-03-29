@@ -5,6 +5,11 @@
         {"course": "Advanced Sociology",
 "difficulty": "Advance",
 "duration": "10 days",
+"skills": [
+   "Advanced Sociological Research Methods and Ethical Considerations",
+   "In-depth Analysis of Social Inequality, Stratification, and Deviance",
+   "Comprehensive Understanding of Globalization, Social Change, and Emerging Societal Trends"
+ ],
 "schedule": [{"day": 1,
 "topic": "Foundations of Advanced Sociology",
 "subtopics": [{
@@ -676,6 +681,11 @@
 {"course": "Intermediate Physics",
 "difficulty": "Intermediate",
 "duration": "10 days",
+"skills": [
+   "Problem-Solving in Physics",
+   "Analytical Thinking and Mathematical Modeling",
+   "Understanding Complex Concepts"
+ ],
 "schedule": [{"day": 1,
 "topic": "Introduction to Intermediate Physics",
 "subtopics": [{

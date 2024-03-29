@@ -19,6 +19,10 @@ const AuthProvider = ({ children }) => {
         localStorage.getItem("user") || null
     );
 
+    const [username, setUsername] = useState([
+        localStorage.getItem("username") || null
+    ]);
+
     const [token, setToken] = useState(
         localStorage.getItem("token") || null
     );
@@ -32,6 +36,7 @@ const AuthProvider = ({ children }) => {
                 password: password
             }).then((response) => {
                 localStorage.setItem("user", response.data.user.email);
+                localStorage.setItem("username", response.data.user.username);
                 localStorage.setItem("token", response.data.token);
                 localStorage.setItem("isLoggedIn", "true");
 
@@ -94,7 +99,7 @@ const AuthProvider = ({ children }) => {
     
 
     return (
-        <AuthContext.Provider value={{ signup, login, logout, user, isLoggedIn, token }}>
+        <AuthContext.Provider value={{ signup, login, logout, user, isLoggedIn, token, username }}>
             {children}
         </AuthContext.Provider>
     );

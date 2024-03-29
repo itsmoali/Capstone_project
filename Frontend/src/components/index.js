@@ -10,3 +10,4 @@ export {default as Course_Detail} from './Course/Course_Detail';
 export {default as Individual_Details} from './Course/Individual_Details';
 export {default as Profile} from './Profile/Profile';
 export {default as Course_preview} from './Course/Course_preview';
+export {default as  NavBarWrapper} from './Landing/NavBarWrapper';

@@ -46,6 +46,7 @@ def course_outline(duration, topic, difficulty):
                 - difficulty: String
                 - duration: String
                 - summary: String
+                - skills : Array of Strings
                 - schedule: Array
                   - day: Integer
                   - topic: String

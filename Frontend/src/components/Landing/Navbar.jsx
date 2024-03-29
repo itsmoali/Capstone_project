@@ -6,8 +6,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../Auth/auth'
 import '../../App.css';
 import Logout from '../Auth/Logout';
-import MenuIcon from '@mui/icons-material/Menu';
-
+import Menu from './Menu';
 // const CustomButton = styled(Button)(({ theme }) => ({
 //   // Add custom styles here
 //   backgroundColor: '#2196F3',
@@ -45,7 +44,7 @@ const Navbar = () => {
 
         {/* <Stack p={2} sx={{flexDirection:'row', flexGrow:1,justifyContent: 'right'}}> */}
  
-          
+        
         <Box
               display={{ xs: 'none', md: 'flex' }}
               justifyContent='right'
@@ -64,14 +63,16 @@ const Navbar = () => {
 
               
 
-              {!isLoggedIn && 
+              
+
+              {!auth.isLoggedIn && 
                 (<Link to={"/Login"}>
                   <Button variant='contained'>Login</Button>
                 </Link>
                 
                 )}
 
-              {isLoggedIn && 
+              {auth.isLoggedIn && 
                 (
                   <>
                     
@@ -85,6 +86,13 @@ const Navbar = () => {
               
 
           </Box>
+
+          <Box display={{ xs: 'flex', md: 'none' }}
+              justifyContent='right'
+              alignItems='space-around'
+              flexGrow='1'
+              gap={8}
+              pr={2}><Menu/></Box>
 
       </Toolbar>
     </AppBar>

@@ -73,8 +73,9 @@ function Schedule() {
         "start_time": selectTime,
       })]).then((response) => {
         console.log("Information has beed added to database.")
+        setLoading(false);
         alert("Your course has been created successfully.")
-        navigate('/Courses');
+        navigate('/courses');
       }).catch((error) => {
         setLoading(false);
         setError(true);

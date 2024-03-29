@@ -219,7 +219,7 @@ const Individual_Details = () => {
           } 
           {enrolled === false && auth.user && <Button sx={{bgcolor:'red',width:'10vw',p:'10px',mt:'20px'}} onClick={addCourse}>Enroll</Button>}
    
-          {enrolled === false && !auth.user && <Message message={"Enroll"}></Message>}
+          {enrolled === false && !auth.user && <Message message="Enroll" auth="Login"></Message>}
           
           
           

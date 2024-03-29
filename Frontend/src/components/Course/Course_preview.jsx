@@ -27,7 +27,7 @@ const Course_preview = (courses) => {
     const course = Object.entries(courses).map((key,values) =>(
         
         
-        <Stack key={key[1].course_name } sx={{mt:'20vh',bgcolor:'primary.background',color:'primary.getContrastText',width:'33vw',maxHeight:'60vh',display:'flex', boxSizing:'border-box', borderRadius:'10px'}}>
+        <Stack key={key[1].course_name } sx={{mt:'20vh',bgcolor:'primary.background',color:'primary.getContrastText',width:'33vw',minHeight:'60vh',display:'flex', boxSizing:'border-box', borderRadius:'10px'}}>
             
             <Box sx={{width:'30vw', display:'flex', justifyContent:'space-around'}}>
               <img src={key[1].course_image} alt="course_image" style={{width:'90%',height:'250px', borderRadius: '10px', objectFit:'fill'}}/>
@@ -44,11 +44,23 @@ const Course_preview = (courses) => {
                 <b>Skills you'll Gain:</b> {key[1].course_skills}
               </Typography>
 
-              <Typography sx={{fontSize: 15,fontWeight: 400, display: 'flex', justifyContent: 'space-between', alignContent:'flex-end'}}>
+              <Grid container xs={12} md={6} lg={12}  sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'space-between', alignContent:'flex-end'}}>
+                <Grid item >
+                <Typography sx={{fontSize: 15,fontWeight: 400,marginBottom: { md: 2 } }}>
                 <span ><b>Rating:</b>4.6</span>
-                <span><b>Difficulty:</b> {key[1].course_difficulty}</span>
-                <span><b>Time Required:</b> {key[1].course_duration}</span>
               </Typography>
+                </Grid>
+                <Grid item > 
+                <Typography sx={{fontSize: 15,fontWeight: 400,marginBottom: {  md: 2 } }}>
+              <span><b>Difficulty:</b> {key[1].course_difficulty}</span>
+              </Typography>
+              </Grid>
+              <Grid item >
+              <Typography sx={{fontSize: 15,fontWeight: 400,marginBottom: {  md: 2 } }}>
+              <span><b>Time Required:</b> {key[1].course_duration}</span>
+                </Typography>
+              </Grid>
+              </Grid>
 
             </Box>
 

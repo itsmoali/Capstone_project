@@ -10,6 +10,7 @@ import client from '../Auth/path.js';
 import Course_preview from './Course_preview.jsx';
 import Loading from '../Loading/Loading.jsx';
 import Errors from '../Errors/Errors.jsx';
+import { useAuth } from '../Auth/auth.js';
 
 
 const Item = styled('div')(({ theme }) => ({
@@ -20,6 +21,8 @@ const Item = styled('div')(({ theme }) => ({
 }));
 
 const Courses = () => {
+  const auth = useAuth();
+  console.log(auth)
   const [courseList, setCourseList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

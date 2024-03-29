@@ -55,15 +55,17 @@ class CreateCourse(APIView):
         gpt_output = threading(course_outline)
 
         # gpt_output = create_schedule(clean_data[0], clean_data[1], clean_data[2])
+
+        skills = ', '.join(gpt_output['skills'])
         
 
         serializer = CoursesSerializer(data = {'course_name':gpt_output['course'], 'course_difficulty': gpt_output['difficulty'],
-                                    'course_duration': gpt_output['duration'],'course_skills':gpt_output['skills'],'course_image':gpt_output['course_image'],'course_summary':gpt_output['summary'],'course_details': gpt_output['schedule']})
+                                    'course_duration': gpt_output['duration'],'course_skills':skills,'course_summary':gpt_output['summary'],'course_details': gpt_output['schedule']})
         
         if serializer.is_valid(raise_exception=True):
             course = serializer.create(serializer.validated_data)
             if course:
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
+                return Response(serializer.data, status=status.HTTP_201_CREATED)    
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)        
 
 
