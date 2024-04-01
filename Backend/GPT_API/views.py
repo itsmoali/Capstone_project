@@ -10,7 +10,7 @@ from rest_framework import status, permissions
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from .validations import info_validation, output_validation
 from .GPT import course_outline , create_detailed_schedule, threading, img_gen
-from Calendar_API.main import event_creator
+from Calendar_API.Calendar import event_creator
 
 
 class CreateSchedule(APIView):

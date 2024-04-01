@@ -22,6 +22,7 @@ const Tracker = ({percentage}) => {
   return (
     <Box sx={{mt:10,display:'flex',alignItems:'center',flexDirection:'column'}}>
         <Typography  sx={{fontWeight:900,mb:1}}>Your Progress</Typography>
+        <Typography sx={{mb:1}}>{Math.round(percentage)}% Completed</Typography>
         <Progress variant="determinate"  value={percentage}></Progress>
     </Box>
   )

@@ -107,8 +107,6 @@ class UserStats(ViewSet):
         return Response({'progress': progress})
         
 
-
-
     @action(detail=False, methods=['post'])
     def update_completed(self, request):
         course_id = Courses.objects.get(course_name=request.data.get('course_name')).course_id

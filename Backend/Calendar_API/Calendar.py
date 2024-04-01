@@ -7,7 +7,6 @@ from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 
 
-
 def create_service(client_secret_file, api_name, api_version, *scopes, prefix=''):
     CLIENT_SECRET_FILE = client_secret_file
     API_SERVICE_NAME = api_name
@@ -22,8 +21,9 @@ def create_service(client_secret_file, api_name, api_version, *scopes, prefix=''
 
     if os.path.exists(token_path):
         # Check if the file is not empty before attempting to load credentials
-        if os.path.getsize(token_path) > 0:
-            creds = Credentials.from_authorized_user_file(token_path, SCOPES)
+        os.remove(token_path)
+        # if os.path.getsize(token_path) > 0:
+        #     creds = Credentials.from_authorized_user_file(token_path, SCOPES)
 
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
@@ -46,12 +46,19 @@ def create_service(client_secret_file, api_name, api_version, *scopes, prefix=''
         if os.path.exists(token_path):
             os.remove(token_path)
         return None
-
+# CLIENT_SECRET_FILE = "Backend/credentials.json"
 CLIENT_SECRET_FILE = 'credentials.json'
 API_NAME = 'calendar'
 API_VERSION = 'v3'
 SCOPES = ['https://www.googleapis.com/auth/calendar']
-service = create_service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
+
+def service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES):
+    return create_service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
+
+# service = create_service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
+
+# service = service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
+# print(service)
 
 def hour_calc(start, hours):
     original_time = datetime.strptime(start, '%Y-%m-%dT%H:%M:%S%z')
@@ -78,6 +85,9 @@ def combine_date_time(date,time):
     return formatted
 
 def event_creator(course_data, start_date, start_time, daily_practice_time, user_time_zone = 'America/Los_Angeles'):
+
+    service = create_service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
+    print(service)
     
     schedule = course_data['schedule']
     start_time = combine_date_time(start_date, start_time)
