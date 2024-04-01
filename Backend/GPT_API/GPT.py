@@ -95,15 +95,6 @@ def course_outline(duration, topic, difficulty):
 
 
 
-
-
-from tenacity import (
-    retry,
-    stop_after_attempt,
-    wait_random_exponential,
-)  # for exponential backoff
-
-@retry(wait=wait_random_exponential(min=1, max=5), stop=stop_after_attempt(6))
 def create_detailed_schedule(schedule, day):
     # output = chunked_lst
     
