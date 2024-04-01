@@ -64,15 +64,15 @@ function Schedule() {
   async function save_info() {
     alert("Please wait while your course is being created. This may take a while.")
     setLoading(true);
-    // client.post('/create/schedulemaker', {
-    //   "course_data": courseList,
-    //   "start_date": selectedDate,  
-    //   "daily_practice_time": selectDuration,
-    //   "start_time": selectTime,
-    // })
+
     await Promise.all([
-      client.post('/create/course', courseList)
-      ]).then((response) => {
+      // client.post('/create/course', courseList),
+          client.post('/create/schedulemaker', {
+      "course_data": courseList,
+      "start_date": selectedDate,  
+      "daily_practice_time": selectDuration,
+      "start_time": selectTime,
+    })]).then((response) => {
         console.log("Information has beed added to database.")
         setLoading(false);
         alert("Your course has been created successfully.")
