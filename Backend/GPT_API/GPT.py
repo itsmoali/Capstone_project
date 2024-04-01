@@ -172,7 +172,7 @@ def create_detailed_schedule(schedule, day):
 def threading(schedule):
     num_tasks = len(schedule['schedule'])
 
-    with ThreadPoolExecutor(max_workers=num_tasks) as executor:
+    with ThreadPoolExecutor(max_workers=1) as executor:
         futures = [executor.submit(create_detailed_schedule,schedule,day=i) for i in range(num_tasks)]
         concurrent.futures.wait(futures)
     return schedule
