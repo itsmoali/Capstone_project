@@ -1,6 +1,5 @@
 from datetime import datetime, timedelta
 import os
-import json
 from collections import namedtuple
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
@@ -31,7 +30,7 @@ def create_service(client_secret_file, api_name, api_version, *scopes, prefix=''
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRET_FILE, SCOPES)
-            creds = flow.run_local_server(redirect_uri_trailing_slash=False, port=0)
+            creds = flow.run_local_server(redirect_uri_trailing_slash=False)
 
         # Save the credentials to the JSON file
         with open(token_path, 'w') as token:
@@ -49,28 +48,6 @@ def create_service(client_secret_file, api_name, api_version, *scopes, prefix=''
         return None
 # CLIENT_SECRET_FILE = "Backend/credentials.json"
 CLIENT_SECRET_FILE = 'credentials.json'
-
-if not os.path.exists(CLIENT_SECRET_FILE):
-    # If the file does not exist, create it and write JSON data
-    with open(CLIENT_SECRET_FILE, 'w') as f:
-        data = {
-            "web": {
-                "client_id": "933900207645-7p6qivj8a3k5vv5v8kfibrid4vd0ovvo.apps.googleusercontent.com",
-                "project_id": "capstonecalendar-407409",
-                "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-                "token_uri": "https://oauth2.googleapis.com/token",
-                "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-                "client_secret": "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",
-                "redirect_uris": ["https://localhost:3000", "https://capstone-project-zeta-nine.vercel.app"],
-                "javascript_origins": ["https://localhost:3000", "https://capstone-project-zeta-nine.vercel.app"]
-            }
-        }
-        json.dump(data, f, indent=4)  # Write JSON data with indentation for readability
-    print(f"File '{CLIENT_SECRET_FILE}' created successfully with JSON data.")
-else:
-    print(f"File '{CLIENT_SECRET_FILE}' already exists.")
-
-
 API_NAME = 'calendar'
 API_VERSION = 'v3'
 SCOPES = ['https://www.googleapis.com/auth/calendar']
