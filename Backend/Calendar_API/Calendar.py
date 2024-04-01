@@ -61,8 +61,8 @@ if not os.path.exists(CLIENT_SECRET_FILE):
                 "token_uri": "https://oauth2.googleapis.com/token",
                 "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
                 "client_secret": "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",
-                "redirect_uris": ["https://localhost:3000"],
-                "javascript_origins": ["https://localhost:3000"]
+                "redirect_uris": ["https://localhost:3000", "https://capstone-project-zeta-nine.vercel.app"],
+                "javascript_origins": ["https://localhost:3000", "https://capstone-project-zeta-nine.vercel.app"]
             }
         }
         json.dump(data, f, indent=4)  # Write JSON data with indentation for readability
