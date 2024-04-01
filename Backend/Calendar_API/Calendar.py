@@ -49,16 +49,27 @@ def create_service(client_secret_file, api_name, api_version, *scopes, prefix=''
 # CLIENT_SECRET_FILE = "Backend/credentials.json"
 CLIENT_SECRET_FILE = 'credentials.json'
 
-# Check if the file exists
 if not os.path.exists(CLIENT_SECRET_FILE):
-    # If the file does not exist, create it
+    # If the file does not exist, create it and write JSON data
     with open(CLIENT_SECRET_FILE, 'w') as f:
-        f.write('')  # You can write any initial content here if needed
-    print(f"File '{CLIENT_SECRET_FILE}' created successfully.")
+        data = {
+            "web": {
+                "client_id": "933900207645-7p6qivj8a3k5vv5v8kfibrid4vd0ovvo.apps.googleusercontent.com",
+                "project_id": "capstonecalendar-407409",
+                "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                "token_uri": "https://oauth2.googleapis.com/token",
+                "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+                "client_secret": "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",
+                "redirect_uris": ["https://localhost:3000"],
+                "javascript_origins": ["https://localhost:3000"]
+            }
+        }
+        json.dump(data, f, indent=4)  # Write JSON data with indentation for readability
+    print(f"File '{CLIENT_SECRET_FILE}' created successfully with JSON data.")
 else:
     print(f"File '{CLIENT_SECRET_FILE}' already exists.")
 
-    
+
 API_NAME = 'calendar'
 API_VERSION = 'v3'
 SCOPES = ['https://www.googleapis.com/auth/calendar']
