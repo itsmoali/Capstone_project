@@ -30,7 +30,7 @@ def create_service(client_secret_file, api_name, api_version, *scopes, prefix=''
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRET_FILE, SCOPES)
-            creds = flow.run_local_server(redirect_uri_trailing_slash=False)
+            creds = flow.run_local_server(redirect_uri_trailing_slash=False, port=0)
 
         # Save the credentials to the JSON file
         with open(token_path, 'w') as token:
@@ -48,6 +48,17 @@ def create_service(client_secret_file, api_name, api_version, *scopes, prefix=''
         return None
 # CLIENT_SECRET_FILE = "Backend/credentials.json"
 CLIENT_SECRET_FILE = 'credentials.json'
+
+# Check if the file exists
+if not os.path.exists(CLIENT_SECRET_FILE):
+    # If the file does not exist, create it
+    with open(CLIENT_SECRET_FILE, 'w') as f:
+        f.write('')  # You can write any initial content here if needed
+    print(f"File '{CLIENT_SECRET_FILE}' created successfully.")
+else:
+    print(f"File '{CLIENT_SECRET_FILE}' already exists.")
+
+    
 API_NAME = 'calendar'
 API_VERSION = 'v3'
 SCOPES = ['https://www.googleapis.com/auth/calendar']
