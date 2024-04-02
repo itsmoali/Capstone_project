@@ -66,7 +66,7 @@ function Schedule() {
     setLoading(true);
 
     await Promise.all([
-      // client.post('/create/course', courseList),
+      client.post('/create/course', courseList),
           client.post('/create/schedulemaker', {
       "course_data": courseList,
       "start_date": selectedDate,  
