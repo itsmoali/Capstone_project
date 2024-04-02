@@ -29,7 +29,7 @@ yarn-error.log*
 node_modules
 
 token.json
-credentials.json
+
 .env
 
 /token files
