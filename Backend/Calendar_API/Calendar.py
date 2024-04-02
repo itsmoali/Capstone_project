@@ -21,9 +21,9 @@ def create_service(client_secret_file, api_name, api_version, *scopes, prefix=''
 
     if os.path.exists(token_path):
         # Check if the file is not empty before attempting to load credentials
-        os.remove(token_path)
+        # os.remove(token_path)
         # if os.path.getsize(token_path) > 0:
-        #     creds = Credentials.from_authorized_user_file(token_path, SCOPES)
+        creds = Credentials.from_authorized_user_file(token_path, SCOPES)
 
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
