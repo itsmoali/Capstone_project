@@ -30,7 +30,7 @@ def create_service(client_secret_file, api_name, api_version, *scopes, prefix=''
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRET_FILE, SCOPES)
-            creds = flow.run_local_server(redirect_uri_trailing_slash=False,open_browser=True)
+            creds = flow.run_local_server(redirect_uri_trailing_slash=False,open_browser=True, port=0)
 
         # Save the credentials to the JSON file
         with open(token_path, 'w') as token:
