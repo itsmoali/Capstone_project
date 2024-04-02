@@ -30,7 +30,7 @@ def create_service(client_secret_file, api_name, api_version, *scopes, prefix=''
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRET_FILE, SCOPES)
-            creds = flow.run_local_server(redirect_uri_trailing_slash=False)
+            creds = flow.run_local_server(redirect_uri_trailing_slash=False,open_browser=True)
 
         # Save the credentials to the JSON file
         with open(token_path, 'w') as token:
@@ -113,3 +113,4 @@ def event_creator(course_data, start_date, start_time, daily_practice_time, user
         start_time = date_calc(start_time)
     for i in total_events:
         response = service.events().insert(calendarId='primary', body=i).execute()
+
