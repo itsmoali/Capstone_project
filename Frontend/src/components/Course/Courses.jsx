@@ -51,7 +51,7 @@ const Courses = () => {
   return (
     <Stack   direction={{ xs: 'column', xl: 'column' }}
     spacing={{ xs: 1, sm: 1, md: 6 }}
-    sx={{bgcolor:'primary.main', display:'flex', justifyContent:'center', alignItems:'center',pb:10}}>
+    sx={{bgcolor:'primary.main', display:'flex', justifyContent:'center', alignItems:'center',pb:10, height:'100vh'}}>
       
       {/* <Item>
         <SideBar></SideBar> 
