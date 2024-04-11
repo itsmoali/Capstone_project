@@ -9,7 +9,7 @@ class Courses(models.Model):
     course_difficulty = models.CharField(max_length=100, default="Beginner")
     course_duration = models.CharField(max_length=100, default="1")
     course_skills = models.CharField(max_length=1000, default="No Skills")
-    course_image = models.ImageField(upload_to= 'Backend\GPT_API\images', null= True, blank = True)
+    course_image = models.CharField(max_length=10000, default="No Image")
     course_summary = models.CharField(max_length=10000, default="This is a course")
     course_details = models.JSONField(default=dict)
 

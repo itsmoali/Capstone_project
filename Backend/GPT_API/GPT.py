@@ -178,7 +178,7 @@ def threading(schedule):
     return schedule
 
 
-def img_gen(prompt, save_path):
+def img_gen(prompt):
     response = client.images.generate(
       model="dall-e-3",
       prompt="Create me a thumbnail image for a course on " + prompt ,
@@ -187,8 +187,8 @@ def img_gen(prompt, save_path):
       n=1,
     )
     img_url =  response.data[0].url
-    img, _ = urllib.request.urlretrieve(img_url, save_path + prompt + ".png")
-    return img
+    # img, _ = urllib.request.urlretrieve(img_url, save_path + prompt + ".png")
+    return img_url
 
 
 

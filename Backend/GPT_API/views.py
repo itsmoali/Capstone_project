@@ -55,11 +55,12 @@ class CreateCourse(APIView):
         gpt_output = threading(course_outline)
 
         # gpt_output = create_schedule(clean_data[0], clean_data[1], clean_data[2])
+        img_get = img_gen(gpt_output['course'])
 
         skills = ', '.join(gpt_output['skills'])
         
 
-        serializer = CoursesSerializer(data = {'course_name':gpt_output['course'], 'course_difficulty': gpt_output['difficulty'],
+        serializer = CoursesSerializer(data = {'course_name':gpt_output['course'], 'course_difficulty': gpt_output['difficulty'], 'course_image': img_get,
                                     'course_duration': gpt_output['duration'],'course_skills':skills,'course_summary':gpt_output['summary'],'course_details': gpt_output['schedule']})
         
         if serializer.is_valid(raise_exception=True):
