@@ -2,6 +2,7 @@ from django.db import models
 from API.models import User
 from django.contrib.auth import get_user_model
 
+
 class Courses(models.Model):
     course_id = models.BigAutoField(primary_key=True)
     course_name = models.CharField(max_length=100, unique=True) 
