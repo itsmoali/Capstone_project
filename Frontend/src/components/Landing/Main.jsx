@@ -33,7 +33,9 @@ const Main = () => {
                 </Stack>
             </Grid>
             <Grid item xs={6} md={8} sx={{width:'100%', height:'60vh'}}>
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/oEXFMGK7IC0" title="Strange the Dreamer - Savfk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              
+            <iframe width="100%" height="100%" src="https://www.loom.com/embed/3a41eac590af49a587c5d967fdd2c646?sid=7566c7d9-97fc-4436-bf5e-53d573be7167" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen ></iframe>
+                {/* <iframe  src= title="Strange the Dreamer - Savfk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> */}
             </Grid>
 
         </Grid>
